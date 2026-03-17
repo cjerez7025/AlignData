@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlignData — Cumplimiento inteligente. Protección real.</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NOTICE BANNER
+  ══════════════════════════════════ -->
+  <div class="ad-notice-banner">
+    <div class="container-xl d-flex align-items-center justify-content-center gap-2">
+      <span class="ad-pulse-dot"></span>
+      <p class="mb-0 ad-notice-text">
+        <strong>⚠ Ley 21.719</strong> entra en vigor el
+        <strong class="text-white">1 de diciembre de 2026</strong> ·
+        Multas hasta <strong class="text-danger-soft">$600M CLP</strong> ·
+        ¿Está su empresa preparada?
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg ad-navbar sticky-top">
+    <div class="container-xl">
+
+      <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <div class="ad-logo-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 1.5L15.5 5.25V12.75L9 16.5L2.5 12.75V5.25L9 1.5Z"
+                  fill="rgba(255,255,255,0.12)" stroke="white" stroke-width="1.2"/>
+            <path d="M5.5 9L8 11.5L12.5 6.5"
+                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="ad-logo-wordmark">Align<span>Data</span></span>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler ad-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#portal">Portal ARCOP</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#framework">Framework™</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#equipo">Equipo</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn ad-btn-teal" href="#contacto">Solicitar diagnóstico →</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="ad-hero">
+    <div class="ad-hero-grid-overlay"></div>
+    <div class="container-xl position-relative">
+      <div class="row align-items-center g-5">
+
+        <!-- Left -->
+        <div class="col-lg-6 fade-in">
+          <span class="ad-tag">
+            <span class="ad-tag-dot"></span>
+            Cumplimiento Ley 21.719
+          </span>
+          <h1 class="ad-hero-title">
+            Cumplimiento <em>inteligente.</em><br>
+            Protección real.
+          </h1>
+          <p class="ad-hero-subtitle">
+            Ayudamos a PYMES chilenas a cumplir con la Ley 21.719 de Protección
+            de Datos Personales mediante diagnósticos estratégicos, tecnología
+            propia y acompañamiento continuo.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#servicios" class="btn ad-btn-teal ad-btn-lg">
+              Agendar D360° Assessment →
+            </a>
+            <a href="#portal" class="btn ad-btn-outline-white ad-btn-lg">
+              Ver Portal ARCOP
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Countdown -->
+        <div class="col-lg-6 fade-in-2">
+          <div class="ad-countdown-card">
+            <p class="ad-cd-label">Tiempo restante para el plazo</p>
+            <p class="ad-cd-law">
+              <i class="bi bi-shield-exclamation me-1"></i>
+              Ley 21.719 · 1 Diciembre 2026
+            </p>
+
+            <div class="row g-2 mb-3" id="countdown-grid">
+              <div class="col-3">
+                <div class="ad-cd-unit">
+                  <span class="ad-cd-num" id="cd-days">---</span>
+                  <span class="ad-cd-lbl">Días</span>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="ad-cd-unit">
+                  <span class="ad-cd-num" id="cd-hrs">--</span>
+                  <span class="ad-cd-lbl">Horas</span>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="ad-cd-unit">
+                  <span class="ad-cd-num" id="cd-min">--</span>
+                  <span class="ad-cd-lbl">Min</span>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="ad-cd-unit">
+                  <span class="ad-cd-num" id="cd-sec">--</span>
+                  <span class="ad-cd-lbl">Seg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ad-cd-alert">
+              <span class="ad-pulse-dot flex-shrink-0 mt-1"></span>
+              <p class="mb-0 ad-cd-alert-text">
+                La adecuación completa toma <strong>4–6 meses.</strong>
+                Las empresas que actúen ahora evitan multas y riesgos reputacionales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       STATS STRIP
+  ══════════════════════════════════ -->
+  <section class="ad-stats-strip">
+    <div class="container-xl">
+      <div class="row g-0">
+
+        <div class="col-6 col-md-3">
+          <div class="ad-stat-item">
+            <div class="ad-stat-num">
+              <em>~</em>600<em>M</em>
+            </div>
+            <p class="ad-stat-lbl">CLP multa máxima<br>por infracción grave</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="ad-stat-item">
+            <div class="ad-stat-num">5</div>
+            <p class="ad-stat-lbl">Derechos ARCOP<br>garantizados por ley</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="ad-stat-item">
+            <div class="ad-stat-num">15</div>
+            <p class="ad-stat-lbl">Días hábiles para<br>responder solicitudes</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="ad-stat-item border-end-0">
+            <div class="ad-stat-num">8</div>
+            <p class="ad-stat-lbl">Dimensiones del<br>AlignData Framework™</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SERVICIOS
+  ══════════════════════════════════ -->
+  <section class="ad-section bg-light-subtle" id="servicios">
+    <div class="container-xl">
+
+      <div class="mb-5">
+        <p class="ad-eyebrow">Nuestros servicios</p>
+        <h2 class="ad-section-title">Una suite completa de cumplimiento</h2>
+        <p class="ad-section-sub">
+          Desde el diagnóstico inicial hasta la operación continua con
+          tecnología desarrollada en Chile.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- D360 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="ad-service-card h-100">
+            <div class="ad-service-icon si-teal">📊</div>
+            <h3 class="ad-service-name">D360° Assessment</h3>
+            <p class="ad-service-desc">
+              Diagnóstico estratégico completo de su nivel de madurez en
+              privacidad de datos, con dashboard ejecutivo y roadmap priorizado.
+            </p>
+            <p class="ad-service-price">USD 2.000 – 10.000</p>
+            <hr class="ad-divider">
+            <ul class="ad-service-list list-unstyled">
+              <li>Diagnóstico organizacional en 8 dimensiones</li>
+              <li>Dashboard ejecutivo interactivo</li>
+              <li>Roadmap 3, 6 y 12 meses</li>
+              <li>Simulación de escenarios de sanción</li>
+              <li>Capacitación ejecutiva (2h) + operativa (4h)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AlignData Protect -->
+        <div class="col-lg-4 col-md-6">
+          <div class="ad-service-card ad-service-card--featured h-100">
+            <span class="ad-featured-badge">Producto principal</span>
+            <div class="ad-service-icon si-teal">🛡️</div>
+            <h3 class="ad-service-name">AlignData Protect™</h3>
+            <p class="ad-service-desc">
+              Plataforma SaaS para gestión de derechos ARCO/ARCOP. Portal
+              público para titulares y panel DPO con audit logs y trazabilidad completa.
+            </p>
+            <p class="ad-service-price">USD 400 – 2.500 / mes</p>
+            <hr class="ad-divider">
+            <ul class="ad-service-list list-unstyled">
+              <li>Portal ARCOP para ciudadanos</li>
+              <li>Panel DPO con workflow automatizado</li>
+              <li>Audit logs inmutables (Ley 21.719)</li>
+              <li>Datos en Chile — GCP Santiago</li>
+              <li>Sin transferencia internacional (Art. 27)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DPO Externo -->
+        <div class="col-lg-4 col-md-6">
+          <div class="ad-service-card h-100">
+            <div class="ad-service-icon si-navy">👤</div>
+            <h3 class="ad-service-name">DPO Externo</h3>
+            <p class="ad-service-desc">
+              Delegado de Protección de Datos como servicio mensual.
+              Representación formal ante la APDP y gestión continua del
+              programa de privacidad.
+            </p>
+            <p class="ad-service-price">Suscripción mensual</p>
+            <hr class="ad-divider">
+            <ul class="ad-service-list list-unstyled">
+              <li>Representación formal ante APDP</li>
+              <li>Gestión de incidentes y brechas</li>
+              <li>Auditoría anual incluida</li>
+              <li>Capacitación continua al equipo</li>
+              <li>Acceso a AlignData Protect™</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PORTAL ARCOP
+  ══════════════════════════════════ -->
+  <section class="ad-section" id="portal">
+    <div class="container-xl">
+
+      <div class="mb-5">
+        <p class="ad-eyebrow">Portal ARCOP</p>
+        <h2 class="ad-section-title">Tecnología que cumple con la ley</h2>
+        <p class="ad-section-sub">
+          Un portal web para que sus clientes ejerzan sus derechos ARCOP,
+          integrado en su operación interna con trazabilidad completa.
+        </p>
+      </div>
+
+      <div class="row align-items-center g-5">
+
+        <!-- Mockup -->
+        <div class="col-lg-6">
+          <div class="ad-portal-mock">
+            <!-- Window bar -->
+            <div class="ad-pm-bar d-flex align-items-center gap-2">
+              <span class="ad-pm-dot" style="background:#FF5F57;"></span>
+              <span class="ad-pm-dot" style="background:#FEBC2E;"></span>
+              <span class="ad-pm-dot" style="background:#28C840;"></span>
+              <span class="ad-pm-title ms-1">Portal ARCOP — Solicitud de Derechos</span>
+              <span class="ad-pm-badge ms-auto">Ley 21.719</span>
+            </div>
+            <!-- Form -->
+            <div class="ad-pm-body">
+              <p class="ad-pm-heading">Ejercicio de Derechos ARCOP</p>
+              <div class="row g-2 mb-2">
+                <div class="col-6">
+                  <label class="ad-pm-lbl">RUT del titular</label>
+                  <div class="ad-pm-input">12.345.678-9</div>
+                </div>
+                <div class="col-6">
+                  <label class="ad-pm-lbl">Correo electrónico</label>
+                  <div class="ad-pm-input">correo@ejemplo.cl</div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <label class="ad-pm-lbl">Tipo de derecho ARCOP</label>
+                <div class="ad-pm-input ad-pm-select">🟢 Acceso — Ver mis datos personales</div>
+              </div>
+              <div class="mb-2">
+                <label class="ad-pm-lbl">Nombre completo</label>
+                <div class="ad-pm-input">Juan Pérez González</div>
+              </div>
+              <div class="mb-3">
+                <label class="ad-pm-lbl">Descripción de la solicitud</label>
+                <div class="ad-pm-textarea">
+                  Deseo conocer qué datos personales posee la empresa,
+                  con qué finalidad los trata...
+                </div>
+              </div>
+              <div class="ad-pm-submit">Enviar solicitud ARCOP →</div>
+              <p class="ad-pm-footer">
+                Respuesta garantizada en 15 días hábiles · Art. 5° Ley 21.719
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="col-lg-6">
+          <div class="d-flex flex-column gap-4">
+
+            <div class="ad-pf-item d-flex gap-3">
+              <div class="ad-pf-icon flex-shrink-0">🔐</div>
+              <div>
+                <h4 class="ad-pf-title">Datos en Chile</h4>
+                <p class="ad-pf-sub">
+                  GCP southamerica-west1 (Santiago). Sin transferencia
+                  internacional de datos bajo Art. 27 Ley 21.719.
+                </p>
+              </div>
+            </div>
+
+            <div class="ad-pf-item d-flex gap-3">
+              <div class="ad-pf-icon flex-shrink-0">📋</div>
+              <div>
+                <h4 class="ad-pf-title">Workflow automatizado</h4>
+                <p class="ad-pf-sub">
+                  Estados PENDIENTE → VALIDADA → EN PROCESO → RESUELTA → CERRADA
+                  con control de SLA de 15 días hábiles.
+                </p>
+              </div>
+            </div>
+
+            <div class="ad-pf-item d-flex gap-3">
+              <div class="ad-pf-icon flex-shrink-0">🛡️</div>
+              <div>
+                <h4 class="ad-pf-title">Audit logs inmutables</h4>
+                <p class="ad-pf-sub">
+                  Trazabilidad completa para fiscalización APDP. Cada acción
+                  registrada con timestamp y actor.
+                </p>
+              </div>
+            </div>
+
+            <div class="ad-pf-item d-flex gap-3">
+              <div class="ad-pf-icon flex-shrink-0">✉️</div>
+              <div>
+                <h4 class="ad-pf-title">Notificaciones automáticas</h4>
+                <p class="ad-pf-sub">
+                  Email al titular en cada cambio de estado. Confirmación
+                  de recepción inmediata con número de caso.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <span class="ad-tech-tag">React 18</span>
+            <span class="ad-tech-tag">Node.js + Cloud Run</span>
+            <span class="ad-tech-tag">Firebase Auth</span>
+            <span class="ad-tech-tag">GCP Santiago</span>
+            <span class="ad-tech-tag">reCAPTCHA v3</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FRAMEWORK
+  ══════════════════════════════════ -->
+  <section class="ad-section bg-light-subtle" id="framework">
+    <div class="container-xl">
+
+      <div class="mb-5">
+        <p class="ad-eyebrow">AlignData Framework™</p>
+        <h2 class="ad-section-title">8 dimensiones de madurez en privacidad</h2>
+        <p class="ad-section-sub">
+          Marco propietario de evaluación alineado a ISO 27701. Medimos su
+          organización en escala 0–5 en cada dimensión.
+        </p>
+      </div>
+
+      <!-- 8 Dimension cards -->
+      <div class="row g-3 mb-5">
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">01</span>
+            <h5 class="ad-fw-name">Gobierno y liderazgo</h5>
+            <p class="ad-fw-sub">DPO, roles y comité de privacidad</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">02</span>
+            <h5 class="ad-fw-name">Ciclo de vida del dato</h5>
+            <p class="ad-fw-sub">Mapeo y registro de tratamientos</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">03</span>
+            <h5 class="ad-fw-name">Seguridad tecnológica</h5>
+            <p class="ad-fw-sub">Cifrado, accesos y backups</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">04</span>
+            <h5 class="ad-fw-name">Cumplimiento normativo</h5>
+            <p class="ad-fw-sub">Ley 21.719 artículo a artículo</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">05</span>
+            <h5 class="ad-fw-name">Gestión de riesgos</h5>
+            <p class="ad-fw-sub">DPIA y mapa de riesgos</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">06</span>
+            <h5 class="ad-fw-name">Derechos ARCOP</h5>
+            <p class="ad-fw-sub">Flujos, plazos y evidencia</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">07</span>
+            <h5 class="ad-fw-name">Gestión de terceros</h5>
+            <p class="ad-fw-sub">Contratos y subprocesadores</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="ad-fw-card">
+            <span class="ad-fw-num">08</span>
+            <h5 class="ad-fw-name">Cultura y formación</h5>
+            <p class="ad-fw-sub">Capacitación y mejora continua</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maturity Scale -->
+      <div class="ad-maturity-box">
+        <p class="ad-maturity-title">Escala de madurez — de 0 a 5</p>
+        <div class="d-flex flex-column gap-2">
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">0 — Inexistente</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:4%;background:#D1D5DB;"></div>
+            </div>
+            <span class="ad-mbadge" style="color:#9CA3AF">Sin nada implementado</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">1 — Reactivo</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:20%;background:#F97316;"></div>
+            </div>
+            <span class="ad-mbadge" style="color:#F97316">Acciones aisladas</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">2 — Parcial</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:40%;background:#EAB308;"></div>
+            </div>
+            <span class="ad-mbadge" style="color:#EAB308">Sin sistematizar</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">3 — Formalizado</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:60%;background:var(--ad-teal);"></div>
+            </div>
+            <span class="ad-mbadge" style="color:var(--ad-teal)">Políticas definidas</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">4 — Gestionado</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:80%;background:var(--ad-teal);"></div>
+            </div>
+            <span class="ad-mbadge" style="color:var(--ad-teal)">Medición activa</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <span class="ad-ml">5 — Optimizado</span>
+            <div class="progress flex-grow-1 ad-progress-track">
+              <div class="progress-bar ad-progress-bar" style="width:100%;background:var(--ad-navy);"></div>
+            </div>
+            <span class="ad-mbadge" style="color:var(--ad-navy)">ISO 27701 ready</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       DIFERENCIADORES
+  ══════════════════════════════════ -->
+  <section class="ad-section">
+    <div class="container-xl">
+
+      <div class="mb-5">
+        <p class="ad-eyebrow">¿Por qué AlignData?</p>
+        <h2 class="ad-section-title">La diferencia que importa</h2>
+        <p class="ad-section-sub">
+          Combinamos estrategia, tecnología y cumplimiento normativo en un
+          solo proveedor accesible para PYMES.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table ad-diff-table">
+          <thead>
+            <tr>
+              <th class="ad-diff-th-label"></th>
+              <th class="ad-diff-th-align">AlignData</th>
+              <th class="ad-diff-th">Consultoras legales</th>
+              <th class="ad-diff-th">Empresas TI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ad-diff-label">Enfoque</td>
+              <td class="ad-diff-align-yes">Estratégico integral</td>
+              <td class="ad-diff-td">Solo artículos de ley</td>
+              <td class="ad-diff-td">Solo técnico</td>
+            </tr>
+            <tr>
+              <td class="ad-diff-label">Lenguaje</td>
+              <td class="ad-diff-align-yes">Claro para PYMES</td>
+              <td class="ad-diff-td">Legal complejo</td>
+              <td class="ad-diff-td">Técnico sin contexto</td>
+            </tr>
+            <tr>
+              <td class="ad-diff-label">Entregables</td>
+              <td class="ad-diff-align-yes">Dashboard + Plan ejecutable</td>
+              <td class="ad-diff-td">Informe PDF estático</td>
+              <td class="ad-diff-td">Software sin guía</td>
+            </tr>
+            <tr>
+              <td class="ad-diff-label">Continuidad</td>
+              <td class="ad-diff-align-yes">Relación de largo plazo</td>
+              <td class="ad-diff-td">Proyecto puntual</td>
+              <td class="ad-diff-td">Soporte técnico</td>
+            </tr>
+            <tr>
+              <td class="ad-diff-label">Precio</td>
+              <td class="ad-diff-align-yes">Accesible para PYMES</td>
+              <td class="ad-diff-td">Variable y elevado</td>
+              <td class="ad-diff-td">Alto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       EQUIPO
+  ══════════════════════════════════ -->
+  <section class="ad-section bg-light-subtle" id="equipo">
+    <div class="container-xl">
+
+      <div class="mb-5">
+        <p class="ad-eyebrow">El equipo</p>
+        <h2 class="ad-section-title">Expertos en privacidad y tecnología</h2>
+        <p class="ad-section-sub">
+          Combinamos experiencia en consultoría estratégica y arquitectura
+          tecnológica especializada en datos personales.
+        </p>
+      </div>
+
+      <div class="row g-4 mb-4" style="max-width:680px;">
+
+        <div class="col-md-6">
+          <div class="ad-team-card d-flex gap-3">
+            <div class="ad-team-avatar ad-av-teal flex-shrink-0">CA</div>
+            <div>
+              <h4 class="ad-team-name">Carlos</h4>
+              <p class="ad-team-role">Tecnología y Producto</p>
+              <p class="ad-team-cert">Arquitectura · Desarrollo · Data Protection (Santander Open Academy)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="ad-team-card d-flex gap-3">
+            <div class="ad-team-avatar ad-av-navy flex-shrink-0">PO</div>
+            <div>
+              <h4 class="ad-team-name">Patricio Oliva</h4>
+              <p class="ad-team-role">Consultoría y Negocio</p>
+              <p class="ad-team-cert">Data Governance · Universidad de Chile (en curso)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-wrap gap-2">
+        <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>GCP southamerica-west1 (Santiago)</span>
+        <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>React 18 + Node.js + Firebase</span>
+        <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>CORFO Capital Humano para la Innovación</span>
+        <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>ISO 27701 roadmap</span>
+        <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>PrivaData SPA</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CTA
+  ══════════════════════════════════ -->
+  <section class="ad-cta-section" id="contacto">
+    <div class="ad-cta-glow"></div>
+    <div class="container-xl text-center position-relative">
+      <span class="ad-tag mb-4 d-inline-flex">
+        <span class="ad-tag-dot"></span>
+        Actúe antes del 1 Dic 2026
+      </span>
+      <h2 class="ad-cta-title">
+        ¿Su empresa está preparada<br>para la Ley 21.719?
+      </h2>
+      <p class="ad-cta-sub">
+        Agende un diagnóstico D360° y conozca su nivel real de cumplimiento
+        en menos de 30 días.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="mailto:contacto@aligndata.cl" class="btn ad-btn-teal ad-btn-xl">
+          Solicitar diagnóstico D360° →
+        </a>
+        <a href="mailto:contacto@aligndata.cl" class="btn ad-btn-outline-white ad-btn-xl">
+          Hablar con un experto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="ad-footer">
+    <div class="container-xl">
+      <div class="row g-5 mb-4">
+
+        <!-- Brand -->
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="ad-logo-mark">
+              <svg width="15" height="15" viewBox="0 0 18 18" fill="none">
+                <path d="M9 1.5L15.5 5.25V12.75L9 16.5L2.5 12.75V5.25L9 1.5Z"
+                      fill="rgba(255,255,255,0.12)" stroke="white" stroke-width="1.2"/>
+                <path d="M5.5 9L8 11.5L12.5 6.5"
+                      stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="ad-logo-wordmark">Align<span>Data</span></span>
+          </div>
+          <p class="ad-footer-tagline">"Cumplimiento inteligente. Protección real."</p>
+          <div class="ad-footer-contact">
+            <p><i class="bi bi-envelope me-2"></i>contacto@aligndata.cl</p>
+            <p><i class="bi bi-globe me-2"></i>aligndata.cl</p>
+            <p><i class="bi bi-geo-alt me-2"></i>Santiago, Chile</p>
+          </div>
+        </div>
+
+        <!-- Servicios -->
+        <div class="col-6 col-lg-4">
+          <p class="ad-footer-col-title">Servicios</p>
+          <ul class="list-unstyled ad-footer-links">
+            <li><a href="#">D360° Privacy Assessment</a></li>
+            <li><a href="#">AlignData Protect™ (SaaS)</a></li>
+            <li><a href="#">Portal ARCOP</a></li>
+            <li><a href="#">DPO Externo</a></li>
+            <li><a href="#">ISO 27701 Readiness</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="col-6 col-lg-4">
+          <p class="ad-footer-col-title">Legal y normativa</p>
+          <ul class="list-unstyled ad-footer-links">
+            <li><a href="#">Ley 21.719 — Resumen ejecutivo</a></li>
+            <li><a href="#">Derechos ARCOP</a></li>
+            <li><a href="#">Art. 27 — Transferencia internacional</a></li>
+            <li><a href="#">APDP — Autoridad de datos</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="ad-footer-divider">
+
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p class="mb-0 ad-footer-bottom-text">
+          © 2026 PrivaData SPA · AlignData Protect™ es marca registrada
+        </p>
+        <p class="mb-0 ad-footer-bottom-text">
+          Ley 21.719 · ISO 27701 · <a href="#">aligndata.cl</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="countdown.js"></script>
+
+</body>
+</html>
