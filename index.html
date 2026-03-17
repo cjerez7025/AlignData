@@ -84,6 +84,7 @@
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#portal">Portal ARCOP</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#framework">Framework™</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#equipo">Equipo</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#mapa">Mapa global</a></li>
           <li class="nav-item ms-lg-3">
             <a class="btn ad-btn-teal" href="#contacto">Solicitar diagnóstico →</a>
           </li>
@@ -627,7 +628,7 @@
             <div>
               <h4 class="ad-team-name">Patricio Oliva</h4>
               <p class="ad-team-role">Consultoría y Negocio</p>
-              <p class="ad-team-cert">Data Governance · Universidad de Chile (en curso)</p>
+              <p class="ad-team-cert">Data Governance · Universidad de Chile</p>
             </div>
           </div>
         </div>
@@ -639,6 +640,55 @@
         <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>ISO 27701 roadmap</span>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       MAPA MUNDIAL
+  ══════════════════════════════════ -->
+  <section class="ad-section" id="mapa" style="background:#0b1828;">
+    <div class="container-xl">
+      <div class="mb-4">
+        <p class="ad-eyebrow">Contexto global</p>
+        <h2 class="ad-section-title">Protección de datos en el mundo</h2>
+        <p class="ad-section-sub">
+          Explora el estado de la legislación y autoridades de protección de datos
+          en más de 120 países. Haz clic en cualquier país para ver su detalle.
+        </p>
+      </div>
+
+      <!-- Leyenda -->
+      <div class="ad-map-legend">
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#1a7a5e"></div>País UE / EEE</div>
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#2563EB"></div>País adecuado (UE)</div>
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#7B68EE"></div>Parcialmente adecuado</div>
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#9B59B6"></div>Autoridad e leyes independientes</div>
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#E67E22"></div>Ley(es) de protección de datos</div>
+        <div class="ad-map-li"><div class="ad-map-ld" style="background:#2d3d55"></div>Sin ley específica</div>
+      </div>
+
+      <!-- Mapa + panel -->
+      <div class="ad-map-container">
+        <div class="ad-map-wrap">
+          <input class="ad-map-search" id="adMapSearch" placeholder="🔍 Buscar país..." oninput="adSearchCountry(this.value)">
+          <div id="ad-map"></div>
+          <div class="ad-map-zoom">
+            <button class="ad-map-zbtn" onclick="adZoomIn()">+</button>
+            <button class="ad-map-zbtn" onclick="adZoomOut()">−</button>
+            <button class="ad-map-zbtn" onclick="adZoomReset()" style="font-size:10px">↺</button>
+          </div>
+        </div>
+        <div class="ad-map-info" id="adMapInfo">
+          <div class="ad-map-empty">
+            <div style="font-size:28px;opacity:0.3">🌍</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.4);text-align:center;line-height:1.5">Selecciona un país para ver su estado de protección de datos</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;text-align:right;">
+        Fuente: <a href="https://www.cnil.fr/en/data-protection-around-the-world" target="_blank" rel="noopener" style="color:var(--ad-teal);text-decoration:none;">CNIL</a> · Datos actualizados 2025
+      </p>
     </div>
   </section>
 
@@ -771,6 +821,217 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
   <script src="countdown.js"></script>
+
+  <!-- D3 + Mapa mundial -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <script>
+  (function(){
+    const adCountryData = {
+      "Austria":        {cat:"eu",law:"RGPD / DSG",dpa:"Datenschutzbehörde (DSB)",web:"https://www.dsb.gv.at"},
+      "Belgium":        {cat:"eu",law:"RGPD / Loi du 30 juillet 2018",dpa:"Autorité de protection des données (APD)",web:"https://www.dataprotectionauthority.be"},
+      "Bulgaria":       {cat:"eu",law:"RGPD / PDPA",dpa:"Commission for Personal Data Protection (CPDP)",web:"https://www.cpdp.bg"},
+      "Croatia":        {cat:"eu",law:"RGPD / ZZOP",dpa:"Agencija za zaštitu osobnih podataka (AZOP)",web:"https://azop.hr"},
+      "Cyprus":         {cat:"eu",law:"RGPD / Law 125(I)/2018",dpa:"Commissioner for Personal Data Protection",web:"http://www.dataprotection.gov.cy"},
+      "Czech Republic": {cat:"eu",law:"RGPD / Act No. 110/2019",dpa:"Úřad pro ochranu osobních údajů (UOOU)",web:"https://www.uoou.cz"},
+      "Denmark":        {cat:"eu",law:"RGPD / Databeskyttelsesloven",dpa:"Datatilsynet",web:"https://www.datatilsynet.dk"},
+      "Estonia":        {cat:"eu",law:"RGPD / Isikuandmete kaitse seadus",dpa:"Andmekaitse Inspektsioon (AKI)",web:"https://www.aki.ee"},
+      "Finland":        {cat:"eu",law:"RGPD / Tietosuojalaki",dpa:"Tietosuojavaltuutetun toimisto",web:"https://tietosuoja.fi"},
+      "France":         {cat:"eu",law:"RGPD / Loi Informatique et Libertés",dpa:"Commission Nationale de l'Informatique et des Libertés (CNIL)",web:"https://www.cnil.fr"},
+      "Germany":        {cat:"eu",law:"RGPD / BDSG",dpa:"Der Bundesbeauftragte für den Datenschutz (BfDI)",web:"https://www.bfdi.bund.de"},
+      "Greece":         {cat:"eu",law:"RGPD / L. 4624/2019",dpa:"Hellenic Data Protection Authority (HDPA)",web:"https://www.dpa.gr"},
+      "Hungary":        {cat:"eu",law:"RGPD / Infotv.",dpa:"Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)",web:"https://www.naih.hu"},
+      "Ireland":        {cat:"eu",law:"RGPD / Data Protection Act 2018",dpa:"Data Protection Commission (DPC)",web:"https://www.dataprotection.ie"},
+      "Italy":          {cat:"eu",law:"RGPD / Codice Privacy (D.Lgs. 196/2003)",dpa:"Garante per la protezione dei dati personali",web:"https://www.garanteprivacy.it"},
+      "Latvia":         {cat:"eu",law:"RGPD / PDPL",dpa:"Datu Valsts Inspekcija (DVI)",web:"https://www.dvi.gov.lv"},
+      "Lithuania":      {cat:"eu",law:"RGPD / ADTAĮ",dpa:"Valstybinė duomenų apsaugos inspekcija (VDAI)",web:"https://vdai.lrv.lt"},
+      "Luxembourg":     {cat:"eu",law:"RGPD / Loi du 1er août 2018",dpa:"Commission Nationale pour la Protection des Données (CNPD)",web:"https://cnpd.public.lu"},
+      "Malta":          {cat:"eu",law:"RGPD / Data Protection Act",dpa:"Information and Data Protection Commissioner (IDPC)",web:"https://idpc.org.mt"},
+      "Netherlands":    {cat:"eu",law:"RGPD / Uitvoeringswet AVG",dpa:"Autoriteit Persoonsgegevens (AP)",web:"https://www.autoriteitpersoonsgegevens.nl"},
+      "Poland":         {cat:"eu",law:"RGPD / Ustawa o ochronie danych osobowych",dpa:"Urząd Ochrony Danych Osobowych (UODO)",web:"https://uodo.gov.pl"},
+      "Portugal":       {cat:"eu",law:"RGPD / Lei n.º 58/2019",dpa:"Comissão Nacional de Proteção de Dados (CNPD)",web:"https://www.cnpd.pt"},
+      "Romania":        {cat:"eu",law:"RGPD / Legea nr. 190/2018",dpa:"Autoritatea Națională de Supraveghere (ANSPDCP)",web:"https://www.dataprotection.ro"},
+      "Slovakia":       {cat:"eu",law:"RGPD / Zákon č. 18/2018 Z. z.",dpa:"Úrad na ochranu osobných údajov SR",web:"https://dataprotection.gov.sk"},
+      "Slovenia":       {cat:"eu",law:"RGPD / ZVOP-2",dpa:"Informacijski pooblaščenec (IP)",web:"https://www.ip-rs.si"},
+      "Spain":          {cat:"eu",law:"RGPD / LOPDGDD",dpa:"Agencia Española de Protección de Datos (AEPD)",web:"https://www.aepd.es"},
+      "Sweden":         {cat:"eu",law:"RGPD / Dataskyddslagen",dpa:"Integritetsskyddsmyndigheten (IMY)",web:"https://www.imy.se"},
+      "Iceland":        {cat:"eu",law:"RGPD / EEE",dpa:"Persónuvernd",web:"https://www.personuvernd.is"},
+      "Norway":         {cat:"eu",law:"RGPD / Personopplysningsloven",dpa:"Datatilsynet",web:"https://www.datatilsynet.no"},
+      "Liechtenstein":  {cat:"eu",law:"RGPD / DSG",dpa:"Datenschutzstelle (DSS)",web:"https://www.datenschutzstelle.li"},
+      "United Kingdom": {cat:"adequate",law:"UK GDPR / Data Protection Act 2018",dpa:"Information Commissioner's Office (ICO)",web:"https://ico.org.uk",adequate:"Decisión de adecuación UE adoptada en junio 2021"},
+      "Switzerland":    {cat:"adequate",law:"Loi fédérale sur la protection des données (LPD)",dpa:"Préposé fédéral à la protection des données (PFPDT)",web:"https://www.edoeb.admin.ch",adequate:"Reconocido como adecuado por la UE"},
+      "Canada":         {cat:"adequate",law:"PIPEDA / Loi 25 (Quebec)",dpa:"Office of the Privacy Commissioner of Canada (OPC)",web:"https://www.priv.gc.ca",adequate:"Decisión de adecuación UE — sector comercial"},
+      "Japan":          {cat:"adequate",law:"Act on the Protection of Personal Information (APPI)",dpa:"Personal Information Protection Commission (PPC)",web:"https://www.ppc.go.jp",adequate:"Decisión de adecuación UE adoptada en enero 2019"},
+      "South Korea":    {cat:"adequate",law:"Personal Information Protection Act (PIPA)",dpa:"Personal Information Protection Commission (PIPC)",web:"https://www.pipc.go.kr",adequate:"Decisión de adecuación UE adoptada en diciembre 2021"},
+      "New Zealand":    {cat:"adequate",law:"Privacy Act 2020",dpa:"Office of the Privacy Commissioner (OPC)",web:"https://www.privacy.org.nz",adequate:"Reconocido como adecuado por la UE"},
+      "Israel":         {cat:"adequate",law:"Protection of Privacy Law 5741-1981",dpa:"Privacy Protection Authority (PPA)",web:"https://www.gov.il/en/departments/the_privacy_protection_authority",adequate:"Reconocido como adecuado por la UE"},
+      "Uruguay":        {cat:"adequate",law:"Ley N° 18.331 de Protección de Datos Personales",dpa:"Unidad Reguladora y de Control de Datos Personales (URCDP)",web:"https://www.gub.uy/unidad-reguladora-control-datos-personales",adequate:"Primer país de América Latina con decisión de adecuación UE (2012)"},
+      "United States":  {cat:"adequate",law:"Data Privacy Framework (DPF) / CCPA / HIPAA",dpa:"Federal Trade Commission (FTC)",web:"https://www.ftc.gov",adequate:"Decisión de adecuación UE adoptada julio 2023 (Data Privacy Framework)"},
+      "Argentina":      {cat:"adequate",law:"Ley 25.326 de Protección de Datos Personales",dpa:"Agencia de Acceso a la Información Pública (AAIP)",web:"https://www.argentina.gob.ar/aaip",adequate:"Reconocido como adecuado por la UE"},
+      "Andorra":        {cat:"adequate",law:"Llei 15/2003 de protecció de dades personals",dpa:"Agència Andorrana de Protecció de Dades (APDA)",web:"https://www.apda.ad",adequate:"Reconocido como adecuado por la UE"},
+      "Chile":          {cat:"independent",law:"Ley 19.628 / Ley 21.719 (vigente diciembre 2026)",dpa:"Agencia de Protección de Datos Personales (APDP) — en constitución",web:"https://www.bcn.cl/leychile/navegar?idNorma=141599",warning:"Chile tiene la Ley 21.719 vigente desde diciembre 2026. No garantiza nivel adecuado UE aún. Las transferencias requieren herramientas específicas.",highlight:true},
+      "Mexico":         {cat:"independent",law:"Ley Federal de Protección de Datos Personales (LFPDPPP)",dpa:"Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI)",web:"https://home.inai.org.mx",warning:"No garantiza nivel adecuado UE. Las transferencias requieren herramientas de transferencia."},
+      "Brazil":         {cat:"independent",law:"Lei Geral de Proteção de Dados (LGPD) — Lei nº 13.709/2018",dpa:"Autoridade Nacional de Proteção de Dados (ANPD)",web:"https://www.gov.br/anpd",adequate:"Brasil y UE adoptaron decisiones mutuas de adecuación en 2025"},
+      "Colombia":       {cat:"independent",law:"Ley Estatutaria 1581 de 2012",dpa:"Superintendencia de Industria y Comercio (SIC)",web:"https://www.sic.gov.co",warning:"No garantiza nivel adecuado UE."},
+      "Peru":           {cat:"independent",law:"Ley N° 29733 de Protección de Datos Personales",dpa:"Autoridad Nacional de Protección de Datos Personales (ANPDP)",web:"https://www.minjus.gob.pe/proteccion-de-datos-personales",warning:"No garantiza nivel adecuado UE."},
+      "Ecuador":        {cat:"independent",law:"Ley Orgánica de Protección de Datos Personales (LOPDP) — 2021",dpa:"Superintendencia de Protección de Datos Personales",web:"https://www.superintendenciadedatos.gob.ec",warning:"No garantiza nivel adecuado UE."},
+      "Panama":         {cat:"independent",law:"Ley 81 de 2019 de Protección de Datos Personales",dpa:"Autoridad Nacional de Transparencia y Acceso a la Información (ANTAI)",web:"https://www.antai.gob.pa",warning:"No garantiza nivel adecuado UE."},
+      "Paraguay":       {cat:"independent",law:"Ley N° 6534/2020 de Protección de Datos Personales",dpa:"Secretaría Nacional de Tecnologías de la Información (SENATICs)",web:"https://www.senatics.gov.py",warning:"No garantiza nivel adecuado UE."},
+      "Costa Rica":     {cat:"independent",law:"Ley N° 8968 de Protección de la Persona",dpa:"Agencia de Protección de Datos de los Habitantes (PRODHAB)",web:"https://www.prodhab.go.cr",warning:"No garantiza nivel adecuado UE."},
+      "Dominican Republic":{cat:"independent",law:"Ley 172-13 de Protección de Datos Personales",dpa:"Instituto Dominicano de las Telecomunicaciones (INDOTEL)",web:"https://www.indotel.gob.do",warning:"No garantiza nivel adecuado UE."},
+      "Australia":      {cat:"independent",law:"Privacy Act 1988 (amended 2022)",dpa:"Office of the Australian Information Commissioner (OAIC)",web:"https://www.oaic.gov.au",warning:"No garantiza nivel adecuado UE."},
+      "India":          {cat:"independent",law:"Digital Personal Data Protection Act 2023 (DPDPA)",dpa:"Data Protection Board of India (en constitución)",web:"https://www.meity.gov.in",warning:"No garantiza nivel adecuado UE."},
+      "Singapore":      {cat:"independent",law:"Personal Data Protection Act 2012 (PDPA)",dpa:"Personal Data Protection Commission (PDPC)",web:"https://www.pdpc.gov.sg",warning:"No garantiza nivel adecuado UE."},
+      "South Africa":   {cat:"independent",law:"Protection of Personal Information Act (POPIA)",dpa:"Information Regulator (South Africa)",web:"https://www.justice.gov.za/inforeg",warning:"No garantiza nivel adecuado UE."},
+      "Morocco":        {cat:"independent",law:"Loi n° 09-08 relative à la protection des personnes physiques",dpa:"Commission Nationale de contrôle de la protection des Données (CNDP)",web:"https://www.cndp.ma",warning:"No garantiza nivel adecuado UE."},
+      "Nigeria":        {cat:"independent",law:"Nigeria Data Protection Act 2023 (NDPA)",dpa:"Nigeria Data Protection Commission (NDPC)",web:"https://ndpc.gov.ng",warning:"No garantiza nivel adecuado UE."},
+      "Kenya":          {cat:"independent",law:"Data Protection Act 2019",dpa:"Office of the Data Protection Commissioner (ODPC)",web:"https://www.odpc.go.ke",warning:"No garantiza nivel adecuado UE."},
+      "Ghana":          {cat:"independent",law:"Data Protection Act 843 (2012)",dpa:"Data Protection Commission (DPC)",web:"https://www.dataprotection.org.gh",warning:"No garantiza nivel adecuado UE."},
+      "Russia":         {cat:"independent",law:"Federal Law No. 152-FZ on Personal Data (2006)",dpa:"Roskomnadzor",web:"https://rkn.gov.ru",warning:"No garantiza nivel adecuado UE."},
+      "Turkey":         {cat:"independent",law:"Kişisel Verilerin Korunması Kanunu (KVKK)",dpa:"Kişisel Verileri Koruma Kurumu (KVKK)",web:"https://www.kvkk.gov.tr",warning:"No garantiza nivel adecuado UE."},
+      "China":          {cat:"independent",law:"Personal Information Protection Law (PIPL) — 2021",dpa:"Cyberspace Administration of China (CAC)",web:"https://www.cac.gov.cn",warning:"No garantiza nivel adecuado UE. Restricciones a transferencias internacionales."},
+      "Philippines":    {cat:"independent",law:"Data Privacy Act of 2012 (Republic Act 10173)",dpa:"National Privacy Commission (NPC)",web:"https://www.privacy.gov.ph",warning:"No garantiza nivel adecuado UE."},
+      "Thailand":       {cat:"independent",law:"Personal Data Protection Act B.E. 2562 (PDPA)",dpa:"Personal Data Protection Committee (PDPC)",web:"https://www.pdpc.or.th",warning:"No garantiza nivel adecuado UE."},
+      "Indonesia":      {cat:"independent",law:"Personal Data Protection Law (UU PDP) — 2022",dpa:"Ministry of Communication and Information Technology",web:"https://www.kominfo.go.id",warning:"No garantiza nivel adecuado UE."},
+      "Malaysia":       {cat:"independent",law:"Personal Data Protection Act 2010 (PDPA)",dpa:"Personal Data Protection Commissioner",web:"https://www.pdp.gov.my",warning:"No garantiza nivel adecuado UE."},
+      "Ukraine":        {cat:"independent",law:"Law on Personal Data Protection (2010)",dpa:"Ukrainian Parliament Commissioner for Human Rights",web:"https://ombudsman.gov.ua",warning:"No garantiza nivel adecuado UE."},
+      "Saudi Arabia":   {cat:"law",law:"Personal Data Protection Law (PDPL) — 2021",dpa:"National Data Management Office (NDMO)",web:"https://ndmo.gov.sa"},
+      "Egypt":          {cat:"law",law:"Personal Data Protection Law No. 151 of 2020",dpa:"Data Protection Center of Egypt",web:""},
+      "Vietnam":        {cat:"law",law:"Decree No. 13/2023/ND-CP on Personal Data Protection",dpa:"Ministry of Public Security — A05 Department",web:""},
+      "Tunisia":        {cat:"law",law:"Loi organique n° 2004-63 du 27 juillet 2004",dpa:"Instance Nationale de Protection des Données Personnelles (INPDP)",web:"https://www.inpdp.nat.tn"},
+      "Senegal":        {cat:"law",law:"Loi n° 2008-12 sur la Protection des données",dpa:"Commission de Protection des Données Personnelles (CDP)",web:"https://www.cdp.sn"},
+      "Mauritius":      {cat:"law",law:"Data Protection Act 2017",dpa:"Data Protection Office (DPO)",web:"https://dataprotection.govmu.org"},
+      "Uganda":         {cat:"law",law:"Data Protection and Privacy Act 2019",dpa:"Personal Data Protection Office (PDPO)",web:""},
+      "Zimbabwe":       {cat:"law",law:"Data Protection Act (2021)",dpa:"Postal and Telecommunications Regulatory Authority (POTRAZ)",web:""},
+      "Tanzania":       {cat:"law",law:"Electronic and Postal Communications Act (2010)",dpa:"Tanzania Communications Regulatory Authority (TCRA)",web:""},
+      "Botswana":       {cat:"law",law:"Data Protection Act (2018)",dpa:"Information and Data Protection Commissioner",web:""},
+      "Georgia":        {cat:"law",law:"Law of Georgia on Personal Data Protection (2011)",dpa:"Personal Data Protection Service (PDPS)",web:"https://www.pdp.ge"},
+      "Kazakhstan":     {cat:"law",law:"Law on Personal Data and Their Protection (2013)",dpa:"Ministry of Digital Development, Innovation and Aerospace Industry",web:""},
+      "Belarus":        {cat:"law",law:"Law on Personal Data Protection (2008/2021)",dpa:"National Center for Personal Data Protection",web:""},
+      "Mongolia":       {cat:"law",law:"Law on Personal Data Protection (2021)",dpa:"Communications Regulatory Commission",web:""},
+    };
+
+    const adIso2name = {
+      "040":"Austria","056":"Belgium","100":"Bulgaria","191":"Croatia","196":"Cyprus",
+      "203":"Czech Republic","208":"Denmark","233":"Estonia","246":"Finland","250":"France",
+      "276":"Germany","300":"Greece","348":"Hungary","372":"Ireland","380":"Italy",
+      "428":"Latvia","440":"Lithuania","442":"Luxembourg","470":"Malta","528":"Netherlands",
+      "616":"Poland","620":"Portugal","642":"Romania","703":"Slovakia","705":"Slovenia",
+      "724":"Spain","752":"Sweden","352":"Iceland","578":"Norway","438":"Liechtenstein",
+      "826":"United Kingdom","756":"Switzerland","124":"Canada","392":"Japan","410":"South Korea",
+      "554":"New Zealand","376":"Israel","858":"Uruguay","840":"United States","032":"Argentina",
+      "020":"Andorra","152":"Chile","484":"Mexico","076":"Brazil","170":"Colombia","604":"Peru",
+      "036":"Australia","356":"India","702":"Singapore","710":"South Africa","504":"Morocco",
+      "788":"Tunisia","288":"Ghana","404":"Kenya","566":"Nigeria","643":"Russia",
+      "792":"Turkey","156":"China","608":"Philippines","764":"Thailand","360":"Indonesia",
+      "458":"Malaysia","804":"Ukraine","188":"Costa Rica","214":"Dominican Republic",
+      "591":"Panama","600":"Paraguay","218":"Ecuador","068":"Bolivia","862":"Venezuela",
+      "192":"Cuba","320":"Guatemala","340":"Honduras","682":"Saudi Arabia","818":"Egypt",
+      "716":"Zimbabwe","800":"Uganda","834":"Tanzania","072":"Botswana","120":"Cameroon",
+      "686":"Senegal","480":"Mauritius","132":"Cape Verde","204":"Benin","384":"Ivory Coast",
+      "450":"Madagascar","854":"Burkina Faso","466":"Mali","704":"Vietnam","586":"Pakistan",
+      "398":"Kazakhstan","112":"Belarus","268":"Georgia","051":"Armenia","031":"Azerbaijan",
+      "860":"Uzbekistan","496":"Mongolia","231":"Ethiopia","012":"Algeria","434":"Libya",
+      "729":"Sudan","706":"Somalia","004":"Afghanistan","368":"Iraq","364":"Iran",
+      "760":"Syria","887":"Yemen","422":"Lebanon","400":"Jordan","516":"Namibia",
+      "414":"Kuwait","634":"Qatar","784":"United Arab Emirates","512":"Oman","048":"Bahrain",
+      "104":"Myanmar","116":"Cambodia","418":"Laos","524":"Nepal","050":"Bangladesh",
+      "144":"Sri Lanka","807":"North Macedonia","008":"Albania","688":"Serbia",
+      "070":"Bosnia and Herzegovina","499":"Montenegro","404":"Kenya","430":"Liberia",
+      "694":"Sierra Leone","324":"Guinea","624":"Guinea-Bissau","270":"Gambia",
+      "478":"Mauritania","562":"Niger","148":"Chad","140":"Central African Republic",
+      "728":"South Sudan","180":"DR Congo","178":"Congo","266":"Gabon","226":"Equatorial Guinea",
+      "024":"Angola","894":"Zambia","454":"Malawi","508":"Mozambique","426":"Lesotho",
+      "748":"Eswatini","262":"Djibouti","232":"Eritrea","174":"Comoros","678":"São Tomé",
+      "558":"Nicaragua","222":"El Salvador","084":"Belize","780":"Trinidad and Tobago",
+      "388":"Jamaica","332":"Haiti","408":"North Korea","498":"Moldova","275":"Palestine",
+      "554":"New Zealand"
+    };
+
+    const adCatColor = {
+      eu:"#1a7a5e", adequate:"#2563EB", partial:"#7B68EE",
+      independent:"#9B59B6", law:"#E67E22", none:"#2d3d55"
+    };
+    const adCatLabel = {
+      eu:"País UE / EEE", adequate:"País adecuado (UE)", partial:"Parcialmente adecuado",
+      independent:"Autoridad e leyes independientes", law:"Ley(es) de protección de datos", none:"Sin ley específica"
+    };
+
+    const mapEl = document.getElementById('ad-map');
+    if (!mapEl) return;
+    const W = mapEl.clientWidth || 800, H = 480;
+
+    const svg = d3.select('#ad-map').append('svg').attr('width','100%').attr('height', H);
+    const g = svg.append('g');
+
+    const projection = d3.geoNaturalEarth1().scale(W/6.2).translate([W/2, H/2]);
+    const path = d3.geoPath().projection(projection);
+
+    const zoom = d3.zoom().scaleExtent([1,8]).on('zoom', e => g.attr('transform', e.transform));
+    svg.call(zoom);
+
+    window.adZoomIn    = () => svg.transition().call(zoom.scaleBy, 1.5);
+    window.adZoomOut   = () => svg.transition().call(zoom.scaleBy, 0.67);
+    window.adZoomReset = () => svg.transition().call(zoom.transform, d3.zoomIdentity);
+
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
+      const countries = topojson.feature(world, world.objects.countries);
+      g.selectAll('.ad-map-country')
+        .data(countries.features)
+        .join('path')
+        .attr('class','ad-map-country')
+        .attr('d', path)
+        .attr('fill', d => {
+          const id = String(d.id).padStart(3,'0');
+          const name = adIso2name[id];
+          const info = name ? adCountryData[name] : null;
+          return info ? adCatColor[info.cat] : adCatColor.none;
+        })
+        .on('click', (event, d) => {
+          d3.selectAll('.ad-map-country').classed('ad-selected', false);
+          d3.select(event.currentTarget).classed('ad-selected', true);
+          const id = String(d.id).padStart(3,'0');
+          const name = adIso2name[id] || 'País desconocido';
+          adShowInfo(name, adCountryData[name]);
+        });
+    });
+
+    function adShowInfo(name, info) {
+      const panel = document.getElementById('adMapInfo');
+      if (!info) {
+        panel.innerHTML = `<div class="ad-map-cname">${name}</div>
+          <span class="ad-map-badge" style="background:rgba(45,61,85,0.5);color:#8899aa;border:1px solid #2d3d55">Sin ley específica</span>
+          <div class="ad-map-val">No se ha identificado legislación específica de protección de datos personales en este país.</div>`;
+        return;
+      }
+      const color = adCatColor[info.cat];
+      const label = adCatLabel[info.cat];
+      let html = `<div class="ad-map-cname">${name}${info.highlight?' 🇨🇱':''}</div>
+        <span class="ad-map-badge" style="background:${color}22;color:${color};border:1px solid ${color}44">${label}</span>`;
+      if (info.adequate) html += `<div class="ad-map-adequate">✓ ${info.adequate}</div>`;
+      if (info.warning)  html += `<div class="ad-map-warning">⚠ ${info.warning}</div>`;
+      html += `<hr class="ad-map-divider">`;
+      if (info.law) html += `<div class="ad-map-lbl">Legislación</div><div class="ad-map-val">${info.law}</div>`;
+      if (info.dpa) html += `<div class="ad-map-lbl">Autoridad de Protección de Datos</div><div class="ad-map-val">${info.dpa}</div>`;
+      if (info.web) html += `<div class="ad-map-lbl">Sitio web oficial</div><a class="ad-map-link" href="${info.web}" target="_blank" rel="noopener">${info.web}</a>`;
+      panel.innerHTML = html;
+    }
+
+    window.adSearchCountry = function(val) {
+      if (!val || val.length < 2) return;
+      const q = val.toLowerCase();
+      d3.selectAll('.ad-map-country').each(function(d) {
+        const id = String(d.id).padStart(3,'0');
+        const name = adIso2name[id];
+        if (name && name.toLowerCase().includes(q)) {
+          d3.selectAll('.ad-map-country').classed('ad-selected', false);
+          d3.select(this).classed('ad-selected', true);
+          adShowInfo(name, adCountryData[name]);
+        }
+      });
+    };
+  })();
+  </script>
 
 </body>
 </html>
