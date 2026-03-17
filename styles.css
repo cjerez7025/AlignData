@@ -25,7 +25,7 @@
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 158px; }
+html { scroll-behavior: smooth; scroll-padding-top: 130px; }
 
 body {
   font-family: var(--ad-font-main);
@@ -107,7 +107,7 @@ body {
 .text-danger-soft { color: rgba(255, 80, 80, 0.9); }
 
 /* ── Section Defaults ── */
-.ad-section { padding: 80px 0; }
+.ad-section { padding: 56px 0; }
 
 .ad-eyebrow {
   font-size: 11px;
@@ -286,7 +286,7 @@ body {
 /* ── Hero ── */
 .ad-hero {
   background: var(--ad-navy);
-  padding: 80px 0 88px;
+  padding: 56px 0 64px;
   position: relative;
   overflow: hidden;
 }
@@ -883,7 +883,7 @@ body {
 
 /* ── CTA Section ── */
 .ad-cta-section {
-  padding: 88px 0;
+  padding: 60px 0;
   background: var(--ad-navy);
   position: relative;
   overflow: hidden;
@@ -922,7 +922,7 @@ body {
 .ad-footer {
   background: var(--ad-navy-mid);
   border-top: 1px solid var(--ad-border-dark);
-  padding: 52px 0 32px;
+  padding: 36px 0 24px;
 }
 
 .ad-footer-tagline {
