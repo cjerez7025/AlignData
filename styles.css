@@ -25,7 +25,7 @@
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 128px; }
+html { scroll-behavior: smooth; scroll-padding-top: 158px; }
 
 body {
   font-family: var(--ad-font-main);
@@ -194,8 +194,8 @@ body {
 .ad-navbar {
   background: var(--ad-navy) !important;
   border-bottom: 1px solid var(--ad-border-dark);
-  padding: 6px 0;
-  height: 90px;
+  padding: 8px 0;
+  height: 120px;
   top: 38px; /* below notice */
 }
 
@@ -213,7 +213,7 @@ body {
 }
 
 .ad-logo-wordmark {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.3px;
