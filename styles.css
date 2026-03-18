@@ -1158,3 +1158,57 @@ body {
   color: #8896a5;
   line-height: 1.4;
 }
+
+/* ── Blog / Recursos ── */
+.ad-blog-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ad-navy-mid, #162236);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.ad-blog-card:hover {
+  border-color: rgba(0,184,148,0.4);
+  transform: translateY(-3px);
+}
+.ad-blog-tag {
+  display: inline-block;
+  background: rgba(0,184,148,0.1);
+  color: #00B894;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+.ad-blog-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  flex: 1;
+}
+.ad-blog-excerpt {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.ad-blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px;
+}
+.ad-blog-read { color: rgba(255,255,255,0.3); }
+.ad-blog-arrow { color: var(--ad-teal); font-size: 16px; }
