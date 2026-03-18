@@ -1212,3 +1212,93 @@ body {
 }
 .ad-blog-read { color: rgba(255,255,255,0.3); }
 .ad-blog-arrow { color: var(--ad-teal); font-size: 16px; }
+
+/* ── Hero pills ── */
+.ad-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.ad-hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+.ad-hero-pill-icon { font-size: 15px; }
+
+/* ── Proceso / Infografía ── */
+.ad-process-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.ad-process-step {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  padding: 0 12px;
+}
+.ad-process-connector {
+  display: flex;
+  align-items: center;
+  padding-top: 52px;
+  flex-shrink: 0;
+}
+.ad-process-icon-wrap {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  transition: transform 0.3s;
+}
+.ad-process-step:hover .ad-process-icon-wrap {
+  transform: scale(1.08);
+}
+.ad-process-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 8px;
+}
+.ad-process-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.ad-process-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.ad-process-tag {
+  display: inline-block;
+  background: rgba(0,184,148,0.1);
+  border: 1px solid rgba(0,184,148,0.25);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: var(--ad-teal);
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .ad-process-steps { flex-direction: column; align-items: center; gap: 16px; }
+  .ad-process-connector { display: none; }
+  .ad-process-step { max-width: 100%; }
+}
