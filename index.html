@@ -1271,6 +1271,8 @@
     const zoom = d3.zoom().scaleExtent([1,8]).on('zoom', e => g.attr('transform', e.transform));
     svg.call(zoom);
 
+    
+
     window.adZoomIn    = () => svg.transition().call(zoom.scaleBy, 1.5);
     window.adZoomOut   = () => svg.transition().call(zoom.scaleBy, 0.67);
     window.adZoomReset = () => svg.transition().call(zoom.transform, d3.zoomIdentity);
