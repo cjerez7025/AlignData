@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D360° Assessment — AlignData</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0F1E38;
+  --navy-mid: #162236;
+  --navy-light: #1e2f4a;
+  --teal: #00B894;
+  --teal-dark: #008f74;
+  --blue: #2563EB;
+  --border: rgba(255,255,255,0.08);
+  --text: rgba(255,255,255,0.9);
+  --muted: rgba(255,255,255,0.45);
+  --danger: #e74c3c;
+  --warn: #f39c12;
+  --success: #00B894;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.shell {
+  width: 100%;
+  max-width: 720px;
+}
+
+/* Progress bar */
+.progress-wrap {
+  margin-bottom: 32px;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.dim-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.dim-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* Card */
+.card {
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+
+.q-num {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.q-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.q-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.opt:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+}
+.opt.selected {
+  background: rgba(0,184,148,0.1);
+  border-color: rgba(0,184,148,0.4);
+}
+.opt-circle {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.18s;
+}
+.opt.selected .opt-circle {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.opt-check {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  display: none;
+}
+.opt.selected .opt-check { display: block; }
+.opt-content {}
+.opt-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.opt-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.opt.selected .opt-label { color: var(--teal); }
+
+/* Nav buttons */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-back {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
+.btn-next {
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.btn-next.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.btn-next.active:hover { transform: translateY(-1px); opacity: 0.9; }
+
+/* INTRO */
+.intro { text-align: center; padding: 48px 36px; }
+.intro-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(0,184,148,0.1);
+  border: 1px solid rgba(0,184,148,0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px; font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.intro h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.intro h1 em { color: var(--teal); font-style: italic; }
+.intro p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 32px;
+}
+.intro-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.intro-meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.intro-meta-num {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+.intro-meta-lbl {
+  font-size: 11px;
+  color: var(--muted);
+}
+.btn-start {
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 40px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn-start:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* RESULTS */
+.result { padding: 36px; }
+.result-header { text-align: center; margin-bottom: 32px; }
+.score-ring {
+  width: 120px; height: 120px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+.score-ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.22,1,0.36,1); }
+.score-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-val {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+}
+.score-max { font-size: 11px; color: var(--muted); }
+.result-level {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.result-sub { font-size: 14px; color: var(--muted); }
+
+/* Dim bars */
+.dim-bars { margin-bottom: 28px; }
+.dim-bar-item { margin-bottom: 14px; }
+.dim-bar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.dim-bar-name { color: var(--text); font-weight: 500; }
+.dim-bar-score { color: var(--muted); font-size: 12px; }
+.dim-bar-track {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.dim-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* Recos */
+.recos { margin-bottom: 28px; }
+.reco-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.reco-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.75);
+}
+.reco-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+/* Lead form */
+.lead-form {
+  background: rgba(37,99,235,0.08);
+  border: 1px solid rgba(37,99,235,0.25);
+  border-radius: 12px;
+  padding: 24px;
+}
+.lead-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.lead-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+.lead-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.lead-fields.single { grid-template-columns: 1fr; }
+.field-wrap { display: flex; flex-direction: column; gap: 4px; }
+.field-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.field-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 7px;
+  color: #fff;
+  font-size: 13px;
+  padding: 9px 12px;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s;
+}
+.field-input:focus { border-color: var(--teal); }
+.field-input::placeholder { color: rgba(255,255,255,0.25); }
+.btn-lead {
+  width: 100%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 10px;
+  transition: opacity 0.15s;
+}
+.btn-lead:hover { opacity: 0.9; }
+.lead-privacy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Sent state */
+.sent-state {
+  text-align: center;
+  padding: 20px 0;
+}
+.sent-icon { font-size: 36px; margin-bottom: 10px; }
+.sent-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; margin-bottom: 6px; }
+.sent-sub { font-size: 13px; color: var(--muted); }
+
+/* Fade transition */
+.fade-out { opacity: 0; transform: translateX(-16px); transition: all 0.2s ease; }
+.fade-in-r { animation: fadeInR 0.3s ease both; }
+@keyframes fadeInR {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 600px) {
+  .card { padding: 24px 20px; }
+  .q-text { font-size: 18px; }
+  .intro h1 { font-size: 26px; }
+  .lead-fields { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div style="position:fixed;top:16px;left:16px;z-index:100;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:rgba(255,255,255,0.5);font-size:13px;padding:8px 14px;text-decoration:none;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.25)'" onmouseout="this.style.color='rgba(255,255,255,0.5)';this.style.borderColor='rgba(255,255,255,0.1)'">
+    ← aligndata.cl
+  </a>
+</div>
+<div class="shell">
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressWrap" style="display:none">
+    <div class="progress-meta">
+      <span id="progressLabel">Pregunta 1 de 15</span>
+      <span id="dimName">Gobierno</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="card" id="mainCard">
+    <!-- Contenido dinámico -->
+  </div>
+
+</div>
+
+<script>
+const DIMS = [
+  { id:'gov',  name:'Gobierno y Políticas',    color:'#2563EB', questions:[0,1,2] },
+  { id:'data', name:'Gestión de Datos',         color:'#8B5CF6', questions:[3,4,5] },
+  { id:'arco', name:'Derechos ARCOP',           color:'#00B894', questions:[6,7,8] },
+  { id:'sec',  name:'Seguridad Tecnológica',    color:'#F59E0B', questions:[9,10,11] },
+  { id:'risk', name:'Riesgo y Cumplimiento',    color:'#EF4444', questions:[12,13,14] },
+];
+
+const QUESTIONS = [
+  // GOBIERNO (0-2)
+  {
+    dim:'gov', q:'¿Su organización tiene una política formal de protección de datos personales?',
+    sub:'Documentos aprobados por la dirección que regulan el tratamiento de datos.',
+    opts:[
+      {v:0, l:'No existe ninguna política', d:'No hay documentos formales sobre privacidad'},
+      {v:1, l:'Está en desarrollo', d:'Se está elaborando pero no está aprobada'},
+      {v:2, l:'Existe pero no está actualizada', d:'Hay política pero data de más de 2 años'},
+      {v:3, l:'Sí, vigente y comunicada', d:'Política aprobada, comunicada a todos los empleados'},
+    ]
+  },
+  {
+    dim:'gov', q:'¿Tienen designado un responsable o encargado de protección de datos?',
+    sub:'Persona o rol formal que supervisa el cumplimiento en materia de privacidad.',
+    opts:[
+      {v:0, l:'No hay nadie asignado', d:'Nadie es responsable de privacidad'},
+      {v:1, l:'Informalmente asignado', d:'Alguien lo hace pero sin cargo formal'},
+      {v:2, l:'Rol asignado parcialmente', d:'Hay un responsable pero sin dedicación exclusiva'},
+      {v:3, l:'DPO o equivalente designado', d:'Rol formal con funciones claras y recursos'},
+    ]
+  },
+  {
+    dim:'gov', q:'¿El directorio o alta dirección está involucrado en decisiones de privacidad?',
+    sub:'Compromiso ejecutivo con la gestión de datos personales.',
+    opts:[
+      {v:0, l:'No, es tema solo de TI', d:'La dirección no tiene visibilidad del tema'},
+      {v:1, l:'Se informan ocasionalmente', d:'Se menciona en reuniones pero sin seguimiento'},
+      {v:2, l:'Aprueban políticas generales', d:'La dirección aprueba documentos pero no hace seguimiento'},
+      {v:3, l:'Involucrados activamente', d:'La dirección revisa métricas y toma decisiones de privacidad'},
+    ]
+  },
+  // GESTIÓN DE DATOS (3-5)
+  {
+    dim:'data', q:'¿Saben qué datos personales recopilan y dónde se almacenan?',
+    sub:'Inventario o registro de actividades de tratamiento de datos.',
+    opts:[
+      {v:0, l:'No tenemos ese inventario', d:'No sabemos con certeza qué datos tenemos'},
+      {v:1, l:'Conocimiento parcial e informal', d:'Sabemos aproximadamente pero no está documentado'},
+      {v:2, l:'Inventario parcial documentado', d:'Hay un registro de los sistemas principales'},
+      {v:3, l:'Registro completo y actualizado', d:'Inventario formal de todos los tratamientos de datos'},
+    ]
+  },
+  {
+    dim:'data', q:'¿Tienen definidos los plazos de retención y eliminación de datos personales?',
+    sub:'Cuánto tiempo se guardan los datos y cómo se eliminan cuando ya no son necesarios.',
+    opts:[
+      {v:0, l:'No, guardamos todo indefinidamente', d:'No hay política de eliminación de datos'},
+      {v:1, l:'Hay reglas pero no se aplican', d:'Existen plazos definidos pero no se cumplen'},
+      {v:2, l:'Se aplica en algunos sistemas', d:'Algunos sistemas tienen retención definida'},
+      {v:3, l:'Política aplicada en todos los sistemas', d:'Retención y eliminación automatizada y auditada'},
+    ]
+  },
+  {
+    dim:'data', q:'¿Informan a las personas sobre cómo usan sus datos personales?',
+    sub:'Avisos de privacidad, términos y condiciones, transparencia con los titulares.',
+    opts:[
+      {v:0, l:'No informamos formalmente', d:'No hay avisos de privacidad para los titulares'},
+      {v:1, l:'Solo en contratos generales', d:'Hay mención en contratos pero no es específica'},
+      {v:2, l:'Aviso de privacidad básico', d:'Existe pero no cumple todos los requisitos de la ley'},
+      {v:3, l:'Aviso completo y accesible', d:'Aviso conforme a Ley 21.719, visible y comprensible'},
+    ]
+  },
+  // DERECHOS ARCOP (6-8)
+  {
+    dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso a datos personales (Art. 5°)?',
+    sub:'Los titulares tienen derecho a saber qué datos tiene la organización sobre ellos.',
+    opts:[
+      {v:0, l:'No existe ningún proceso', d:'No sabríamos cómo responder a una solicitud'},
+      {v:1, l:'Se atiende caso a caso sin proceso', d:'Se resuelve si llega, pero sin procedimiento definido'},
+      {v:2, l:'Proceso informal documentado', d:'Hay procedimiento pero no está sistematizado'},
+      {v:3, l:'Proceso formal dentro del plazo legal', d:'Sistema que garantiza respuesta en 15 días hábiles'},
+    ]
+  },
+  {
+    dim:'arco', q:'¿Pueden rectificar o cancelar datos personales a petición del titular?',
+    sub:'Derechos de Rectificación y Cancelación bajo la Ley 21.719.',
+    opts:[
+      {v:0, l:'No, técnicamente no es posible', d:'Los sistemas no permiten modificar o eliminar datos'},
+      {v:1, l:'Es posible pero muy difícil', d:'Se puede hacer pero requiere intervención técnica'},
+      {v:2, l:'Posible con proceso manual', d:'Hay un procedimiento aunque no automatizado'},
+      {v:3, l:'Proceso ágil y trazable', d:'Se puede hacer con registro de auditoría y confirmación'},
+    ]
+  },
+  {
+    dim:'arco', q:'¿Contemplan el derecho de portabilidad de datos (Art. 9°)?',
+    sub:'Capacidad de entregar los datos del titular en formato estructurado y transferible.',
+    opts:[
+      {v:0, l:'No lo hemos considerado', d:'No existe ningún mecanismo para esto'},
+      {v:1, l:'Lo conocemos pero no tenemos solución', d:'Sabemos que existe pero no tenemos cómo cumplirlo'},
+      {v:2, l:'Solución manual disponible', d:'Se puede exportar datos pero manualmente'},
+      {v:3, l:'Proceso automatizado y documentado', d:'Exportación estructurada disponible bajo solicitud'},
+    ]
+  },
+  // SEGURIDAD (9-11)
+  {
+    dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?',
+    sub:'Cifrado, control de accesos, backups y otras medidas técnicas.',
+    opts:[
+      {v:0, l:'Sin medidas específicas', d:'Los datos no tienen protección técnica especial'},
+      {v:1, l:'Medidas básicas (antivirus, contraseñas)', d:'Solo medidas de seguridad general'},
+      {v:2, l:'Controles parciales implementados', d:'Cifrado o control de accesos en algunos sistemas'},
+      {v:3, l:'Controles completos y documentados', d:'Cifrado, accesos basados en roles, auditoría activa'},
+    ]
+  },
+  {
+    dim:'sec', q:'¿Tienen un plan para responder ante una brecha o filtración de datos personales?',
+    sub:'Protocolo de respuesta a incidentes que incluya notificación a la APDP y a los titulares.',
+    opts:[
+      {v:0, l:'No existe ningún plan', d:'No sabríamos cómo actuar ante una brecha'},
+      {v:1, l:'Plan informal no documentado', d:'Hay cierta idea de qué hacer pero nada escrito'},
+      {v:2, l:'Plan documentado sin pruebas', d:'El plan existe pero nunca se ha probado'},
+      {v:3, l:'Plan probado y con plazos de notificación', d:'Protocolo que contempla notificación a la APDP'},
+    ]
+  },
+  {
+    dim:'sec', q:'¿Controlan qué empleados pueden acceder a datos personales sensibles?',
+    sub:'Gestión de accesos por roles y principio de mínimo privilegio.',
+    opts:[
+      {v:0, l:'Acceso sin restricciones', d:'Cualquier empleado puede acceder a cualquier dato'},
+      {v:1, l:'Restricciones básicas por área', d:'Hay separación por departamento pero no por roles'},
+      {v:2, l:'Control de accesos por sistema', d:'Algunos sistemas tienen roles definidos'},
+      {v:3, l:'Acceso mínimo necesario, auditado', d:'Principio de mínimo privilegio con logs de acceso'},
+    ]
+  },
+  // RIESGO Y CUMPLIMIENTO (12-14)
+  {
+    dim:'risk', q:'¿Han realizado alguna evaluación de impacto en privacidad (DPIA)?',
+    sub:'Análisis de riesgos que un nuevo tratamiento de datos puede generar para los titulares.',
+    opts:[
+      {v:0, l:'No sabemos qué es una DPIA', d:'El concepto no es conocido en la organización'},
+      {v:1, l:'La conocemos pero no la hemos hecho', d:'Sabemos que existe pero no la hemos aplicado'},
+      {v:2, l:'Hecha en algunos proyectos', d:'Se ha realizado DPIA en procesos críticos'},
+      {v:3, l:'Proceso estándar para proyectos nuevos', d:'DPIA es parte del proceso de cualquier iniciativa nueva'},
+    ]
+  },
+  {
+    dim:'risk', q:'¿Controlan los contratos con proveedores que acceden a sus datos personales?',
+    sub:'Acuerdos de tratamiento de datos con terceros (encargados del tratamiento).',
+    opts:[
+      {v:0, l:'Sin contratos específicos de datos', d:'Los proveedores acceden sin cláusulas de privacidad'},
+      {v:1, l:'Cláusulas genéricas en contratos', d:'Hay mención pero sin especificidad sobre datos personales'},
+      {v:2, l:'Cláusulas de privacidad en contratos principales', d:'Los contratos críticos tienen cláusulas de datos'},
+      {v:3, l:'Contratos de encargado formal con todos', d:'Acuerdos de tratamiento firmados con todos los terceros'},
+    ]
+  },
+  {
+    dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su sector?',
+    sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.',
+    opts:[
+      {v:0, l:'No conocemos la Ley 21.719', d:'La ley no es conocida en la organización'},
+      {v:1, l:'Conocimiento básico general', d:'Sabemos que existe pero no sus implicancias específicas'},
+      {v:2, l:'Conocemos los puntos principales', d:'Entendemos los derechos ARCOP y obligaciones generales'},
+      {v:3, l:'Preparados para el cumplimiento', d:'Plan de adecuación en marcha antes de diciembre 2026'},
+    ]
+  },
+];
+
+const LEVELS = [
+  { min:0,  max:20, name:'Nivel 0 — Sin protección', color:'#EF4444',
+    desc:'Su organización no cuenta con medidas de protección de datos. El riesgo de incumplimiento de la Ley 21.719 es crítico.' },
+  { min:21, max:40, name:'Nivel 1 — Reactivo', color:'#F59E0B',
+    desc:'Existen algunas medidas aisladas, pero no hay un enfoque sistemático. Se requiere acción inmediata.' },
+  { min:41, max:60, name:'Nivel 2 — En desarrollo', color:'#F59E0B',
+    desc:'Hay avances concretos en algunas dimensiones, pero existen brechas importantes que deben cerrarse.' },
+  { min:61, max:80, name:'Nivel 3 — Gestionado', color:'#00B894',
+    desc:'La organización tiene controles establecidos. Se necesita formalización y mejora continua.' },
+  { min:81, max:100, name:'Nivel 4 — Optimizado', color:'var(--teal)',
+    desc:'Gestión madura de privacidad. Foco en mejora continua y certificación ISO 27701.' },
+];
+
+const RECOS = {
+  gov:  { icon:'🏛️', text:'Formalizar una política de protección de datos aprobada por la dirección y designar un DPO o encargado de privacidad con atribuciones claras.' },
+  data: { icon:'🗂️', text:'Elaborar un registro de actividades de tratamiento (RAT) que incluya qué datos se recopilan, con qué finalidad, quién los accede y por cuánto tiempo se conservan.' },
+  arco: { icon:'⚖️', text:'Implementar un proceso formal para atender solicitudes ARCOP dentro del plazo legal de 15 días hábiles (Art. 5° al 9°, Ley 21.719).' },
+  sec:  { icon:'🔐', text:'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas con notificación a la APDP.' },
+  risk: { icon:'📋', text:'Iniciar evaluaciones de impacto (DPIA) para los tratamientos de mayor riesgo y firmar contratos de encargado con todos los proveedores que acceden a datos personales.' },
+};
+
+let current = -1;
+let answers = new Array(15).fill(null);
+
+function getScore() {
+  const total = answers.reduce((s, v) => s + (v !== null ? v : 0), 0);
+  return Math.round((total / 45) * 100);
+}
+
+function getDimScore(dimIdx) {
+  const qs = DIMS[dimIdx].questions;
+  const total = qs.reduce((s, qi) => s + (answers[qi] !== null ? answers[qi] : 0), 0);
+  return Math.round((total / 9) * 100);
+}
+
+function getLevel(score) {
+  return LEVELS.find(l => score >= l.min && score <= l.max) || LEVELS[0];
+}
+
+function getWeakDims() {
+  return DIMS.map((d, i) => ({ ...d, score: getDimScore(i) }))
+             .filter(d => d.score < 50)
+             .sort((a,b) => a.score - b.score)
+             .slice(0, 3);
+}
+
+function renderIntro() {
+  const card = document.getElementById('mainCard');
+  document.getElementById('progressWrap').style.display = 'none';
+  card.innerHTML = `
+    <div class="intro">
+      <div class="intro-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block"></span>D360° Assessment · Ley 21.719</div>
+      <h1>¿Está su empresa<br>preparada para la <em>Ley 21.719?</em></h1>
+      <p>Responda 15 preguntas y obtenga en 5 minutos su nivel de madurez en protección de datos personales, con recomendaciones concretas.</p>
+      <div class="intro-meta">
+        <div class="intro-meta-item"><div class="intro-meta-num">15</div><div class="intro-meta-lbl">Preguntas</div></div>
+        <div class="intro-meta-item"><div class="intro-meta-num">5</div><div class="intro-meta-lbl">Dimensiones</div></div>
+        <div class="intro-meta-item"><div class="intro-meta-num">~5'</div><div class="intro-meta-lbl">Minutos</div></div>
+      </div>
+      <button class="btn-start" onclick="startAssessment()">Iniciar diagnóstico →</button>
+    </div>`;
+}
+
+function startAssessment() {
+  current = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  const dim = DIMS.find(d => d.id === q.dim);
+  const card = document.getElementById('mainCard');
+  const pct = Math.round(((current) / 15) * 100);
+
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progressLabel').textContent = `Pregunta ${current+1} de 15`;
+  document.getElementById('dimName').textContent = dim.name;
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  const sel = answers[current];
+
+  card.innerHTML = `
+    <div class="fade-in-r">
+      <div class="dim-label"><span class="dim-dot" style="background:${dim.color}"></span>${dim.name}</div>
+      <div class="q-num">Pregunta ${current+1} de 15</div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-sub">${q.sub}</div>
+      <div class="options">
+        ${q.opts.map((o,i) => `
+          <div class="opt ${sel === o.v ? 'selected' : ''}" onclick="selectOpt(${o.v})">
+            <div class="opt-circle"><div class="opt-check"></div></div>
+            <div class="opt-content">
+              <div class="opt-label">${o.l}</div>
+              <div class="opt-desc">${o.d}</div>
+            </div>
+          </div>`).join('')}
+      </div>
+      <div class="nav">
+        <button class="btn-back" onclick="goBack()" ${current === 0 ? 'style="visibility:hidden"' : ''}>← Anterior</button>
+        <button class="btn-next ${sel !== null ? 'active' : ''}" id="btnNext" onclick="goNext()">
+          ${current === 14 ? 'Ver resultados →' : 'Siguiente →'}
+        </button>
+      </div>
+    </div>`;
+}
+
+function selectOpt(val) {
+  answers[current] = val;
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  const btn = document.getElementById('btnNext');
+  btn.classList.add('active');
+}
+
+function goNext() {
+  if (answers[current] === null) return;
+  if (current < 14) {
+    current++;
+    renderQuestion();
+  } else {
+    renderResults();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+}
+
+function renderResults() {
+  const score = getScore();
+  const level = getLevel(score);
+  const weakDims = getWeakDims();
+
+  document.getElementById('progressWrap').style.display = 'none';
+  const card = document.getElementById('mainCard');
+
+  const dimBars = DIMS.map((d, i) => {
+    const s = getDimScore(i);
+    let color = d.color;
+    if (s < 33) color = '#EF4444';
+    else if (s < 66) color = '#F59E0B';
+    return `
+      <div class="dim-bar-item">
+        <div class="dim-bar-top">
+          <span class="dim-bar-name">${d.name}</span>
+          <span class="dim-bar-score">${s}%</span>
+        </div>
+        <div class="dim-bar-track">
+          <div class="dim-bar-fill" style="width:0%;background:${color}" data-width="${s}%"></div>
+        </div>
+      </div>`;
+  }).join('');
+
+  const recoItems = weakDims.map(d => `
+    <div class="reco-item">
+      <span class="reco-icon">${RECOS[d.id].icon}</span>
+      <span>${RECOS[d.id].text}</span>
+    </div>`).join('');
+
+  const circumference = 2 * Math.PI * 46;
+  const offset = circumference - (score / 100) * circumference;
+
+  card.innerHTML = `
+    <div class="result fade-in-r">
+      <div class="result-header">
+        <div class="score-ring">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle class="score-ring-bg" cx="60" cy="60" r="46"/>
+            <circle class="score-ring-fill" cx="60" cy="60" r="46"
+              stroke="${level.color}"
+              stroke-dasharray="${circumference}"
+              stroke-dashoffset="${circumference}"
+              id="ringFill"/>
+          </svg>
+          <div class="score-num">
+            <div class="score-val" id="scoreVal">0</div>
+            <div class="score-max">/ 100</div>
+          </div>
+        </div>
+        <div class="result-level">${level.name}</div>
+        <div class="result-sub">${level.desc}</div>
+      </div>
+
+      <div class="dim-bars">${dimBars}</div>
+
+      <div class="recos">
+        <div class="reco-title">Principales brechas detectadas</div>
+        ${recoItems || '<div class="reco-item"><span class="reco-icon">✅</span><span>Excelente nivel de madurez en todas las dimensiones evaluadas.</span></div>'}
+      </div>
+
+      <div class="lead-form" id="leadForm">
+        <div class="lead-title">Obtenga su diagnóstico completo</div>
+        <div class="lead-sub">Un experto AlignData revisará sus resultados y le enviará un plan de adecuación personalizado para cumplir con la Ley 21.719 antes de diciembre 2026.</div>
+        <div class="lead-fields">
+          <div class="field-wrap">
+            <label class="field-label">Nombre</label>
+            <input class="field-input" type="text" id="fName" placeholder="Juan Pérez">
+          </div>
+          <div class="field-wrap">
+            <label class="field-label">Empresa</label>
+            <input class="field-input" type="text" id="fCompany" placeholder="Mi Empresa Ltda.">
+          </div>
+        </div>
+        <div class="lead-fields">
+          <div class="field-wrap">
+            <label class="field-label">Correo</label>
+            <input class="field-input" type="email" id="fEmail" placeholder="juan@empresa.cl">
+          </div>
+          <div class="field-wrap">
+            <label class="field-label">Teléfono (opcional)</label>
+            <input class="field-input" type="tel" id="fPhone" placeholder="+56 9 1234 5678">
+          </div>
+        </div>
+        <button class="btn-lead" onclick="submitLead()">Solicitar diagnóstico completo D360° →</button>
+        <div class="lead-privacy">Sus datos se tratan conforme a la Ley 21.719 · Solo para contacto de AlignData</div>
+      </div>
+    </div>`;
+
+  // Animar score
+  setTimeout(() => {
+    document.getElementById('ringFill').style.strokeDashoffset = offset;
+    let n = 0;
+    const target = score;
+    const interval = setInterval(() => {
+      n = Math.min(n + 2, target);
+      document.getElementById('scoreVal').textContent = n;
+      if (n >= target) clearInterval(interval);
+    }, 20);
+
+    // Animar barras
+    document.querySelectorAll('.dim-bar-fill').forEach(b => {
+      setTimeout(() => { b.style.width = b.dataset.width; }, 200);
+    });
+  }, 100);
+}
+
+function submitLead() {
+  const name    = document.getElementById('fName').value.trim();
+  const company = document.getElementById('fCompany').value.trim();
+  const email   = document.getElementById('fEmail').value.trim();
+
+  if (!name || !email) {
+    document.getElementById('fName').style.borderColor = !name ? '#EF4444' : '';
+    document.getElementById('fEmail').style.borderColor = !email ? '#EF4444' : '';
+    return;
+  }
+
+  const score = getScore();
+  const level = getLevel(score);
+  const subject = encodeURIComponent(`D360° Assessment — ${company || name} (${score}/100)`);
+  const body = encodeURIComponent(
+    `Nuevo lead desde el assessment D360°\n\n` +
+    `Nombre: ${name}\nEmpresa: ${company}\nEmail: ${email}\nTeléfono: ${document.getElementById('fPhone').value}\n\n` +
+    `Score: ${score}/100\nNivel: ${level.name}\n\n` +
+    `Respuestas por dimensión:\n` +
+    DIMS.map((d,i) => `- ${d.name}: ${getDimScore(i)}%`).join('\n')
+  );
+
+  window.location.href = `mailto:patricio.oliva@aligndata.cl,carlos.jerez@aligndata.cl?subject=${subject}&body=${body}`;
+
+  document.getElementById('leadForm').innerHTML = `
+    <div class="sent-state">
+      <div class="sent-icon">✅</div>
+      <div class="sent-title">¡Solicitud enviada!</div>
+      <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
+    </div>`;
+}
+
+// Inicializar
+renderIntro();
+</script>
+</body>
+</html>
