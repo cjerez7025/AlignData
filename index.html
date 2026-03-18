@@ -922,28 +922,25 @@
   <!-- Scroll reveal -->
   <script>
   (function(){
-    // Elementos ya visibles al cargar no se animan (hero)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // solo una vez
+          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.2,
+      rootMargin: '0px 0px -80px 0px'
     });
 
-    // Aplicar delays escalonados a elementos del mismo padre
-    document.querySelectorAll('.ad-reveal').forEach((el, i) => {
-      // Calcular delay según posición entre hermanos
+    document.querySelectorAll('.ad-reveal').forEach((el) => {
       const siblings = el.parentElement
         ? Array.from(el.parentElement.children).filter(c => c.classList.contains('ad-reveal'))
         : [];
       const sibIndex = siblings.indexOf(el);
       if (sibIndex > 0) {
-        el.style.transitionDelay = (sibIndex * 0.08) + 's';
+        el.style.transitionDelay = (sibIndex * 0.12) + 's';
       }
       observer.observe(el);
     });
