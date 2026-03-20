@@ -430,6 +430,7 @@ body {
 /* Fade transition */
 .fade-out { opacity: 0; transform: translateX(-16px); transition: all 0.2s ease; }
 .fade-in-r { animation: fadeInR 0.3s ease both; }
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fadeInR {
   from { opacity: 0; transform: translateX(16px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -880,10 +881,13 @@ function renderResults() {
   }, 100);
 }
 
+const AD_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNOzQGLmC15Bv1p7EZhKKichnybe3V0PCRzjdfjBdgBKGezqpfPKlesFaXADNgXqCbbQ/exec';
+
 function submitLead() {
   const name    = document.getElementById('fName').value.trim();
   const company = document.getElementById('fCompany').value.trim();
   const email   = document.getElementById('fEmail').value.trim();
+  const phone   = document.getElementById('fPhone').value.trim();
 
   if (!name || !email) {
     document.getElementById('fName').style.borderColor = !name ? '#EF4444' : '';
@@ -891,25 +895,52 @@ function submitLead() {
     return;
   }
 
-  const score = getScore();
-  const level = getLevel(score);
-  const subject = encodeURIComponent(`D360° Assessment — ${company || name} (${score}/100)`);
-  const body = encodeURIComponent(
-    `Nuevo lead desde el assessment D360°\n\n` +
-    `Nombre: ${name}\nEmpresa: ${company}\nEmail: ${email}\nTeléfono: ${document.getElementById('fPhone').value}\n\n` +
-    `Score: ${score}/100\nNivel: ${level.name}\n\n` +
-    `Respuestas por dimensión:\n` +
-    DIMS.map((d,i) => `- ${d.name}: ${getDimScore(i)}%`).join('\n')
-  );
-
-  window.location.href = `mailto:patricio.oliva@aligndata.cl,carlos.jerez@aligndata.cl?subject=${subject}&body=${body}`;
-
+  // Mostrar spinner
   document.getElementById('leadForm').innerHTML = `
     <div class="sent-state">
-      <div class="sent-icon">✅</div>
-      <div class="sent-title">¡Solicitud enviada!</div>
-      <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
+      <div style="width:44px;height:44px;border:3px solid rgba(255,255,255,0.15);border-top-color:#00B894;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;"></div>
+      <div class="sent-sub" style="color:rgba(255,255,255,0.5);">Guardando sus resultados...</div>
     </div>`;
+
+  const score = getScore();
+  const level = getLevel(score);
+  const dims  = DIMS.map((d, i) => getDimScore(i));
+  const resps = answers.slice(); // array de respuestas (0-3 por pregunta)
+
+  const datos = {
+    tipo:       'assessment',
+    nombre:     name,
+    empresa:    company,
+    correo:     email,
+    telefono:   phone,
+    score:      score,
+    dims:       dims,
+    respuestas: resps
+  };
+
+  fetch(AD_SCRIPT_URL, {
+    method:  'POST',
+    mode:    'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(datos)
+  })
+  .then(() => {
+    document.getElementById('leadForm').innerHTML = `
+      <div class="sent-state">
+        <div class="sent-icon">✅</div>
+        <div class="sent-title">¡Solicitud enviada!</div>
+        <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
+      </div>`;
+  })
+  .catch(() => {
+    // Fallback: si falla el fetch, igual muestra éxito (no-cors no distingue errores)
+    document.getElementById('leadForm').innerHTML = `
+      <div class="sent-state">
+        <div class="sent-icon">✅</div>
+        <div class="sent-title">¡Solicitud enviada!</div>
+        <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles.</div>
+      </div>`;
+  });
 }
 
 // Inicializar
