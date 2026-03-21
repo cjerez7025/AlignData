@@ -195,12 +195,44 @@ body {
 
 /* ── Notice Banner ── */
 .ad-notice-banner {
-  background: var(--ad-navy);
-  padding: 9px 20px;
-  border-bottom: 1px solid rgba(255, 80, 80, 0.18);
+  background: #0b1828;
+  border-bottom: none;
+  padding: 11px 0;
+  overflow: hidden;
   position: sticky;
   top: 0;
   z-index: 1100;
+  margin-bottom: 0;
+}
+.ad-ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+.ad-ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ad-ticker 22s linear infinite;
+}
+.ad-ticker-track:hover { animation-play-state: paused; }
+.ad-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.65);
+  padding: 0 48px;
+  flex-shrink: 0;
+}
+.ad-ticker-item strong { color: #fff; }
+.ad-ticker-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ad-teal);
+  flex-shrink: 0;
+}
+@keyframes ad-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .ad-notice-text {
@@ -215,7 +247,8 @@ body {
   border-bottom: 1px solid var(--ad-border-dark);
   padding: 8px 0;
   height: 120px;
-  top: 38px; /* below notice */
+  top: 38px;
+  z-index: 1090;
 }
 
 .ad-toggler {
@@ -297,7 +330,7 @@ body {
 
 /* Mobile nav */
 @media (max-width: 991.98px) {
-  .ad-navbar { height: auto; padding: 12px 0; top: 36px; }
+  .ad-navbar { height: auto; padding: 12px 0; top: 0; }
   .navbar-collapse { padding: 12px 0; border-top: 1px solid var(--ad-border-dark); margin-top: 12px; }
   .ad-nav-link { padding: 8px 0 !important; display: block; }
 }
@@ -866,6 +899,28 @@ body {
 }
 .ad-av-teal { background: rgba(0,184,148,0.12); color: var(--ad-teal); }
 .ad-av-navy { background: rgba(15,30,56,0.07); color: var(--ad-navy); }
+
+.ad-team-photo-wrap {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 3px solid rgba(0,184,148,0.2);
+  flex-shrink: 0;
+}
+.ad-team-photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.ad-team-email {
+  font-size: 11px;
+  color: var(--ad-teal);
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
+}
+.ad-team-email:hover { text-decoration: underline; }
 
 .ad-team-name {
   font-size: 15.5px;

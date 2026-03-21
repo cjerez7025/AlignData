@@ -42,14 +42,17 @@
 
   <!-- NOTICE BANNER -->
   <div class="ad-notice-banner">
-    <div class="container-xl d-flex align-items-center justify-content-center gap-2">
-      <span class="ad-pulse-dot"></span>
-      <p class="mb-0 ad-notice-text">
-        <strong>⚠ Ley 21.719</strong> entra en vigor el
-        <strong class="text-white">1 de diciembre de 2026</strong> ·
-        Multas hasta <strong class="text-danger-soft">$1.400MM CLP</strong> ·
-        ¿Está su empresa preparada?
-      </p>
+    <div class="ad-ticker-wrap">
+      <div class="ad-ticker-track" id="adTicker">
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Ley 21.719 entra en vigor el <strong>&nbsp;1 de diciembre de 2026</strong></span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Multas de hasta <strong class="text-danger-soft">&nbsp;$1.400MM CLP&nbsp;</strong> por incumplimiento</span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Diagnóstico D360° gratuito — <strong>&nbsp;conoce tu nivel de cumplimiento hoy</strong></span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Protege los datos de tus clientes con <strong>&nbsp;AlignData Protect™</strong></span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Ley 21.719 entra en vigor el <strong>&nbsp;1 de diciembre de 2026</strong></span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Multas de hasta <strong class="text-danger-soft">&nbsp;$1.400MM CLP&nbsp;</strong> por incumplimiento</span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Diagnóstico D360° gratuito — <strong>&nbsp;conoce tu nivel de cumplimiento hoy</strong></span>
+        <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Protege los datos de tus clientes con <strong>&nbsp;AlignData Protect™</strong></span>
+      </div>
     </div>
   </div>
 
@@ -413,17 +416,38 @@
         <h2 class="ad-section-title ad-reveal">Expertos en privacidad y tecnología</h2>
         <p class="ad-section-sub ad-reveal">Combinamos experiencia en consultoría estratégica y arquitectura tecnológica especializada en datos personales.</p>
       </div>
-      <div class="row g-4 mb-4" style="max-width:680px;">
-        <div class="col-md-6">
-          <div class="ad-team-card ad-reveal d-flex gap-3">
-            <div class="ad-team-avatar ad-av-teal flex-shrink-0">CA</div>
-            <div><h4 class="ad-team-name">Carlos</h4><p class="ad-team-role">Tecnología y Producto</p><p class="ad-team-cert">Arquitectura · Desarrollo · Data Protection (Santander Open Academy)</p></div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="ad-team-card ad-reveal h-100">
+            <div class="ad-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Carlos Jerez" class="ad-team-photo">
+            </div>
+            <h4 class="ad-team-name">Carlos Jerez</h4>
+            <p class="ad-team-role">Tecnología y Producto</p>
+            <p class="ad-team-cert">Arquitectura · Desarrollo · Data Protection (Santander Open Academy)</p>
+            <a href="mailto:carlos.jerez@aligndata.cl" class="ad-team-email">carlos.jerez@aligndata.cl</a>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="ad-team-card ad-reveal d-flex gap-3">
-            <div class="ad-team-avatar ad-av-navy flex-shrink-0">PO</div>
-            <div><h4 class="ad-team-name">Patricio Oliva</h4><p class="ad-team-role">Consultoría y Negocio</p><p class="ad-team-cert">Data Governance · Universidad de Chile</p></div>
+        <div class="col-md-4">
+          <div class="ad-team-card ad-reveal h-100">
+            <div class="ad-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face" alt="Patricio Oliva" class="ad-team-photo">
+            </div>
+            <h4 class="ad-team-name">Patricio Oliva</h4>
+            <p class="ad-team-role">Consultoría y Negocio</p>
+            <p class="ad-team-cert">Data Governance · Universidad de Chile</p>
+            <a href="mailto:patricio.oliva@aligndata.cl" class="ad-team-email">patricio.oliva@aligndata.cl</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ad-team-card ad-reveal h-100">
+            <div class="ad-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face" alt="Matías Lama" class="ad-team-photo">
+            </div>
+            <h4 class="ad-team-name">Matías Lama</h4>
+            <p class="ad-team-role">Asesoría Legal</p>
+            <p class="ad-team-cert">Derecho · Universidad Adolfo Ibáñez</p>
+            <a href="mailto:mlama@alumnos.uai.cl" class="ad-team-email">mlama@alumnos.uai.cl</a>
           </div>
         </div>
       </div>
@@ -790,7 +814,7 @@
       entries.forEach(entry=>{
         if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
       });
-    },{threshold:0.2,rootMargin:'0px 0px -80px 0px'});
+    },{threshold:0.15,rootMargin:'-160px 0px -80px 0px'});
     document.querySelectorAll('.ad-reveal').forEach((el)=>{
       const siblings=el.parentElement?Array.from(el.parentElement.children).filter(c=>c.classList.contains('ad-reveal')):[];
       const sibIndex=siblings.indexOf(el);
