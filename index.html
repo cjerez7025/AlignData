@@ -44,10 +44,36 @@
   <div class="ad-notice-banner">
     <div class="ad-ticker-wrap">
       <div class="ad-ticker-track" id="adTicker">
+        <span class="ad-ticker-item ad-ticker-countdown">
+          <span class="ad-ticker-dot"></span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faltan</span>
+          <span class="ad-cd-badge" id="tkDays">---</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;">días</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkHrs">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">hrs</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkMin">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">min</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkSec">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">seg</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;margin-left:4px;">para la Ley 21.719</span>
+        </span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Ley 21.719 entra en vigor el <strong>&nbsp;1 de diciembre de 2026</strong></span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Multas de hasta <strong class="text-danger-soft">&nbsp;$1.400MM CLP&nbsp;</strong> por incumplimiento</span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Diagnóstico D360° gratuito — <strong>&nbsp;conoce tu nivel de cumplimiento hoy</strong></span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Protege los datos de tus clientes con <strong>&nbsp;AlignData Protect™</strong></span>
+        <span class="ad-ticker-item ad-ticker-countdown">
+          <span class="ad-ticker-dot"></span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;">Faltan</span>
+          <span class="ad-cd-badge" id="tkDays2">---</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;">días</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkHrs2">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">hrs</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkMin2">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">min</span>
+          <span class="ad-cd-badge ad-cd-badge--sm" id="tkSec2">--</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;">seg</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:11px;margin-left:4px;">para la Ley 21.719</span>
+        </span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Ley 21.719 entra en vigor el <strong>&nbsp;1 de diciembre de 2026</strong></span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Multas de hasta <strong class="text-danger-soft">&nbsp;$1.400MM CLP&nbsp;</strong> por incumplimiento</span>
         <span class="ad-ticker-item"><span class="ad-ticker-dot"></span>Diagnóstico D360° gratuito — <strong>&nbsp;conoce tu nivel de cumplimiento hoy</strong></span>
@@ -93,7 +119,8 @@
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#equipo">Equipo</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#mapa">Mapa global</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#recursos">Recursos</a></li>
-          <li class="nav-item"><a class="nav-link ad-nav-link" href="Contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#metodologia">Metodología</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="contacto.html">Contacto</a></li>
           <li class="nav-item ms-lg-3">
             <a class="btn ad-btn-teal" href="assessment-d360.html">Diagnóstico gratuito →</a>
           </li>
@@ -117,7 +144,7 @@
             La ley exige <em>protegerlos.</em>
           </h1>
           <p class="ad-hero-subtitle">
-            La Ley 21.719 obliga a todas las empresas chilenas a gestionar correctamente los datos personales de clientes y empleados — o enfrentar multas de hasta <strong style="color:#00B894;">$1.400MM CLP</strong>. AlignData le ayuda a cumplir a tiempo.
+            La <a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted;">Ley 21.719</a> obliga a todas las empresas chilenas a gestionar correctamente los datos personales de clientes y empleados — o enfrentar multas de hasta <strong style="color:#00B894;">$1.400MM CLP</strong>. AlignData le ayuda a cumplir a tiempo.
           </p>
           <div class="ad-hero-pills">
             <div class="ad-hero-pill"><span class="ad-hero-pill-icon">⚖️</span><span>Cumplimiento legal</span></div>
@@ -161,96 +188,85 @@
     </div>
   </section>
 
-  <!-- PROCESO / TIMELINE -->
+  <!-- PROCESO / STEPPER INTERACTIVO -->
   <section class="ad-section" id="proceso" style="background:#0b1828;">
     <div class="container-xl">
-      <div class="text-center mb-5">
-        <p class="ad-eyebrow ad-reveal" style="color:var(--ad-teal);">¿Cómo funciona?</p>
-        <h2 class="ad-section-title ad-reveal" style="color:#fff;">Su camino al cumplimiento</h2>
-        <p class="ad-section-sub ad-reveal" style="color:rgba(255,255,255,0.5);">Un proceso claro, acompañado y medible para que su empresa esté lista antes de diciembre 2026.</p>
-      </div>
       <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div id="ad-timeline">
-            <div class="ad-tl-row" id="ad-r0">
-              <div class="ad-tl-left">
-                <div class="ad-tl-circle" style="background:rgba(37,99,235,0.15);border-color:#2563EB;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#2563EB" stroke-width="1.8"/><line x1="16" y1="16" x2="21" y2="21" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div class="ad-tl-line"><div class="ad-tl-fill" id="ad-lf0" style="background:linear-gradient(#2563EB,#7B68EE)"></div></div>
-              </div>
-              <div class="ad-tl-right">
-                <div class="ad-tl-tag">~30 días</div>
-                <div class="ad-tl-num">PASO 01</div>
-                <h4 class="ad-tl-title">Diagnóstico D360°</h4>
-                <p class="ad-tl-desc">Evaluamos su nivel de madurez en protección de datos en 8 dimensiones clave. Identificamos brechas y riesgos concretos respecto a la Ley 21.719 antes de proponer ninguna solución.</p>
-                <div class="ad-tl-chips">
-                  <span class="ad-tl-chip" style="color:#2563EB;border-color:rgba(37,99,235,0.3);background:rgba(37,99,235,0.08)">8 dimensiones</span>
-                  <span class="ad-tl-chip" style="color:#2563EB;border-color:rgba(37,99,235,0.3);background:rgba(37,99,235,0.08)">Dashboard ejecutivo</span>
-                  <span class="ad-tl-chip" style="color:#2563EB;border-color:rgba(37,99,235,0.3);background:rgba(37,99,235,0.08)">Mapa de riesgos</span>
-                </div>
-              </div>
+        <div class="col-lg-10">
+
+          <div class="text-center mb-5">
+            <p class="ad-eyebrow ad-reveal" style="color:var(--ad-teal);">¿Cómo funciona?</p>
+            <h2 class="ad-section-title ad-reveal" style="color:#fff;">Su camino al cumplimiento</h2>
+            <p class="ad-section-sub ad-reveal" style="color:rgba(255,255,255,0.5);">Un proceso claro, medible y acompañado. Haga clic en cada etapa para ver el detalle.</p>
+          </div>
+
+          <!-- Barra de progreso -->
+          <div class="pc-track-wrap">
+            <div class="pc-track-bg">
+              <div class="pc-track-fill" id="pcFill" style="width:12%"></div>
             </div>
-            <div class="ad-tl-row" id="ad-r1">
-              <div class="ad-tl-left">
-                <div class="ad-tl-circle" style="background:rgba(123,104,238,0.15);border-color:#7B68EE;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="#7B68EE" stroke-width="1.8"/><line x1="8" y1="9" x2="16" y2="9" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="16" y2="13" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="17" x2="12" y2="17" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
-                <div class="ad-tl-line"><div class="ad-tl-fill" id="ad-lf1" style="background:linear-gradient(#7B68EE,#00B894)"></div></div>
-              </div>
-              <div class="ad-tl-right">
-                <div class="ad-tl-tag">~15 días</div>
-                <div class="ad-tl-num">PASO 02</div>
-                <h4 class="ad-tl-title">Plan de adecuación</h4>
-                <p class="ad-tl-desc">Roadmap personalizado con prioridades, responsables y plazos concretos. Cada acción está mapeada a un artículo específico de la Ley 21.719.</p>
-                <div class="ad-tl-chips">
-                  <span class="ad-tl-chip" style="color:#7B68EE;border-color:rgba(123,104,238,0.3);background:rgba(123,104,238,0.08)">Roadmap 6 meses</span>
-                  <span class="ad-tl-chip" style="color:#7B68EE;border-color:rgba(123,104,238,0.3);background:rgba(123,104,238,0.08)">Priorización</span>
-                  <span class="ad-tl-chip" style="color:#7B68EE;border-color:rgba(123,104,238,0.3);background:rgba(123,104,238,0.08)">Artículos mapeados</span>
+            <div class="pc-nodes">
+              <div class="pc-node" onclick="pcGoTo(0)">
+                <div class="pc-node-btn active" id="pnb0"><div class="pc-dot"></div></div>
+                <div class="pc-node-label">
+                  <div class="pc-node-num">01</div>
+                  <div class="pc-node-name active" id="pnn0">Diagnóstico</div>
+                  <div class="pc-node-time">~30 días</div>
                 </div>
               </div>
-            </div>
-            <div class="ad-tl-row" id="ad-r2">
-              <div class="ad-tl-left">
-                <div class="ad-tl-circle" style="background:rgba(0,184,148,0.15);border-color:#00B894;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#00B894" stroke-width="1.8"/><line x1="2" y1="10" x2="22" y2="10" stroke="#00B894" stroke-width="1.5"/><circle cx="12" cy="21" r="1.5" fill="#00B894"/><line x1="12" y1="19" x2="12" y2="22" stroke="#00B894" stroke-width="1.5"/></svg>
-                </div>
-                <div class="ad-tl-line"><div class="ad-tl-fill" id="ad-lf2" style="background:linear-gradient(#00B894,#00B894)"></div></div>
-              </div>
-              <div class="ad-tl-right">
-                <div class="ad-tl-tag">~60 días</div>
-                <div class="ad-tl-num">PASO 03</div>
-                <h4 class="ad-tl-title">Portal ARCOP</h4>
-                <p class="ad-tl-desc">Implementamos la plataforma tecnológica para gestionar los derechos de sus clientes — Acceso, Rectificación, Cancelación, Oposición y Portabilidad — con trazabilidad completa.</p>
-                <div class="ad-tl-chips">
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">Datos en Chile</span>
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">Panel DPO</span>
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">Audit logs</span>
+              <div class="pc-node" onclick="pcGoTo(1)">
+                <div class="pc-node-btn" id="pnb1"><div class="pc-dot"></div></div>
+                <div class="pc-node-label">
+                  <div class="pc-node-num">02</div>
+                  <div class="pc-node-name" id="pnn1">Plan</div>
+                  <div class="pc-node-time">~15 días</div>
                 </div>
               </div>
-            </div>
-            <div class="ad-tl-row" id="ad-r3">
-              <div class="ad-tl-left">
-                <div class="ad-tl-circle" style="background:rgba(0,184,148,0.2);border-color:#00B894;box-shadow:0 0 20px rgba(0,184,148,0.25);">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#00B894" stroke-width="1.8"/><polyline points="8,12 11,15 17,9" stroke="#00B894" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="pc-node" onclick="pcGoTo(2)">
+                <div class="pc-node-btn" id="pnb2"><div class="pc-dot"></div></div>
+                <div class="pc-node-label">
+                  <div class="pc-node-num">03</div>
+                  <div class="pc-node-name" id="pnn2">Portal ARCOP</div>
+                  <div class="pc-node-time">~60 días</div>
                 </div>
               </div>
-              <div class="ad-tl-right">
-                <div class="ad-tl-tag">Continuo</div>
-                <div class="ad-tl-num">PASO 04</div>
-                <h4 class="ad-tl-title">Cumplimiento certificado</h4>
-                <p class="ad-tl-desc">Su empresa opera en conformidad con la Ley 21.719. Dashboard ejecutivo con métricas de cumplimiento y evidencia lista para la APDP en caso de fiscalización.</p>
-                <div class="ad-tl-chips">
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">ISO 27701 ready</span>
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">Evidencia APDP</span>
-                  <span class="ad-tl-chip" style="color:#00B894;border-color:rgba(0,184,148,0.3);background:rgba(0,184,148,0.08)">Mejora continua</span>
+              <div class="pc-node" onclick="pcGoTo(3)">
+                <div class="pc-node-btn" id="pnb3"><div class="pc-dot"></div></div>
+                <div class="pc-node-label">
+                  <div class="pc-node-num">04</div>
+                  <div class="pc-node-name" id="pnn3">Cumplimiento</div>
+                  <div class="pc-node-time">Continuo</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="text-center mt-4">
-            <a href="assessment-d360.html" class="btn ad-btn-teal ad-btn-lg">Comenzar diagnóstico gratuito →</a>
+
+          <!-- Panel detalle -->
+          <div class="pc-detail" id="pcDetail">
+            <div class="pc-detail-left">
+              <div class="pc-detail-icon" id="pcIcon"></div>
+              <div class="pc-detail-big-num" id="pcBigNum">01</div>
+            </div>
+            <div class="pc-detail-right">
+              <div class="pc-detail-tag" id="pcTag"></div>
+              <div class="pc-detail-title" id="pcTitle"></div>
+              <div class="pc-detail-desc" id="pcDesc"></div>
+              <div class="pc-chips" id="pcChips"></div>
+            </div>
           </div>
+
+          <!-- Navegación -->
+          <div class="pc-nav">
+            <div></div>
+            <div class="pc-nav-dots">
+              <div class="pc-nav-dot active" onclick="pcGoTo(0)" id="pdd0"></div>
+              <div class="pc-nav-dot" onclick="pcGoTo(1)" id="pdd1"></div>
+              <div class="pc-nav-dot" onclick="pcGoTo(2)" id="pdd2"></div>
+              <div class="pc-nav-dot" onclick="pcGoTo(3)" id="pdd3"></div>
+            </div>
+            <button class="pc-nav-btn" id="pcNext" onclick="pcGoTo(pcCur+1)">Siguiente →</button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -338,7 +354,7 @@
         </div>
         <div class="col-lg-6">
           <div class="d-flex flex-column gap-4">
-            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0">🔐</div><div><h4 class="ad-pf-title">Datos en Chile</h4><p class="ad-pf-sub">GCP southamerica-west1 (Santiago). Sin transferencia internacional bajo Art. 27 Ley 21.719.</p></div></div>
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0">🔐</div><div><h4 class="ad-pf-title">Datos en Chile</h4><p class="ad-pf-sub">GCP southamerica-west1 (Santiago). Sin transferencia internacional bajo Art. 27 <a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted;">Ley 21.719</a>.</p></div></div>
             <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0">📋</div><div><h4 class="ad-pf-title">Workflow automatizado</h4><p class="ad-pf-sub">Estados PENDIENTE → VALIDADA → EN PROCESO → RESUELTA → CERRADA con control de SLA de 15 días hábiles.</p></div></div>
             <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0">🛡️</div><div><h4 class="ad-pf-title">Audit logs inmutables</h4><p class="ad-pf-sub">Trazabilidad completa para fiscalización APDP. Cada acción registrada con timestamp y actor.</p></div></div>
             <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0">✉️</div><div><h4 class="ad-pf-title">Notificaciones automáticas</h4><p class="ad-pf-sub">Email al titular en cada cambio de estado. Confirmación de recepción inmediata con número de caso.</p></div></div>
@@ -557,7 +573,7 @@
         <div class="col-12"><p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8896a5;margin-bottom:16px;">Basado en</p></div>
         <div class="col-md-3 col-6"><div class="ad-method-ref"><div class="ad-method-ref-icon" style="background:rgba(37,99,235,0.08);color:#2563EB;">ISO</div><div class="ad-method-ref-body"><div class="ad-method-ref-name">ISO/IEC 27701:2025</div><div class="ad-method-ref-desc">Sistema de Gestión de Información de Privacidad (PIMS)</div></div></div></div>
         <div class="col-md-3 col-6"><div class="ad-method-ref"><div class="ad-method-ref-icon" style="background:rgba(0,184,148,0.08);color:#00B894;">NIST</div><div class="ad-method-ref-body"><div class="ad-method-ref-name">NIST Privacy Framework</div><div class="ad-method-ref-desc">Marco de gestión de riesgos de privacidad</div></div></div></div>
-        <div class="col-md-3 col-6"><div class="ad-method-ref"><div class="ad-method-ref-icon" style="background:rgba(239,68,68,0.08);color:#EF4444;">21.719</div><div class="ad-method-ref-body"><div class="ad-method-ref-name">Ley 21.719 Chile</div><div class="ad-method-ref-desc">Derechos ARCOP y obligaciones del responsable</div></div></div></div>
+        <div class="col-md-3 col-6"><div class="ad-method-ref"><div class="ad-method-ref-icon" style="background:rgba(239,68,68,0.08);color:#EF4444;">21.719</div><div class="ad-method-ref-body"><div class="ad-method-ref-name"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Ley 21.719 Chile ↗</a></div><div class="ad-method-ref-desc">Derechos ARCOP y obligaciones del responsable</div></div></div></div>
         <div class="col-md-3 col-6"><div class="ad-method-ref"><div class="ad-method-ref-icon" style="background:rgba(107,114,128,0.08);color:#6b7280;">CMM</div><div class="ad-method-ref-body"><div class="ad-method-ref-name">Modelo CMM</div><div class="ad-method-ref-desc">Escala de madurez 0–4 para evaluar capacidades</div></div></div></div>
       </div>
     </div>
@@ -804,6 +820,92 @@
         }
       });
     };
+  })();
+  </script>
+
+  <!-- Stepper proceso -->
+  <script>
+  var pcCur = 0;
+  var pcSteps = [
+    {
+      tag:'~30 días', title:'Diagnóstico D360°',
+      desc:'Evaluamos su nivel de madurez en protección de datos en 8 dimensiones clave. Identificamos brechas y riesgos concretos respecto a la Ley 21.719 antes de proponer ninguna solución.',
+      chips:[{t:'8 dimensiones',c:'#2563EB'},{t:'Dashboard ejecutivo',c:'#2563EB'},{t:'Mapa de riesgos',c:'#2563EB'}],
+      iconBg:'rgba(37,99,235,0.15)',
+      iconSvg:'<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="14" cy="14" r="9" stroke="#2563EB" stroke-width="2"/><line x1="21" y1="21" x2="28" y2="28" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="14" x2="18" y2="14" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="10" x2="14" y2="18" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>',
+      fill:'12%'
+    },
+    {
+      tag:'~15 días', title:'Plan de adecuación',
+      desc:'Diseñamos un roadmap personalizado con prioridades, responsables y plazos concretos. Cada acción está mapeada a un artículo específico de la Ley 21.719.',
+      chips:[{t:'Roadmap 6 meses',c:'#7B68EE'},{t:'Priorización',c:'#7B68EE'},{t:'Artículos mapeados',c:'#7B68EE'}],
+      iconBg:'rgba(123,104,238,0.15)',
+      iconSvg:'<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="5" y="3" width="22" height="26" rx="3" stroke="#7B68EE" stroke-width="2"/><line x1="10" y1="11" x2="22" y2="11" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="21" x2="16" y2="21" stroke="#7B68EE" stroke-width="1.5" stroke-linecap="round"/></svg>',
+      fill:'42%'
+    },
+    {
+      tag:'~60 días', title:'Portal ARCOP',
+      desc:'Implementamos la plataforma tecnológica para gestionar los derechos de sus clientes — Acceso, Rectificación, Cancelación, Oposición y Portabilidad — con trazabilidad completa.',
+      chips:[{t:'Datos en Chile',c:'#00B894'},{t:'Panel DPO',c:'#00B894'},{t:'Audit logs',c:'#00B894'}],
+      iconBg:'rgba(0,184,148,0.15)',
+      iconSvg:'<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="3" stroke="#00B894" stroke-width="2"/><line x1="3" y1="13" x2="29" y2="13" stroke="#00B894" stroke-width="1.5"/><circle cx="8" cy="10" r="1.5" fill="#00B894"/><circle cx="13" cy="10" r="1.5" fill="#00B894"/><line x1="10" y1="19" x2="22" y2="19" stroke="#00B894" stroke-width="1.5" stroke-linecap="round"/></svg>',
+      fill:'75%'
+    },
+    {
+      tag:'Continuo', title:'Cumplimiento certificado',
+      desc:'Su empresa opera en conformidad con la Ley 21.719. Dashboard ejecutivo con métricas de cumplimiento y evidencia lista para la APDP en caso de fiscalización.',
+      chips:[{t:'ISO 27701 ready',c:'#00B894'},{t:'Evidencia APDP',c:'#00B894'},{t:'Mejora continua',c:'#00B894'}],
+      iconBg:'rgba(0,184,148,0.15)',
+      iconSvg:'<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#00B894" stroke-width="2"/><polyline points="9,16 14,21 23,11" stroke="#00B894" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      fill:'100%'
+    }
+  ];
+
+  function pcGoTo(i) {
+    if (i < 0 || i > 3 || !document.getElementById('pcFill')) return;
+    pcCur = i;
+    var s = pcSteps[i];
+    document.getElementById('pcFill').style.width = s.fill;
+    document.getElementById('pcTitle').textContent = s.title;
+    document.getElementById('pcDesc').textContent = s.desc;
+    document.getElementById('pcTag').textContent = s.tag;
+    document.getElementById('pcBigNum').textContent = (i+1 < 10 ? '0' : '') + (i+1);
+    document.getElementById('pcIcon').innerHTML = s.iconSvg;
+    document.getElementById('pcIcon').style.background = s.iconBg;
+    var chips = s.chips.map(function(c){ return '<span class="pc-chip" style="color:'+c.c+';border-color:'+c.c+'44;background:'+c.c+'11;">'+c.t+'</span>'; }).join('');
+    document.getElementById('pcChips').innerHTML = chips;
+    [0,1,2,3].forEach(function(n){
+      var btn = document.getElementById('pnb'+n);
+      var nm = document.getElementById('pnn'+n);
+      var dot = document.getElementById('pdd'+n);
+      if(btn) btn.className = 'pc-node-btn' + (n < i ? ' done' : n === i ? ' active' : '');
+      if(nm) nm.className = 'pc-node-name' + (n === i ? ' active' : '');
+      if(dot) dot.className = 'pc-nav-dot' + (n === i ? ' active' : '');
+    });
+    var next = document.getElementById('pcNext');
+    if(next) next.disabled = i === 3;
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){ pcGoTo(0); });
+  </script>
+
+  <!-- Ticker countdown -->
+  <script>
+  (function(){
+    function updateTk() {
+      const diff = new Date('2026-12-01T00:00:00') - new Date();
+      if (diff <= 0) return;
+      const d = Math.floor(diff / 86400000);
+      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+      ['tkDays','tkDays2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=d; });
+      ['tkHrs','tkHrs2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=h; });
+      ['tkMin','tkMin2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
+      ['tkSec','tkSec2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=s; });
+    }
+    updateTk();
+    setInterval(updateTk, 1000);
   })();
   </script>
 

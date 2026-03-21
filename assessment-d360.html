@@ -461,7 +461,7 @@ body {
   <!-- PROGRESS -->
   <div class="progress-wrap" id="progressWrap" style="display:none">
     <div class="progress-meta">
-      <span id="progressLabel">Pregunta 1 de 15</span>
+      <span id="progressLabel">Pregunta 1 de 8</span>
       <span id="dimName">Gobierno</span>
     </div>
     <div class="progress-track">
@@ -477,15 +477,15 @@ body {
 
 <script>
 const DIMS = [
-  { id:'gov',  name:'Gobierno y Políticas',    color:'#2563EB', questions:[0,1,2] },
-  { id:'data', name:'Gestión de Datos',         color:'#8B5CF6', questions:[3,4,5] },
-  { id:'arco', name:'Derechos ARCOP',           color:'#00B894', questions:[6,7,8] },
-  { id:'sec',  name:'Seguridad Tecnológica',    color:'#F59E0B', questions:[9,10,11] },
-  { id:'risk', name:'Riesgo y Cumplimiento',    color:'#EF4444', questions:[12,13,14] },
+  { id:'gov',  name:'Gobierno y Políticas',    color:'#2563EB', questions:[0,1] },
+  { id:'data', name:'Gestión de Datos',         color:'#8B5CF6', questions:[2,3] },
+  { id:'arco', name:'Derechos ARCOP',           color:'#00B894', questions:[4,5] },
+  { id:'sec',  name:'Seguridad Tecnológica',    color:'#F59E0B', questions:[6]   },
+  { id:'risk', name:'Riesgo y Cumplimiento',    color:'#EF4444', questions:[7]   },
 ];
 
 const QUESTIONS = [
-  // GOBIERNO (0-2)
+  // GOBIERNO (0-1)
   {
     dim:'gov', q:'¿Su organización tiene una política formal de protección de datos personales?',
     sub:'Documentos aprobados por la dirección que regulan el tratamiento de datos.',
@@ -506,17 +506,7 @@ const QUESTIONS = [
       {v:3, l:'DPO o equivalente designado', d:'Rol formal con funciones claras y recursos'},
     ]
   },
-  {
-    dim:'gov', q:'¿El directorio o alta dirección está involucrado en decisiones de privacidad?',
-    sub:'Compromiso ejecutivo con la gestión de datos personales.',
-    opts:[
-      {v:0, l:'No, es tema solo de TI', d:'La dirección no tiene visibilidad del tema'},
-      {v:1, l:'Se informan ocasionalmente', d:'Se menciona en reuniones pero sin seguimiento'},
-      {v:2, l:'Aprueban políticas generales', d:'La dirección aprueba documentos pero no hace seguimiento'},
-      {v:3, l:'Involucrados activamente', d:'La dirección revisa métricas y toma decisiones de privacidad'},
-    ]
-  },
-  // GESTIÓN DE DATOS (3-5)
+  // GESTIÓN DE DATOS (2-3)
   {
     dim:'data', q:'¿Saben qué datos personales recopilan y dónde se almacenan?',
     sub:'Inventario o registro de actividades de tratamiento de datos.',
@@ -525,16 +515,6 @@ const QUESTIONS = [
       {v:1, l:'Conocimiento parcial e informal', d:'Sabemos aproximadamente pero no está documentado'},
       {v:2, l:'Inventario parcial documentado', d:'Hay un registro de los sistemas principales'},
       {v:3, l:'Registro completo y actualizado', d:'Inventario formal de todos los tratamientos de datos'},
-    ]
-  },
-  {
-    dim:'data', q:'¿Tienen definidos los plazos de retención y eliminación de datos personales?',
-    sub:'Cuánto tiempo se guardan los datos y cómo se eliminan cuando ya no son necesarios.',
-    opts:[
-      {v:0, l:'No, guardamos todo indefinidamente', d:'No hay política de eliminación de datos'},
-      {v:1, l:'Hay reglas pero no se aplican', d:'Existen plazos definidos pero no se cumplen'},
-      {v:2, l:'Se aplica en algunos sistemas', d:'Algunos sistemas tienen retención definida'},
-      {v:3, l:'Política aplicada en todos los sistemas', d:'Retención y eliminación automatizada y auditada'},
     ]
   },
   {
@@ -547,10 +527,10 @@ const QUESTIONS = [
       {v:3, l:'Aviso completo y accesible', d:'Aviso conforme a Ley 21.719, visible y comprensible'},
     ]
   },
-  // DERECHOS ARCOP (6-8)
+  // DERECHOS ARCOP (4-5)
   {
-    dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso a datos personales (Art. 5°)?',
-    sub:'Los titulares tienen derecho a saber qué datos tiene la organización sobre ellos.',
+    dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso, rectificación o cancelación de datos (ARCOP)?',
+    sub:'Los titulares tienen derecho a ejercer sus derechos sobre sus datos personales.',
     opts:[
       {v:0, l:'No existe ningún proceso', d:'No sabríamos cómo responder a una solicitud'},
       {v:1, l:'Se atiende caso a caso sin proceso', d:'Se resuelve si llega, pero sin procedimiento definido'},
@@ -559,7 +539,7 @@ const QUESTIONS = [
     ]
   },
   {
-    dim:'arco', q:'¿Pueden rectificar o cancelar datos personales a petición del titular?',
+    dim:'arco', q:'¿Pueden rectificar o eliminar datos personales a petición del titular?',
     sub:'Derechos de Rectificación y Cancelación bajo la Ley 21.719.',
     opts:[
       {v:0, l:'No, técnicamente no es posible', d:'Los sistemas no permiten modificar o eliminar datos'},
@@ -568,17 +548,7 @@ const QUESTIONS = [
       {v:3, l:'Proceso ágil y trazable', d:'Se puede hacer con registro de auditoría y confirmación'},
     ]
   },
-  {
-    dim:'arco', q:'¿Contemplan el derecho de portabilidad de datos (Art. 9°)?',
-    sub:'Capacidad de entregar los datos del titular en formato estructurado y transferible.',
-    opts:[
-      {v:0, l:'No lo hemos considerado', d:'No existe ningún mecanismo para esto'},
-      {v:1, l:'Lo conocemos pero no tenemos solución', d:'Sabemos que existe pero no tenemos cómo cumplirlo'},
-      {v:2, l:'Solución manual disponible', d:'Se puede exportar datos pero manualmente'},
-      {v:3, l:'Proceso automatizado y documentado', d:'Exportación estructurada disponible bajo solicitud'},
-    ]
-  },
-  // SEGURIDAD (9-11)
+  // SEGURIDAD (6)
   {
     dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?',
     sub:'Cifrado, control de accesos, backups y otras medidas técnicas.',
@@ -589,49 +559,9 @@ const QUESTIONS = [
       {v:3, l:'Controles completos y documentados', d:'Cifrado, accesos basados en roles, auditoría activa'},
     ]
   },
+  // RIESGO Y CUMPLIMIENTO (7)
   {
-    dim:'sec', q:'¿Tienen un plan para responder ante una brecha o filtración de datos personales?',
-    sub:'Protocolo de respuesta a incidentes que incluya notificación a la APDP y a los titulares.',
-    opts:[
-      {v:0, l:'No existe ningún plan', d:'No sabríamos cómo actuar ante una brecha'},
-      {v:1, l:'Plan informal no documentado', d:'Hay cierta idea de qué hacer pero nada escrito'},
-      {v:2, l:'Plan documentado sin pruebas', d:'El plan existe pero nunca se ha probado'},
-      {v:3, l:'Plan probado y con plazos de notificación', d:'Protocolo que contempla notificación a la APDP'},
-    ]
-  },
-  {
-    dim:'sec', q:'¿Controlan qué empleados pueden acceder a datos personales sensibles?',
-    sub:'Gestión de accesos por roles y principio de mínimo privilegio.',
-    opts:[
-      {v:0, l:'Acceso sin restricciones', d:'Cualquier empleado puede acceder a cualquier dato'},
-      {v:1, l:'Restricciones básicas por área', d:'Hay separación por departamento pero no por roles'},
-      {v:2, l:'Control de accesos por sistema', d:'Algunos sistemas tienen roles definidos'},
-      {v:3, l:'Acceso mínimo necesario, auditado', d:'Principio de mínimo privilegio con logs de acceso'},
-    ]
-  },
-  // RIESGO Y CUMPLIMIENTO (12-14)
-  {
-    dim:'risk', q:'¿Han realizado alguna evaluación de impacto en privacidad (DPIA)?',
-    sub:'Análisis de riesgos que un nuevo tratamiento de datos puede generar para los titulares.',
-    opts:[
-      {v:0, l:'No sabemos qué es una DPIA', d:'El concepto no es conocido en la organización'},
-      {v:1, l:'La conocemos pero no la hemos hecho', d:'Sabemos que existe pero no la hemos aplicado'},
-      {v:2, l:'Hecha en algunos proyectos', d:'Se ha realizado DPIA en procesos críticos'},
-      {v:3, l:'Proceso estándar para proyectos nuevos', d:'DPIA es parte del proceso de cualquier iniciativa nueva'},
-    ]
-  },
-  {
-    dim:'risk', q:'¿Controlan los contratos con proveedores que acceden a sus datos personales?',
-    sub:'Acuerdos de tratamiento de datos con terceros (encargados del tratamiento).',
-    opts:[
-      {v:0, l:'Sin contratos específicos de datos', d:'Los proveedores acceden sin cláusulas de privacidad'},
-      {v:1, l:'Cláusulas genéricas en contratos', d:'Hay mención pero sin especificidad sobre datos personales'},
-      {v:2, l:'Cláusulas de privacidad en contratos principales', d:'Los contratos críticos tienen cláusulas de datos'},
-      {v:3, l:'Contratos de encargado formal con todos', d:'Acuerdos de tratamiento firmados con todos los terceros'},
-    ]
-  },
-  {
-    dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su sector?',
+    dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su organización?',
     sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.',
     opts:[
       {v:0, l:'No conocemos la Ley 21.719', d:'La ley no es conocida en la organización'},
@@ -657,24 +587,25 @@ const LEVELS = [
 
 const RECOS = {
   gov:  { icon:'🏛️', text:'Formalizar una política de protección de datos aprobada por la dirección y designar un DPO o encargado de privacidad con atribuciones claras.' },
-  data: { icon:'🗂️', text:'Elaborar un registro de actividades de tratamiento (RAT) que incluya qué datos se recopilan, con qué finalidad, quién los accede y por cuánto tiempo se conservan.' },
-  arco: { icon:'⚖️', text:'Implementar un proceso formal para atender solicitudes ARCOP dentro del plazo legal de 15 días hábiles (Art. 5° al 9°, Ley 21.719).' },
+  data: { icon:'🗂️', text:'Elaborar un registro de actividades de tratamiento (RAT) con los datos que recopilan, su finalidad y plazos de retención. Publicar aviso de privacidad conforme a la Ley 21.719.' },
+  arco: { icon:'⚖️', text:'Implementar un canal formal para que sus clientes ejerzan sus derechos ARCOP (Acceso, Rectificación, Cancelación, Oposición, Portabilidad) dentro del plazo legal de 15 días hábiles.' },
   sec:  { icon:'🔐', text:'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas con notificación a la APDP.' },
-  risk: { icon:'📋', text:'Iniciar evaluaciones de impacto (DPIA) para los tratamientos de mayor riesgo y firmar contratos de encargado con todos los proveedores que acceden a datos personales.' },
+  risk: { icon:'📋', text:'Capacitar al equipo en los requerimientos de la Ley 21.719 e iniciar un plan de adecuación con acciones concretas antes de diciembre 2026.' },
 };
 
 let current = -1;
-let answers = new Array(15).fill(null);
+let answers = new Array(8).fill(null);
 
 function getScore() {
   const total = answers.reduce((s, v) => s + (v !== null ? v : 0), 0);
-  return Math.round((total / 45) * 100);
+  return Math.round((total / 24) * 100);
 }
 
 function getDimScore(dimIdx) {
   const qs = DIMS[dimIdx].questions;
   const total = qs.reduce((s, qi) => s + (answers[qi] !== null ? answers[qi] : 0), 0);
-  return Math.round((total / 9) * 100);
+  const maxPosible = qs.length * 3;
+  return Math.round((total / maxPosible) * 100);
 }
 
 function getLevel(score) {
@@ -683,7 +614,7 @@ function getLevel(score) {
 
 function getWeakDims() {
   return DIMS.map((d, i) => ({ ...d, score: getDimScore(i) }))
-             .filter(d => d.score < 50)
+             .filter(d => d.score < 80)
              .sort((a,b) => a.score - b.score)
              .slice(0, 3);
 }
@@ -695,9 +626,9 @@ function renderIntro() {
     <div class="intro">
       <div class="intro-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block"></span>D360° Assessment · Ley 21.719</div>
       <h1>¿Está su empresa<br>preparada para la <em>Ley 21.719?</em></h1>
-      <p>Responda 15 preguntas y obtenga en 5 minutos su nivel de madurez en protección de datos personales, con recomendaciones concretas.</p>
+      <p>Responda 8 preguntas y obtenga en 3 minutos su nivel de madurez en protección de datos personales, con recomendaciones concretas.</p>
       <div class="intro-meta">
-        <div class="intro-meta-item"><div class="intro-meta-num">15</div><div class="intro-meta-lbl">Preguntas</div></div>
+        <div class="intro-meta-item"><div class="intro-meta-num">8</div><div class="intro-meta-lbl">Preguntas</div></div>
         <div class="intro-meta-item"><div class="intro-meta-num">5</div><div class="intro-meta-lbl">Dimensiones</div></div>
         <div class="intro-meta-item"><div class="intro-meta-num">~5'</div><div class="intro-meta-lbl">Minutos</div></div>
       </div>
@@ -714,10 +645,10 @@ function renderQuestion() {
   const q = QUESTIONS[current];
   const dim = DIMS.find(d => d.id === q.dim);
   const card = document.getElementById('mainCard');
-  const pct = Math.round(((current) / 15) * 100);
+  const pct = Math.round(((current) / 8) * 100);
 
   document.getElementById('progressWrap').style.display = 'block';
-  document.getElementById('progressLabel').textContent = `Pregunta ${current+1} de 15`;
+  document.getElementById('progressLabel').textContent = `Pregunta ${current+1} de 8`;
   document.getElementById('dimName').textContent = dim.name;
   document.getElementById('progressFill').style.width = pct + '%';
 
@@ -726,7 +657,7 @@ function renderQuestion() {
   card.innerHTML = `
     <div class="fade-in-r">
       <div class="dim-label"><span class="dim-dot" style="background:${dim.color}"></span>${dim.name}</div>
-      <div class="q-num">Pregunta ${current+1} de 15</div>
+      <div class="q-num">Pregunta ${current+1} de 8</div>
       <div class="q-text">${q.q}</div>
       <div class="q-sub">${q.sub}</div>
       <div class="options">
@@ -742,7 +673,7 @@ function renderQuestion() {
       <div class="nav">
         <button class="btn-back" onclick="goBack()" ${current === 0 ? 'style="visibility:hidden"' : ''}>← Anterior</button>
         <button class="btn-next ${sel !== null ? 'active' : ''}" id="btnNext" onclick="goNext()">
-          ${current === 14 ? 'Ver resultados →' : 'Siguiente →'}
+          ${current === 7 ? 'Ver resultados →' : 'Siguiente →'}
         </button>
       </div>
     </div>`;
@@ -758,7 +689,7 @@ function selectOpt(val) {
 
 function goNext() {
   if (answers[current] === null) return;
-  if (current < 14) {
+  if (current < 7) {
     current++;
     renderQuestion();
   } else {
@@ -836,8 +767,8 @@ function renderResults() {
       </div>
 
       <div class="lead-form" id="leadForm">
-        <div class="lead-title">Obtenga su diagnóstico completo</div>
-        <div class="lead-sub">Un experto AlignData revisará sus resultados y le enviará un plan de adecuación personalizado para cumplir con la Ley 21.719 antes de diciembre 2026.</div>
+        <div class="lead-title">Conoce su nivel real de cumplimiento</div>
+        <div class="lead-sub">Con este diagnóstico tiene una visión clara de dónde está su empresa respecto a la Ley 21.719. El siguiente paso es agendar una conversación con nuestro equipo.</div>
         <div class="lead-fields">
           <div class="field-wrap">
             <label class="field-label">Nombre</label>
