@@ -120,7 +120,7 @@
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#mapa">Mapa global</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#guias">Guías</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#metodologia">Metodología</a></li>
-          <li class="nav-item"><a class="nav-link ad-nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="Contacto.html">Contacto</a></li>
           <li class="nav-item ms-lg-3">
             <a class="btn ad-btn-teal" href="assessment-d360.html">Solicitar información D360° →</a>
           </li>
@@ -154,6 +154,10 @@
           <div class="d-flex flex-wrap gap-3 mt-4">
             <a href="assessment-d360.html" class="btn ad-btn-teal ad-btn-lg">Solicitar información D360° →</a>
             <a href="#servicios" class="btn ad-btn-outline-white ad-btn-lg">Ver servicios</a>
+            <a id="heroMeetBtn" href="#" target="_blank" rel="noopener" class="btn ad-btn-outline-white ad-btn-lg d-inline-flex align-items-center gap-2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agendar reunión
+            </a>
           </div>
         </div>
         <div class="col-lg-6 fade-in-2">
@@ -574,7 +578,7 @@
       <p class="ad-cta-sub">Agende un diagnóstico D360° y conozca su nivel real de cumplimiento en menos de 30 días.</p>
       <div class="d-flex gap-3 justify-content-center flex-wrap">
         <a href="assessment-d360.html" class="btn ad-btn-teal ad-btn-xl">Solicitar información D360° →</a>
-        <a href="contacto.html" class="btn ad-btn-outline-white ad-btn-xl">Enviar mensaje</a>
+        <a href="Contacto.html" class="btn ad-btn-outline-white ad-btn-xl">Enviar mensaje</a>
       </div>
     </div>
   </section>
@@ -626,7 +630,7 @@
             <li><a href="ley-21719-que-es.html">Ley 21.719 — Guía práctica</a></li>
             <li><a href="multas-ley-21719.html">Multas y sanciones</a></li>
             <li><a href="preparar-empresa-2026.html">Plan de adecuación</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
             <li><a href="#">Política de privacidad</a></li>
           </ul>
         </div>
@@ -858,6 +862,23 @@
     }
     const tl=document.getElementById('ad-timeline');
     if(tl){const obs=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting&&!started){started=true;revealStep(0);obs.disconnect();}},{threshold:0.15});obs.observe(tl);}
+  })();
+  </script>
+
+  <!-- Google Calendar meet button -->
+  <script>
+  (function(){
+    var title   = encodeURIComponent('Reunión AlignData — Diagnóstico D360°');
+    var details = encodeURIComponent('Conversación inicial sobre cumplimiento Ley 21.719. El equipo AlignData revisará su situación actual y responderá sus consultas.');
+    var guests  = 'patricio.oliva%40aligndata.cl%2Ccarlos.jerez%40aligndata.cl%2Cmlama%40alumnos.uai.cl';
+    var url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+            + '&text=' + title
+            + '&details=' + details
+            + '&add=' + guests
+            + '&duration=3000'
+            + '&sf=true&output=xml';
+    var btn = document.getElementById('heroMeetBtn');
+    if(btn) btn.href = url;
   })();
   </script>
 
