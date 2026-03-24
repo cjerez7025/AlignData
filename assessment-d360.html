@@ -20,9 +20,7 @@
   --warn: #f39c12;
   --success: #00B894;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   background: var(--navy);
   color: var(--text);
@@ -33,417 +31,115 @@ body {
   justify-content: center;
   padding: 24px;
 }
-
-.shell {
-  width: 100%;
-  max-width: 720px;
-}
-
-/* Progress bar */
-.progress-wrap {
-  margin-bottom: 32px;
-}
-.progress-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.progress-track {
-  height: 3px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--teal));
-  border-radius: 2px;
-  transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
-}
-.dim-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 12px;
-}
-.dim-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--teal);
-}
-
-/* Card */
-.card {
-  background: var(--navy-mid);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px;
-  position: relative;
-  overflow: hidden;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--teal));
-}
-
-.q-num {
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.q-text {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  line-height: 1.35;
-  color: #fff;
-  margin-bottom: 8px;
-}
-.q-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
-
-/* Options */
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-.opt {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 16px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.18s;
-}
-.opt:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.15);
-}
-.opt.selected {
-  background: rgba(0,184,148,0.1);
-  border-color: rgba(0,184,148,0.4);
-}
-.opt-circle {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  flex-shrink: 0;
-  margin-top: 1px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.18s;
-}
-.opt.selected .opt-circle {
-  background: var(--teal);
-  border-color: var(--teal);
-}
-.opt-check {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #fff;
-  display: none;
-}
+.shell { width: 100%; max-width: 720px; }
+.progress-wrap { margin-bottom: 32px; }
+.progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; color: var(--muted); }
+.progress-track { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--teal)); border-radius: 2px; transition: width 0.4s cubic-bezier(0.22,1,0.36,1); }
+.dim-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+.dim-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--teal)); }
+.q-num { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.q-text { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.35; color: #fff; margin-bottom: 8px; }
+.q-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+.options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.opt { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; cursor: pointer; transition: all 0.18s; }
+.opt:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+.opt.selected { background: rgba(0,184,148,0.1); border-color: rgba(0,184,148,0.4); }
+.opt-circle { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.25); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
+.opt.selected .opt-circle { background: var(--teal); border-color: var(--teal); }
+.opt-check { width: 8px; height: 8px; border-radius: 50%; background: #fff; display: none; }
 .opt.selected .opt-check { display: block; }
-.opt-content {}
-.opt-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-.opt-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.4;
-}
+.opt-label { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.opt-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
 .opt.selected .opt-label { color: var(--teal); }
-
-/* Nav buttons */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.btn-back {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px;
-  color: var(--muted);
-  font-size: 13px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
-}
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.btn-back { background: transparent; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--muted); font-size: 13px; padding: 10px 20px; cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
 .btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
-.btn-next {
-  background: linear-gradient(135deg, var(--blue), var(--teal));
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px 28px;
-  cursor: pointer;
-  transition: opacity 0.15s, transform 0.15s;
-  font-family: 'DM Sans', sans-serif;
-  opacity: 0.4;
-  pointer-events: none;
-}
-.btn-next.active {
-  opacity: 1;
-  pointer-events: all;
-}
+.btn-next { background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; padding: 12px 28px; cursor: pointer; transition: opacity 0.15s, transform 0.15s; font-family: 'DM Sans', sans-serif; opacity: 0.4; pointer-events: none; }
+.btn-next.active { opacity: 1; pointer-events: all; }
 .btn-next.active:hover { transform: translateY(-1px); opacity: 0.9; }
-
-/* INTRO */
 .intro { text-align: center; padding: 48px 36px; }
-.intro-badge {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(0,184,148,0.1);
-  border: 1px solid rgba(0,184,148,0.3);
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 12px; font-weight: 600;
-  color: var(--teal);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.intro h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 36px;
-  line-height: 1.2;
-  color: #fff;
-  margin-bottom: 16px;
-}
+.intro-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(0,184,148,0.1); border: 1px solid rgba(0,184,148,0.3); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: var(--teal); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.intro h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.2; color: #fff; margin-bottom: 16px; }
 .intro h1 em { color: var(--teal); font-style: italic; }
-.intro p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto 32px;
-}
-.intro-meta {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-.intro-meta-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-.intro-meta-num {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
-}
-.intro-meta-lbl {
-  font-size: 11px;
-  color: var(--muted);
-}
-.btn-start {
-  background: linear-gradient(135deg, var(--blue), var(--teal));
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 14px 40px;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  transition: transform 0.15s, opacity 0.15s;
-}
+.intro p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto 32px; }
+.intro-meta { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; }
+.intro-meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.intro-meta-num { font-size: 24px; font-weight: 600; color: #fff; }
+.intro-meta-lbl { font-size: 11px; color: var(--muted); }
+.btn-start { background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 10px; color: #fff; font-size: 15px; font-weight: 500; padding: 14px 40px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: transform 0.15s, opacity 0.15s; }
 .btn-start:hover { transform: translateY(-2px); opacity: 0.9; }
-
-/* RESULTS */
 .result { padding: 36px; }
 .result-header { text-align: center; margin-bottom: 32px; }
-.score-ring {
-  width: 120px; height: 120px;
-  margin: 0 auto 16px;
-  position: relative;
-}
+.score-ring { width: 120px; height: 120px; margin: 0 auto 16px; position: relative; }
 .score-ring svg { transform: rotate(-90deg); }
 .score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
 .score-ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.22,1,0.36,1); }
-.score-num {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.score-val {
-  font-size: 28px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1;
-}
+.score-num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.score-val { font-size: 28px; font-weight: 600; color: #fff; line-height: 1; }
 .score-max { font-size: 11px; color: var(--muted); }
-.result-level {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 6px;
-}
+.result-level { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; margin-bottom: 6px; }
 .result-sub { font-size: 14px; color: var(--muted); }
-
-/* Dim bars */
 .dim-bars { margin-bottom: 28px; }
 .dim-bar-item { margin-bottom: 14px; }
-.dim-bar-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-  font-size: 13px;
-}
+.dim-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; }
 .dim-bar-name { color: var(--text); font-weight: 500; }
 .dim-bar-score { color: var(--muted); font-size: 12px; }
-.dim-bar-track {
-  height: 6px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.dim-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 1s cubic-bezier(0.22,1,0.36,1);
-}
+.dim-bar-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.dim-bar-fill { height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(0.22,1,0.36,1); }
 
-/* Recos */
+/* ── Brechas ── */
 .recos { margin-bottom: 28px; }
-.reco-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-.reco-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 14px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 8px;
-  margin-bottom: 8px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.75);
-}
-.reco-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+.reco-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+.reco-count-badge { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 20px; color: #EF4444; font-size: 11px; font-weight: 600; padding: 2px 10px; letter-spacing: 0; text-transform: none; }
+
+/* Brecha visible */
+.reco-item { display: flex; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 8px; font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.8); align-items: flex-start; }
+.reco-icon-wrap { width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.reco-icon-wrap svg { width: 20px; height: 20px; }
+
+/* Brecha nublada */
+.reco-blurred-wrap { position: relative; margin-bottom: 8px; border-radius: 10px; overflow: hidden; }
+.reco-blurred { display: flex; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.8); filter: blur(5px); user-select: none; pointer-events: none; align-items: flex-start; }
+.reco-blurred-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,30,56,0.55), rgba(22,34,54,0.7)); display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+.reco-lock-icon { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+/* Blur wall CTA */
+.blur-wall-cta { margin-top: 4px; margin-bottom: 4px; padding: 16px 18px; background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(0,184,148,0.08)); border: 1px solid rgba(37,99,235,0.25); border-radius: 10px; display: flex; align-items: center; gap: 14px; }
+.blur-wall-cta-icon { font-size: 22px; flex-shrink: 0; }
+.blur-wall-cta-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+.blur-wall-cta-sub { font-size: 12px; color: var(--muted); line-height: 1.45; }
 
 /* Lead form */
-.lead-form {
-  background: rgba(37,99,235,0.08);
-  border: 1px solid rgba(37,99,235,0.25);
-  border-radius: 12px;
-  padding: 24px;
-}
-.lead-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 6px;
-}
+.lead-form { background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.25); border-radius: 12px; padding: 24px; }
+.lead-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff; margin-bottom: 6px; }
 .lead-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
-.lead-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.lead-fields.single { grid-template-columns: 1fr; }
+.lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 .field-wrap { display: flex; flex-direction: column; gap: 4px; }
 .field-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-.field-input {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 7px;
-  color: #fff;
-  font-size: 13px;
-  padding: 9px 12px;
-  outline: none;
-  font-family: 'DM Sans', sans-serif;
-  transition: border-color 0.15s;
-}
+.field-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 7px; color: #fff; font-size: 13px; padding: 9px 12px; outline: none; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; }
 .field-input:focus { border-color: var(--teal); }
 .field-input::placeholder { color: rgba(255,255,255,0.25); }
-.btn-lead {
-  width: 100%;
-  background: linear-gradient(135deg, var(--blue), var(--teal));
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  margin-top: 10px;
-  transition: opacity 0.15s;
-}
+.btn-lead { width: 100%; background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; padding: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 10px; transition: opacity 0.15s; }
 .btn-lead:hover { opacity: 0.9; }
-.lead-privacy {
-  font-size: 11px;
-  color: rgba(255,255,255,0.2);
-  text-align: center;
-  margin-top: 8px;
-}
-
-/* Sent state */
-.sent-state {
-  text-align: center;
-  padding: 20px 0;
-}
+.lead-privacy { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 8px; }
+.sent-state { text-align: center; padding: 20px 0; }
 .sent-icon { font-size: 36px; margin-bottom: 10px; }
 .sent-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; margin-bottom: 6px; }
 .sent-sub { font-size: 13px; color: var(--muted); }
-
-/* Fade transition */
-.fade-out { opacity: 0; transform: translateX(-16px); transition: all 0.2s ease; }
 .fade-in-r { animation: fadeInR 0.3s ease both; }
 @keyframes spin { to { transform: rotate(360deg); } }
-@keyframes fadeInR {
-  from { opacity: 0; transform: translateX(16px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
+@keyframes fadeInR { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
 @media (max-width: 600px) {
   .card { padding: 24px 20px; }
   .q-text { font-size: 18px; }
   .intro h1 { font-size: 26px; }
   .lead-fields { grid-template-columns: 1fr; }
+  .blur-wall-cta { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -457,8 +153,6 @@ body {
   </a>
 </div>
 <div class="shell">
-
-  <!-- PROGRESS -->
   <div class="progress-wrap" id="progressWrap" style="display:none">
     <div class="progress-meta">
       <span id="progressLabel">Pregunta 1 de 8</span>
@@ -468,11 +162,7 @@ body {
       <div class="progress-fill" id="progressFill" style="width:0%"></div>
     </div>
   </div>
-
-  <div class="card" id="mainCard">
-    <!-- Contenido dinámico -->
-  </div>
-
+  <div class="card" id="mainCard"></div>
 </div>
 
 <script>
@@ -485,113 +175,109 @@ const DIMS = [
 ];
 
 const QUESTIONS = [
-  // GOBIERNO (0-1)
-  {
-    dim:'gov', q:'¿Su organización tiene una política formal de protección de datos personales?',
-    sub:'Documentos aprobados por la dirección que regulan el tratamiento de datos.',
-    opts:[
-      {v:0, l:'No existe ninguna política', d:'No hay documentos formales sobre privacidad'},
-      {v:1, l:'Está en desarrollo', d:'Se está elaborando pero no está aprobada'},
-      {v:2, l:'Existe pero no está actualizada', d:'Hay política pero data de más de 2 años'},
-      {v:3, l:'Sí, vigente y comunicada', d:'Política aprobada, comunicada a todos los empleados'},
-    ]
-  },
-  {
-    dim:'gov', q:'¿Tienen designado un responsable o encargado de protección de datos?',
-    sub:'Persona o rol formal que supervisa el cumplimiento en materia de privacidad.',
-    opts:[
-      {v:0, l:'No hay nadie asignado', d:'Nadie es responsable de privacidad'},
-      {v:1, l:'Informalmente asignado', d:'Alguien lo hace pero sin cargo formal'},
-      {v:2, l:'Rol asignado parcialmente', d:'Hay un responsable pero sin dedicación exclusiva'},
-      {v:3, l:'DPO o equivalente designado', d:'Rol formal con funciones claras y recursos'},
-    ]
-  },
-  // GESTIÓN DE DATOS (2-3)
-  {
-    dim:'data', q:'¿Saben qué datos personales recopilan y dónde se almacenan?',
-    sub:'Inventario o registro de actividades de tratamiento de datos.',
-    opts:[
-      {v:0, l:'No tenemos ese inventario', d:'No sabemos con certeza qué datos tenemos'},
-      {v:1, l:'Conocimiento parcial e informal', d:'Sabemos aproximadamente pero no está documentado'},
-      {v:2, l:'Inventario parcial documentado', d:'Hay un registro de los sistemas principales'},
-      {v:3, l:'Registro completo y actualizado', d:'Inventario formal de todos los tratamientos de datos'},
-    ]
-  },
-  {
-    dim:'data', q:'¿Informan a las personas sobre cómo usan sus datos personales?',
-    sub:'Avisos de privacidad, términos y condiciones, transparencia con los titulares.',
-    opts:[
-      {v:0, l:'No informamos formalmente', d:'No hay avisos de privacidad para los titulares'},
-      {v:1, l:'Solo en contratos generales', d:'Hay mención en contratos pero no es específica'},
-      {v:2, l:'Aviso de privacidad básico', d:'Existe pero no cumple todos los requisitos de la ley'},
-      {v:3, l:'Aviso completo y accesible', d:'Aviso conforme a Ley 21.719, visible y comprensible'},
-    ]
-  },
-  // DERECHOS ARCOP (4-5)
-  {
-    dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso, rectificación o cancelación de datos (ARCOP)?',
-    sub:'Los titulares tienen derecho a ejercer sus derechos sobre sus datos personales.',
-    opts:[
-      {v:0, l:'No existe ningún proceso', d:'No sabríamos cómo responder a una solicitud'},
-      {v:1, l:'Se atiende caso a caso sin proceso', d:'Se resuelve si llega, pero sin procedimiento definido'},
-      {v:2, l:'Proceso informal documentado', d:'Hay procedimiento pero no está sistematizado'},
-      {v:3, l:'Proceso formal dentro del plazo legal', d:'Sistema que garantiza respuesta en 15 días hábiles'},
-    ]
-  },
-  {
-    dim:'arco', q:'¿Pueden rectificar o eliminar datos personales a petición del titular?',
-    sub:'Derechos de Rectificación y Cancelación bajo la Ley 21.719.',
-    opts:[
-      {v:0, l:'No, técnicamente no es posible', d:'Los sistemas no permiten modificar o eliminar datos'},
-      {v:1, l:'Es posible pero muy difícil', d:'Se puede hacer pero requiere intervención técnica'},
-      {v:2, l:'Posible con proceso manual', d:'Hay un procedimiento aunque no automatizado'},
-      {v:3, l:'Proceso ágil y trazable', d:'Se puede hacer con registro de auditoría y confirmación'},
-    ]
-  },
-  // SEGURIDAD (6)
-  {
-    dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?',
-    sub:'Cifrado, control de accesos, backups y otras medidas técnicas.',
-    opts:[
-      {v:0, l:'Sin medidas específicas', d:'Los datos no tienen protección técnica especial'},
-      {v:1, l:'Medidas básicas (antivirus, contraseñas)', d:'Solo medidas de seguridad general'},
-      {v:2, l:'Controles parciales implementados', d:'Cifrado o control de accesos en algunos sistemas'},
-      {v:3, l:'Controles completos y documentados', d:'Cifrado, accesos basados en roles, auditoría activa'},
-    ]
-  },
-  // RIESGO Y CUMPLIMIENTO (7)
-  {
-    dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su organización?',
-    sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.',
-    opts:[
-      {v:0, l:'No conocemos la Ley 21.719', d:'La ley no es conocida en la organización'},
-      {v:1, l:'Conocimiento básico general', d:'Sabemos que existe pero no sus implicancias específicas'},
-      {v:2, l:'Conocemos los puntos principales', d:'Entendemos los derechos ARCOP y obligaciones generales'},
-      {v:3, l:'Preparados para el cumplimiento', d:'Plan de adecuación en marcha antes de diciembre 2026'},
-    ]
-  },
+  { dim:'gov', q:'¿Su organización tiene una política formal de protección de datos personales?', sub:'Documentos aprobados por la dirección que regulan el tratamiento de datos.', opts:[{v:0,l:'No existe ninguna política',d:'No hay documentos formales sobre privacidad'},{v:1,l:'Está en desarrollo',d:'Se está elaborando pero no está aprobada'},{v:2,l:'Existe pero no está actualizada',d:'Hay política pero data de más de 2 años'},{v:3,l:'Sí, vigente y comunicada',d:'Política aprobada, comunicada a todos los empleados'}] },
+  { dim:'gov', q:'¿Tienen designado un responsable o encargado de protección de datos?', sub:'Persona o rol formal que supervisa el cumplimiento en materia de privacidad.', opts:[{v:0,l:'No hay nadie asignado',d:'Nadie es responsable de privacidad'},{v:1,l:'Informalmente asignado',d:'Alguien lo hace pero sin cargo formal'},{v:2,l:'Rol asignado parcialmente',d:'Hay un responsable pero sin dedicación exclusiva'},{v:3,l:'DPO o equivalente designado',d:'Rol formal con funciones claras y recursos'}] },
+  { dim:'data', q:'¿Saben qué datos personales recopilan y dónde se almacenan?', sub:'Inventario o registro de actividades de tratamiento de datos.', opts:[{v:0,l:'No tenemos ese inventario',d:'No sabemos con certeza qué datos tenemos'},{v:1,l:'Conocimiento parcial e informal',d:'Sabemos aproximadamente pero no está documentado'},{v:2,l:'Inventario parcial documentado',d:'Hay un registro de los sistemas principales'},{v:3,l:'Registro completo y actualizado',d:'Inventario formal de todos los tratamientos de datos'}] },
+  { dim:'data', q:'¿Informan a las personas sobre cómo usan sus datos personales?', sub:'Avisos de privacidad, términos y condiciones, transparencia con los titulares.', opts:[{v:0,l:'No informamos formalmente',d:'No hay avisos de privacidad para los titulares'},{v:1,l:'Solo en contratos generales',d:'Hay mención en contratos pero no es específica'},{v:2,l:'Aviso de privacidad básico',d:'Existe pero no cumple todos los requisitos de la ley'},{v:3,l:'Aviso completo y accesible',d:'Aviso conforme a Ley 21.719, visible y comprensible'}] },
+  { dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso, rectificación o cancelación de datos (ARCOP)?', sub:'Los titulares tienen derecho a ejercer sus derechos sobre sus datos personales.', opts:[{v:0,l:'No existe ningún proceso',d:'No sabríamos cómo responder a una solicitud'},{v:1,l:'Se atiende caso a caso sin proceso',d:'Se resuelve si llega, pero sin procedimiento definido'},{v:2,l:'Proceso informal documentado',d:'Hay procedimiento pero no está sistematizado'},{v:3,l:'Proceso formal dentro del plazo legal',d:'Sistema que garantiza respuesta en 15 días hábiles'}] },
+  { dim:'arco', q:'¿Pueden rectificar o eliminar datos personales a petición del titular?', sub:'Derechos de Rectificación y Cancelación bajo la Ley 21.719.', opts:[{v:0,l:'No, técnicamente no es posible',d:'Los sistemas no permiten modificar o eliminar datos'},{v:1,l:'Es posible pero muy difícil',d:'Se puede hacer pero requiere intervención técnica'},{v:2,l:'Posible con proceso manual',d:'Hay un procedimiento aunque no automatizado'},{v:3,l:'Proceso ágil y trazable',d:'Se puede hacer con registro de auditoría y confirmación'}] },
+  { dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?', sub:'Cifrado, control de accesos, backups y otras medidas técnicas.', opts:[{v:0,l:'Sin medidas específicas',d:'Los datos no tienen protección técnica especial'},{v:1,l:'Medidas básicas (antivirus, contraseñas)',d:'Solo medidas de seguridad general'},{v:2,l:'Controles parciales implementados',d:'Cifrado o control de accesos en algunos sistemas'},{v:3,l:'Controles completos y documentados',d:'Cifrado, accesos basados en roles, auditoría activa'}] },
+  { dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su organización?', sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.', opts:[{v:0,l:'No conocemos la Ley 21.719',d:'La ley no es conocida en la organización'},{v:1,l:'Conocimiento básico general',d:'Sabemos que existe pero no sus implicancias específicas'},{v:2,l:'Conocemos los puntos principales',d:'Entendemos los derechos ARCOP y obligaciones generales'},{v:3,l:'Preparados para el cumplimiento',d:'Plan de adecuación en marcha antes de diciembre 2026'}] },
 ];
 
 const LEVELS = [
-  { min:0,  max:20, name:'Nivel 0 — Sin protección', color:'#EF4444',
-    desc:'Su organización no cuenta con medidas de protección de datos. El riesgo de incumplimiento de la Ley 21.719 es crítico.' },
-  { min:21, max:40, name:'Nivel 1 — Reactivo', color:'#F59E0B',
-    desc:'Existen algunas medidas aisladas, pero no hay un enfoque sistemático. Se requiere acción inmediata.' },
-  { min:41, max:60, name:'Nivel 2 — En desarrollo', color:'#F59E0B',
-    desc:'Hay avances concretos en algunas dimensiones, pero existen brechas importantes que deben cerrarse.' },
-  { min:61, max:80, name:'Nivel 3 — Gestionado', color:'#00B894',
-    desc:'La organización tiene controles establecidos. Se necesita formalización y mejora continua.' },
-  { min:81, max:100, name:'Nivel 4 — Optimizado', color:'var(--teal)',
-    desc:'Gestión madura de privacidad. Foco en mejora continua y certificación ISO 27701.' },
+  { min:0,  max:20,  name:'Nivel 0 — Sin protección', color:'#EF4444', desc:'Su organización no cuenta con medidas de protección de datos. El riesgo de incumplimiento de la Ley 21.719 es crítico.' },
+  { min:21, max:40,  name:'Nivel 1 — Reactivo',       color:'#F59E0B', desc:'Existen algunas medidas aisladas, pero no hay un enfoque sistemático. Se requiere acción inmediata.' },
+  { min:41, max:60,  name:'Nivel 2 — En desarrollo',  color:'#F59E0B', desc:'Hay avances concretos en algunas dimensiones, pero existen brechas importantes que deben cerrarse.' },
+  { min:61, max:80,  name:'Nivel 3 — Gestionado',     color:'#00B894', desc:'La organización tiene controles establecidos. Se necesita formalización y mejora continua.' },
+  { min:81, max:100, name:'Nivel 4 — Optimizado',     color:'var(--teal)', desc:'Gestión madura de privacidad. Foco en mejora continua y certificación ISO 27701.' },
 ];
 
-const RECOS = {
-  gov:  { icon:'🏛️', text:'Formalizar una política de protección de datos aprobada por la dirección y designar un DPO o encargado de privacidad con atribuciones claras.' },
-  data: { icon:'🗂️', text:'Elaborar un registro de actividades de tratamiento (RAT) con los datos que recopilan, su finalidad y plazos de retención. Publicar aviso de privacidad conforme a la Ley 21.719.' },
-  arco: { icon:'⚖️', text:'Implementar un canal formal para que sus clientes ejerzan sus derechos ARCOP (Acceso, Rectificación, Cancelación, Oposición, Portabilidad) dentro del plazo legal de 15 días hábiles.' },
-  sec:  { icon:'🔐', text:'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas con notificación a la APDP.' },
-  risk: { icon:'📋', text:'Capacitar al equipo en los requerimientos de la Ley 21.719 e iniciar un plan de adecuación con acciones concretas antes de diciembre 2026.' },
+// ── Íconos duotone SVG por dimensión ──
+const ICONS = {
+  gov: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" fill="#3B82F6" opacity="0.2"/>
+    <path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" stroke="#3B82F6" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+    <path d="M9 15v6.75M15 15v6.75" stroke="#3B82F6" stroke-width="1.5" opacity="0.5"/>
+    <rect x="9" y="9" width="6" height="5" rx="1" fill="#3B82F6" opacity="0.6"/>
+  </svg>`,
+  data: `<svg viewBox="0 0 24 24" fill="none">
+    <ellipse cx="12" cy="6.5" rx="8.25" ry="3" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1.5"/>
+    <path d="M3.75 6.5v4c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-4" stroke="#8B5CF6" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M3.75 10.5v4c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-4" stroke="#8B5CF6" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M3.75 14.5v3c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-3" stroke="#8B5CF6" stroke-width="1.5" fill="none"/>
+    <ellipse cx="12" cy="17.5" rx="8.25" ry="3" fill="#8B5CF6" opacity="0.25"/>
+  </svg>`,
+  arco: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M12 3L4 6.5v5c0 4.5 3.4 8.7 8 9.5 4.6-.8 8-5 8-9.5v-5L12 3z" fill="#00B894" opacity="0.2" stroke="#00B894" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M12 3L4 6.5v5c0 4.5 3.4 8.7 8 9.5" stroke="#00B894" stroke-width="1.5" stroke-linejoin="round" fill="none" opacity="0.4"/>
+    <path d="M8.5 12l2.5 2.5 4.5-4.5" stroke="#00B894" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  sec: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    <rect x="3.75" y="10.5" width="16.5" height="11.25" rx="2.25" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1.5"/>
+    <rect x="3.75" y="10.5" width="16.5" height="5" rx="2.25" fill="#F59E0B" opacity="0.3"/>
+    <circle cx="12" cy="16.125" r="1.75" fill="#F59E0B" opacity="0.9"/>
+    <path d="M12 17.875v1.5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  </svg>`,
+  risk: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M12 2.25L3.75 6.75v4.5c0 5.25 3.6 10.15 8.25 11.25 4.65-1.1 8.25-6 8.25-11.25v-4.5L12 2.25z" fill="#EF4444" opacity="0.15" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M12 2.25L3.75 6.75v4.5c0 5.25 3.6 10.15 8.25 11.25" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round" fill="none" opacity="0.35"/>
+    <path d="M12 8v4M12 14.5v.5" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+  // Genéricas
+  contrato: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M3.375 19.5h13.5A1.875 1.875 0 0018.75 17.625V8.25L13.5 2.25H5.25A1.875 1.875 0 003.375 4.125v15.375z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>`,
+  capacitacion: `<svg viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="7.5" r="3.75" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+    <path d="M15.75 7.5a3.75 3.75 0 11-7.5 0" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M3 19.5a9 9 0 1118 0" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+    <path d="M19.5 14.25a6.75 6.75 0 00-13.5 0" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+  </svg>`,
+  dpia: `<svg viewBox="0 0 24 24" fill="none">
+    <circle cx="11" cy="11" r="7.25" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+    <circle cx="11" cy="11" r="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+    <path d="M16.5 16.5L21 21" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+  protocolo: `<svg viewBox="0 0 24 24" fill="none">
+    <path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.311 6.022c1.733.64 3.56 1.085 5.455 1.31" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M14.857 17.082a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+    <path d="M6 9v.75a8.967 8.967 0 01-1.5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>`,
 };
+
+// Colores de fondo del ícono por dimensión
+const ICON_BG = {
+  gov:  'rgba(37,99,235,0.12)',
+  data: 'rgba(139,92,246,0.12)',
+  arco: 'rgba(0,184,148,0.12)',
+  sec:  'rgba(245,158,11,0.12)',
+  risk: 'rgba(239,68,68,0.12)',
+};
+const ICON_BORDER = {
+  gov:  'rgba(37,99,235,0.25)',
+  data: 'rgba(139,92,246,0.25)',
+  arco: 'rgba(0,184,148,0.25)',
+  sec:  'rgba(245,158,11,0.25)',
+  risk: 'rgba(239,68,68,0.25)',
+};
+
+const RECOS = {
+  gov:  { iconKey:'gov',  text:'Formalizar una política de protección de datos aprobada por la dirección y designar un DPO o encargado de privacidad con atribuciones claras.' },
+  data: { iconKey:'data', text:'Elaborar un registro de actividades de tratamiento (RAT) con los datos que recopilan, su finalidad y plazos de retención. Publicar aviso de privacidad conforme a la Ley 21.719.' },
+  arco: { iconKey:'arco', text:'Implementar un canal formal para que sus clientes ejerzan sus derechos ARCOP (Acceso, Rectificación, Cancelación, Oposición, Portabilidad) dentro del plazo legal de 15 días hábiles.' },
+  sec:  { iconKey:'sec',  text:'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas con notificación a la APDP.' },
+  risk: { iconKey:'risk', text:'Capacitar al equipo en los requerimientos de la Ley 21.719 e iniciar un plan de adecuación con acciones concretas antes de diciembre 2026.' },
+};
+
+const RECOS_GENERICAS = [
+  { iconKey:'contrato',     text:'Revisar y actualizar los contratos con proveedores y subprocesadores para incluir cláusulas de protección de datos conforme a la Ley 21.719.' },
+  { iconKey:'capacitacion', text:'Implementar un programa de capacitación continua para todo el personal que tenga acceso a datos personales.' },
+  { iconKey:'dpia',         text:'Realizar una Evaluación de Impacto en la Protección de Datos (DPIA) para los tratamientos de mayor riesgo.' },
+  { iconKey:'protocolo',    text:'Establecer un protocolo de respuesta ante brechas de seguridad con plazos de notificación a la APDP conforme a la ley.' },
+];
 
 let current = -1;
 let answers = new Array(8).fill(null);
@@ -600,23 +286,24 @@ function getScore() {
   const total = answers.reduce((s, v) => s + (v !== null ? v : 0), 0);
   return Math.round((total / 24) * 100);
 }
-
 function getDimScore(dimIdx) {
   const qs = DIMS[dimIdx].questions;
   const total = qs.reduce((s, qi) => s + (answers[qi] !== null ? answers[qi] : 0), 0);
-  const maxPosible = qs.length * 3;
-  return Math.round((total / maxPosible) * 100);
+  return Math.round((total / (qs.length * 3)) * 100);
 }
-
 function getLevel(score) {
   return LEVELS.find(l => score >= l.min && score <= l.max) || LEVELS[0];
 }
-
-function getWeakDims() {
+function getAllWeakDims() {
   return DIMS.map((d, i) => ({ ...d, score: getDimScore(i) }))
              .filter(d => d.score < 80)
-             .sort((a,b) => a.score - b.score)
-             .slice(0, 3);
+             .sort((a, b) => a.score - b.score);
+}
+
+function iconHtml(key, dimId) {
+  const bg = ICON_BG[dimId] || 'rgba(255,255,255,0.05)';
+  const border = ICON_BORDER[dimId] || 'rgba(255,255,255,0.1)';
+  return `<div class="reco-icon-wrap" style="background:${bg};border:1px solid ${border}">${ICONS[key]}</div>`;
 }
 
 function renderIntro() {
@@ -636,24 +323,18 @@ function renderIntro() {
     </div>`;
 }
 
-function startAssessment() {
-  current = 0;
-  renderQuestion();
-}
+function startAssessment() { current = 0; renderQuestion(); }
 
 function renderQuestion() {
   const q = QUESTIONS[current];
   const dim = DIMS.find(d => d.id === q.dim);
   const card = document.getElementById('mainCard');
-  const pct = Math.round(((current) / 8) * 100);
-
+  const pct = Math.round((current / 8) * 100);
   document.getElementById('progressWrap').style.display = 'block';
   document.getElementById('progressLabel').textContent = `Pregunta ${current+1} de 8`;
   document.getElementById('dimName').textContent = dim.name;
   document.getElementById('progressFill').style.width = pct + '%';
-
   const sel = answers[current];
-
   card.innerHTML = `
     <div class="fade-in-r">
       <div class="dim-label"><span class="dim-dot" style="background:${dim.color}"></span>${dim.name}</div>
@@ -661,7 +342,7 @@ function renderQuestion() {
       <div class="q-text">${q.q}</div>
       <div class="q-sub">${q.sub}</div>
       <div class="options">
-        ${q.opts.map((o,i) => `
+        ${q.opts.map(o => `
           <div class="opt ${sel === o.v ? 'selected' : ''}" onclick="selectOpt(${o.v})">
             <div class="opt-circle"><div class="opt-check"></div></div>
             <div class="opt-content">
@@ -683,32 +364,20 @@ function selectOpt(val) {
   answers[current] = val;
   document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
   event.currentTarget.classList.add('selected');
-  const btn = document.getElementById('btnNext');
-  btn.classList.add('active');
+  document.getElementById('btnNext').classList.add('active');
 }
-
 function goNext() {
   if (answers[current] === null) return;
-  if (current < 7) {
-    current++;
-    renderQuestion();
-  } else {
-    renderResults();
-  }
+  if (current < 7) { current++; renderQuestion(); } else { renderResults(); }
 }
-
 function goBack() {
-  if (current > 0) {
-    current--;
-    renderQuestion();
-  }
+  if (current > 0) { current--; renderQuestion(); }
 }
 
 function renderResults() {
   const score = getScore();
   const level = getLevel(score);
-  const weakDims = getWeakDims();
-
+  const weakDims = getAllWeakDims();
   document.getElementById('progressWrap').style.display = 'none';
   const card = document.getElementById('mainCard');
 
@@ -729,10 +398,41 @@ function renderResults() {
       </div>`;
   }).join('');
 
-  const recoItems = weakDims.map(d => `
+  // Pool de 6 brechas: reales primero, luego genéricas
+  const realesPool = weakDims.map(d => ({ iconKey: RECOS[d.id].iconKey, dimId: d.id, text: RECOS[d.id].text }));
+  const pool = [...realesPool];
+  let gi = 0;
+  while (pool.length < 6 && gi < RECOS_GENERICAS.length) {
+    pool.push({ ...RECOS_GENERICAS[gi], dimId: null });
+    gi++;
+  }
+
+  // 2 visibles + 4 nubladas
+  const visibles = pool.slice(0, 2);
+  const totalBrechas = pool.length;
+
+  const blurTexts = [
+    { iconKey:'contrato',     dimId:null, text:'Revisar los contratos con terceros proveedores que acceden a datos personales e incluir cláusulas específicas de tratamiento y responsabilidad.' },
+    { iconKey:'sec',          dimId:'sec', text:'Implementar controles técnicos adicionales de acceso y auditoría sobre los sistemas que almacenan información sensible de clientes y empleados.' },
+    { iconKey:'dpia',         dimId:null, text:'Actualizar los registros de actividades de tratamiento e incorporar los nuevos flujos de datos identificados en el último período de operación.' },
+    { iconKey:'protocolo',    dimId:null, text:'Establecer métricas de cumplimiento e indicadores clave para el monitoreo continuo del programa de privacidad ante posibles fiscalizaciones.' },
+  ];
+
+  const visiblesHtml = visibles.map(b => `
     <div class="reco-item">
-      <span class="reco-icon">${RECOS[d.id].icon}</span>
-      <span>${RECOS[d.id].text}</span>
+      ${iconHtml(b.iconKey, b.dimId)}
+      <span>${b.text}</span>
+    </div>`).join('');
+
+  const nubladasHtml = blurTexts.map(b => `
+    <div class="reco-blurred-wrap">
+      <div class="reco-blurred">
+        ${iconHtml(b.iconKey, b.dimId)}
+        <span>${b.text}</span>
+      </div>
+      <div class="reco-blurred-overlay">
+        <span class="reco-lock-icon">🔒 Bloqueado</span>
+      </div>
     </div>`).join('');
 
   const circumference = 2 * Math.PI * 46;
@@ -762,50 +462,45 @@ function renderResults() {
       <div class="dim-bars">${dimBars}</div>
 
       <div class="recos">
-        <div class="reco-title">Principales brechas detectadas</div>
-        ${recoItems || '<div class="reco-item"><span class="reco-icon">✅</span><span>Excelente nivel de madurez en todas las dimensiones evaluadas.</span></div>'}
+        <div class="reco-title">
+          Brechas detectadas
+          <span class="reco-count-badge">${totalBrechas} brechas identificadas</span>
+        </div>
+        ${visiblesHtml}
+        ${nubladasHtml}
+        <div class="blur-wall-cta">
+          <div class="blur-wall-cta-icon">🔍</div>
+          <div>
+            <div class="blur-wall-cta-title">4 brechas adicionales bloqueadas</div>
+            <div class="blur-wall-cta-sub">El diagnóstico completo D360° incluye el análisis detallado de todas las brechas, plan de acción priorizado y acompañamiento de nuestro equipo.</div>
+          </div>
+        </div>
       </div>
 
       <div class="lead-form" id="leadForm">
-        <div class="lead-title">Conoce su nivel real de cumplimiento</div>
-        <div class="lead-sub">Con este diagnóstico tiene una visión clara de dónde está su empresa respecto a la Ley 21.719. El siguiente paso es agendar una conversación con nuestro equipo.</div>
+        <div class="lead-title">Ver el análisis completo</div>
+        <div class="lead-sub">Desbloquee todas las brechas detectadas y reciba un plan de acción personalizado para cumplir con la Ley 21.719 antes de diciembre 2026.</div>
         <div class="lead-fields">
-          <div class="field-wrap">
-            <label class="field-label">Nombre</label>
-            <input class="field-input" type="text" id="fName" placeholder="Juan Pérez">
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Empresa</label>
-            <input class="field-input" type="text" id="fCompany" placeholder="Mi Empresa Ltda.">
-          </div>
+          <div class="field-wrap"><label class="field-label">Nombre</label><input class="field-input" type="text" id="fName" placeholder="Juan Pérez"></div>
+          <div class="field-wrap"><label class="field-label">Empresa</label><input class="field-input" type="text" id="fCompany" placeholder="Mi Empresa Ltda."></div>
         </div>
         <div class="lead-fields">
-          <div class="field-wrap">
-            <label class="field-label">Correo</label>
-            <input class="field-input" type="email" id="fEmail" placeholder="juan@empresa.cl">
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Teléfono (opcional)</label>
-            <input class="field-input" type="tel" id="fPhone" placeholder="+56 9 1234 5678">
-          </div>
+          <div class="field-wrap"><label class="field-label">Correo</label><input class="field-input" type="email" id="fEmail" placeholder="juan@empresa.cl"></div>
+          <div class="field-wrap"><label class="field-label">Teléfono (opcional)</label><input class="field-input" type="tel" id="fPhone" placeholder="+56 9 1234 5678"></div>
         </div>
         <button class="btn-lead" onclick="submitLead()">Solicitar diagnóstico completo D360° →</button>
         <div class="lead-privacy">Sus datos se tratan conforme a la Ley 21.719 · Solo para contacto de AlignData</div>
       </div>
     </div>`;
 
-  // Animar score
   setTimeout(() => {
     document.getElementById('ringFill').style.strokeDashoffset = offset;
     let n = 0;
-    const target = score;
     const interval = setInterval(() => {
-      n = Math.min(n + 2, target);
+      n = Math.min(n + 2, score);
       document.getElementById('scoreVal').textContent = n;
-      if (n >= target) clearInterval(interval);
+      if (n >= score) clearInterval(interval);
     }, 20);
-
-    // Animar barras
     document.querySelectorAll('.dim-bar-fill').forEach(b => {
       setTimeout(() => { b.style.width = b.dataset.width; }, 200);
     });
@@ -819,61 +514,38 @@ function submitLead() {
   const company = document.getElementById('fCompany').value.trim();
   const email   = document.getElementById('fEmail').value.trim();
   const phone   = document.getElementById('fPhone').value.trim();
-
   if (!name || !email) {
-    document.getElementById('fName').style.borderColor = !name ? '#EF4444' : '';
+    document.getElementById('fName').style.borderColor  = !name  ? '#EF4444' : '';
     document.getElementById('fEmail').style.borderColor = !email ? '#EF4444' : '';
     return;
   }
-
-  // Mostrar spinner
   document.getElementById('leadForm').innerHTML = `
     <div class="sent-state">
       <div style="width:44px;height:44px;border:3px solid rgba(255,255,255,0.15);border-top-color:#00B894;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;"></div>
       <div class="sent-sub" style="color:rgba(255,255,255,0.5);">Guardando sus resultados...</div>
     </div>`;
-
-  const score = getScore();
-  const level = getLevel(score);
-  const dims  = DIMS.map((d, i) => getDimScore(i));
-  const resps = answers.slice(); // array de respuestas (0-3 por pregunta)
-
   const datos = {
-    tipo:       'assessment',
-    nombre:     name,
-    empresa:    company,
-    correo:     email,
-    telefono:   phone,
-    score:      score,
-    dims:       dims,
-    respuestas: resps
+    tipo:'assessment', nombre:name, empresa:company, correo:email, telefono:phone,
+    score:getScore(), dims:DIMS.map((d,i)=>getDimScore(i)), respuestas:answers.slice()
   };
-
-  fetch(AD_SCRIPT_URL, {
-    method:  'POST',
-    mode:    'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify(datos)
-  })
-  .then(() => {
-    document.getElementById('leadForm').innerHTML = `
-      <div class="sent-state">
-        <div class="sent-icon">✅</div>
-        <div class="sent-title">¡Solicitud enviada!</div>
-        <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
-      </div>`;
-  })
-  .catch(() => {
-    // Fallback: si falla el fetch, igual muestra éxito (no-cors no distingue errores)
-    document.getElementById('leadForm').innerHTML = `
-      <div class="sent-state">
-        <div class="sent-icon">✅</div>
-        <div class="sent-title">¡Solicitud enviada!</div>
-        <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles.</div>
-      </div>`;
-  });
+  fetch(AD_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(datos) })
+    .then(() => {
+      document.getElementById('leadForm').innerHTML = `
+        <div class="sent-state">
+          <div class="sent-icon">✅</div>
+          <div class="sent-title">¡Solicitud enviada!</div>
+          <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
+        </div>`;
+    })
+    .catch(() => {
+      document.getElementById('leadForm').innerHTML = `
+        <div class="sent-state">
+          <div class="sent-icon">✅</div>
+          <div class="sent-title">¡Solicitud enviada!</div>
+          <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles.</div>
+        </div>`;
+    });
 }
-
 
 renderIntro();
 </script>

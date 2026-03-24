@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — AlignData | Cumplimiento Ley 21.719 Chile</title>
   <meta name="description" content="Contáctenos para agendar su diagnóstico D360° gratuito. AlignData ayuda a empresas chilenas a cumplir con la Ley 21.719 de Protección de Datos Personales.">
-  <link rel="canonical" href="https://aligndata.cl/contacto.html">
+  <link rel="canonical" href="https://aligndata.cl/Contacto.html">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,39 +16,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0F1E38">
   <style>
-    .ct-hero {
-      background: var(--ad-navy, #0F1E38);
-      padding: 80px 0 60px;
-    }
-    .ct-form-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 36px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
-    }
-    .ct-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #4a5568;
-      margin-bottom: 6px;
-    }
-    .ct-input {
-      width: 100%;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      color: #0F1E38;
-      font-size: 14px;
-      padding: 11px 14px;
-      outline: none;
-      font-family: inherit;
-      transition: border-color 0.15s;
-      box-sizing: border-box;
-    }
+    .ct-hero { background: var(--ad-navy, #0F1E38); padding: 80px 0 60px; }
+    .ct-form-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 36px; box-shadow: 0 4px 32px rgba(0,0,0,0.06); }
+    .ct-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #4a5568; margin-bottom: 6px; }
+    .ct-input { width: 100%; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #0F1E38; font-size: 14px; padding: 11px 14px; outline: none; font-family: inherit; transition: border-color 0.15s; box-sizing: border-box; }
     .ct-input:focus { border-color: #00B894; background: #fff; }
     .ct-input::placeholder { color: #a0aec0; }
     textarea.ct-input { resize: vertical; min-height: 110px; }
@@ -61,110 +32,19 @@
     @keyframes ct-spin { to { transform: rotate(360deg); } }
     .ct-error { color: #e74c3c; font-size: 13px; margin-bottom: 10px; }
     .ct-privacy { font-size: 11px; color: #8896a5; text-align: center; margin-top: 10px; }
-
-    /* Card agendar reunión */
-    .ct-meet-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 28px;
-    }
-    .ct-meet-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .ct-meet-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #8896a5;
-      margin-bottom: 4px;
-    }
-    .ct-meet-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0F1E38;
-      margin-bottom: 3px;
-    }
-    .ct-meet-sub {
-      font-size: 13px;
-      color: #8896a5;
-    }
-    .ct-meet-btn {
-      background: #0F1E38;
-      border: none;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
+    .ct-meet-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 28px; }
+    .ct-meet-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .ct-meet-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: #8896a5; margin-bottom: 4px; }
+    .ct-meet-title { font-size: 16px; font-weight: 600; color: #0F1E38; margin-bottom: 3px; }
+    .ct-meet-sub { font-size: 13px; color: #8896a5; }
+    .ct-meet-btn { background: #0F1E38; border: none; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; text-decoration: none; transition: opacity 0.15s; }
     .ct-meet-btn:hover { opacity: 0.88; color: #fff; }
-    .ct-meet-footer {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .ct-meet-footer { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .ct-meet-label { font-size: 12px; color: #8896a5; }
-    .ct-meet-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 12px;
-      color: #4a5568;
-    }
-    .ct-meet-avatar {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #0F1E38;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 8px;
-      color: #00B894;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-    .ct-meet-duration {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      color: #8896a5;
-    }
-    .ct-meet-info {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      background: rgba(37,99,235,0.05);
-      border: 1px solid rgba(37,99,235,0.18);
-      border-radius: 8px;
-      padding: 9px 12px;
-      margin-top: 10px;
-    }
+    .ct-meet-pill { display: inline-flex; align-items: center; gap: 5px; background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 3px 10px; font-size: 12px; color: #4a5568; }
+    .ct-meet-avatar { width: 18px; height: 18px; border-radius: 50%; background: #0F1E38; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #00B894; font-weight: 600; flex-shrink: 0; }
+    .ct-meet-duration { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: #8896a5; }
+    .ct-meet-info { display: flex; gap: 8px; align-items: flex-start; background: rgba(37,99,235,0.05); border: 1px solid rgba(37,99,235,0.18); border-radius: 8px; padding: 9px 12px; margin-top: 10px; }
     .ct-meet-info p { font-size: 12px; color: #4a5568; margin: 0; line-height: 1.5; }
   </style>
 </head>
@@ -202,7 +82,6 @@
         <!-- Info izquierda -->
         <div class="col-lg-4">
           <h2 style="font-size:20px;font-weight:600;color:#0F1E38;margin-bottom:24px;">Información de contacto</h2>
-
           <div class="ct-info-item">
             <div class="ct-info-icon"><i class="bi bi-envelope"></i></div>
             <div>
@@ -211,7 +90,6 @@
               <div class="ct-info-val" style="font-size:13px;color:#8896a5;">carlos.jerez@aligndata.cl</div>
             </div>
           </div>
-
           <div class="ct-info-item">
             <div class="ct-info-icon"><i class="bi bi-linkedin"></i></div>
             <div>
@@ -219,24 +97,14 @@
               <a href="https://www.linkedin.com/company/aligndata-protect/" target="_blank" rel="noopener" style="color:#00B894;text-decoration:none;font-size:14px;font-weight:500;">AlignData Protect</a>
             </div>
           </div>
-
           <div class="ct-info-item">
             <div class="ct-info-icon"><i class="bi bi-geo-alt"></i></div>
-            <div>
-              <div class="ct-info-label">Ubicación</div>
-              <div class="ct-info-val">Chile</div>
-            </div>
+            <div><div class="ct-info-label">Ubicación</div><div class="ct-info-val">Chile</div></div>
           </div>
-
           <div class="ct-info-item">
             <div class="ct-info-icon"><i class="bi bi-clock"></i></div>
-            <div>
-              <div class="ct-info-label">Tiempo de respuesta</div>
-              <div class="ct-info-val">Menos de 24 horas hábiles</div>
-            </div>
+            <div><div class="ct-info-label">Tiempo de respuesta</div><div class="ct-info-val">Menos de 24 horas hábiles</div></div>
           </div>
-
-          <!-- Diagnóstico CTA -->
           <div style="background:#0F1E38;border-radius:12px;padding:20px;margin-top:32px;">
             <p style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">¿Prefiere empezar ya?</p>
             <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Realice el diagnóstico D360° en 5 minutos y conozca su nivel de cumplimiento.</p>
@@ -255,7 +123,7 @@
                 <p class="ct-meet-title">Agende una reunión con nosotros</p>
                 <p class="ct-meet-sub">30 min · Google Meet · Con el equipo AlignData</p>
               </div>
-              <a id="ctMeetBtn" href="#" target="_blank" rel="noopener" class="ct-meet-btn">
+              <a href="https://calendar.app.google/6MXvAUtuqaxMHwdg7" target="_blank" rel="noopener" class="ct-meet-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2"/>
                   <line x1="16" y1="2" x2="16" y2="6"/>
@@ -265,40 +133,24 @@
                 Ver disponibilidad →
               </a>
             </div>
-
             <div class="ct-meet-footer">
               <span class="ct-meet-label">Equipo AlignData:</span>
-              <span class="ct-meet-pill">
-                <span class="ct-meet-avatar">CJ</span>
-                Carlos
-              </span>
-              <span class="ct-meet-pill">
-                <span class="ct-meet-avatar">PO</span>
-                Patricio
-              </span>
-              <span class="ct-meet-pill">
-                <span class="ct-meet-avatar">ML</span>
-                Matías
-              </span>
+              <span class="ct-meet-pill"><span class="ct-meet-avatar">CJ</span>Carlos</span>
+              <span class="ct-meet-pill"><span class="ct-meet-avatar">PO</span>Patricio</span>
+              <span class="ct-meet-pill"><span class="ct-meet-avatar">ML</span>Matías</span>
               <span class="ct-meet-duration">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 30 min
               </span>
             </div>
-
             <div class="ct-meet-info">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" style="flex-shrink:0;margin-top:1px;">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-              <p>Al hacer clic se abre Google Calendar con el evento precargado — fecha, asistentes y Meet incluidos. Solo debe confirmar el horario.</p>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <p>Al hacer clic se abrirá Calendly con los horarios disponibles del equipo AlignData. Selecciona una hora y recibirás la invitación con Google Meet incluido.</p>
             </div>
           </div>
 
           <!-- FORMULARIO -->
           <div class="ct-form-card">
-
             <div id="ctFormContent">
               <h2 style="font-size:20px;font-weight:600;color:#0F1E38;margin-bottom:24px;">Envíenos un mensaje</h2>
               <div class="row g-3">
@@ -335,31 +187,24 @@
                 </div>
                 <div class="col-12">
                   <div id="ctError" class="ct-error" style="display:none;"></div>
-                  <button class="btn ad-btn-teal w-100" style="padding:14px;" onclick="ctEnviar()">
-                    Enviar mensaje →
-                  </button>
+                  <button class="btn ad-btn-teal w-100" style="padding:14px;" onclick="ctEnviar()">Enviar mensaje →</button>
                   <p class="ct-privacy">Sus datos se tratan conforme a la Ley 21.719 · Solo para contacto de AlignData · Sin spam</p>
                 </div>
               </div>
             </div>
-
-            <!-- Enviando -->
             <div id="ctSending" style="display:none;text-align:center;padding:48px 20px;">
               <div class="ct-spinner"></div>
               <p style="color:#4a5568;margin-top:20px;font-size:14px;">Enviando su mensaje...</p>
             </div>
-
-            <!-- Éxito -->
             <div id="ctSuccess" style="display:none;text-align:center;padding:48px 20px;">
               <div style="font-size:56px;margin-bottom:20px;">✅</div>
               <h3 style="color:#0F1E38;font-size:22px;margin-bottom:10px;">¡Mensaje enviado!</h3>
               <p style="color:#4a5568;font-size:15px;line-height:1.6;max-width:400px;margin:0 auto 24px;">Un experto AlignData revisará su consulta y se contactará en menos de 24 horas hábiles.</p>
               <a href="index.html" style="display:inline-block;background:linear-gradient(135deg,#2563EB,#00B894);color:#fff;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;">Volver al inicio →</a>
             </div>
-
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
@@ -367,58 +212,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
   const CT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNOzQGLmC15Bv1p7EZhKKichnybe3V0PCRzjdfjBdgBKGezqpfPKlesFaXADNgXqCbbQ/exec';
-
   function ctEnviar() {
-    const nombre   = document.getElementById('ctNombre').value.trim();
-    const empresa  = document.getElementById('ctEmpresa').value.trim();
-    const correo   = document.getElementById('ctCorreo').value.trim();
-    const telefono = document.getElementById('ctTelefono').value.trim();
-    const servicio = document.getElementById('ctServicio').value;
-    const mensaje  = document.getElementById('ctMensaje').value.trim();
-    const errEl    = document.getElementById('ctError');
-
-    errEl.style.display = 'none';
-
-    if (!nombre)  { errEl.textContent = 'Por favor ingrese su nombre.'; errEl.style.display='block'; return; }
-    if (!empresa) { errEl.textContent = 'Por favor ingrese su empresa.'; errEl.style.display='block'; return; }
-    if (!correo || !correo.includes('@')) { errEl.textContent = 'Por favor ingrese un correo válido.'; errEl.style.display='block'; return; }
-
-    document.getElementById('ctFormContent').style.display = 'none';
-    document.getElementById('ctSending').style.display = 'block';
-
-    const datos = { tipo:'contacto', nombre, empresa, correo, telefono, servicio, mensaje };
-
-    fetch(CT_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datos)
-    })
-    .then(() => {
-      document.getElementById('ctSending').style.display = 'none';
-      document.getElementById('ctSuccess').style.display = 'block';
-    })
-    .catch(() => {
-      document.getElementById('ctSending').style.display = 'none';
-      document.getElementById('ctFormContent').style.display = 'block';
-      errEl.textContent = 'Error al enviar. Por favor intente de nuevo o escríbanos a patricio.oliva@aligndata.cl';
-      errEl.style.display = 'block';
-    });
+    const nombre=document.getElementById('ctNombre').value.trim();
+    const empresa=document.getElementById('ctEmpresa').value.trim();
+    const correo=document.getElementById('ctCorreo').value.trim();
+    const telefono=document.getElementById('ctTelefono').value.trim();
+    const servicio=document.getElementById('ctServicio').value;
+    const mensaje=document.getElementById('ctMensaje').value.trim();
+    const errEl=document.getElementById('ctError');
+    errEl.style.display='none';
+    if(!nombre){errEl.textContent='Por favor ingrese su nombre.';errEl.style.display='block';return;}
+    if(!empresa){errEl.textContent='Por favor ingrese su empresa.';errEl.style.display='block';return;}
+    if(!correo||!correo.includes('@')){errEl.textContent='Por favor ingrese un correo válido.';errEl.style.display='block';return;}
+    document.getElementById('ctFormContent').style.display='none';
+    document.getElementById('ctSending').style.display='block';
+    const datos={tipo:'contacto',nombre,empresa,correo,telefono,servicio,mensaje};
+    fetch(CT_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(datos)})
+    .then(()=>{document.getElementById('ctSending').style.display='none';document.getElementById('ctSuccess').style.display='block';})
+    .catch(()=>{document.getElementById('ctSending').style.display='none';document.getElementById('ctFormContent').style.display='block';errEl.textContent='Error al enviar. Por favor intente de nuevo o escríbanos a patricio.oliva@aligndata.cl';errEl.style.display='block';});
   }
-
-  // Generar link Google Calendar con evento precargado
-  (function() {
-    var title   = encodeURIComponent('Reunión AlignData — Diagnóstico D360°');
-    var details = encodeURIComponent('Conversación inicial sobre cumplimiento Ley 21.719. El equipo AlignData revisará su situación actual y responderá sus consultas.');
-    var guests  = 'patricio.oliva%40aligndata.cl%2Ccarlos.jerez%40aligndata.cl%2Cmlama%40alumnos.uai.cl';
-    var url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
-            + '&text=' + title
-            + '&details=' + details
-            + '&add=' + guests
-            + '&duration=3000'
-            + '&sf=true&output=xml';
-    document.getElementById('ctMeetBtn').href = url;
-  })();
   </script>
 </body>
 </html>
