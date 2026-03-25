@@ -220,52 +220,149 @@
   <!-- PORTAL ARCOP -->
   <section class="ad-section" id="portal">
     <div class="container-xl">
-      <div class="mb-4">
+      <div class="mb-5">
         <p class="ad-eyebrow ad-reveal">Portal ARCOP</p>
         <h2 class="ad-section-title ad-reveal">Tecnología que cumple con la ley</h2>
-        <p class="ad-section-sub ad-reveal">Un portal web para que sus clientes ejerzan sus derechos ARCOP (Acceso, Rectificación, Cancelación, Oposición, Portabilidad), integrado en su operación interna con trazabilidad completa.</p>
+        <p class="ad-section-sub ad-reveal">Dos interfaces complementarias: el portal público donde sus clientes ejercen sus derechos ARCOP, y el panel privado donde el equipo DPO gestiona cada solicitud con trazabilidad completa.</p>
       </div>
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <div class="ad-portal-mock ad-reveal" style="padding:0;overflow:hidden;">
-            <div class="ad-pm-bar d-flex align-items-center gap-2" style="padding:10px 14px;">
-              <span class="ad-pm-dot" style="background:#FF5F57;"></span>
-              <span class="ad-pm-dot" style="background:#FEBC2E;"></span>
-              <span class="ad-pm-dot" style="background:#28C840;"></span>
-              <span class="ad-pm-title ms-1">Portal ARCOP — Ley 21.719</span>
-              <span class="ad-pm-badge ms-auto">Ley 21.719</span>
+
+      <!-- BLOQUE 1: Portal Titular -->
+      <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-7 ad-reveal">
+          <div style="background:#0F1E38;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+            <div style="background:#162843;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <div style="display:flex;gap:5px;">
+                <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:6px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(0,184,148,0.7)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                portal.aligndata.cl &middot; Portal Titular
+                <span style="margin-left:auto;font-size:10px;background:rgba(0,184,148,0.15);color:#00B894;border:1px solid rgba(0,184,148,0.3);border-radius:4px;padding:1px 6px;">ARCOP</span>
+              </div>
             </div>
-            <img src="portal-screenshot.png" alt="Portal ARCOP" style="width:100%;display:block;border-radius:0 0 12px 12px;">
+            <div style="position:relative;overflow:hidden;background:#0b1422;">
+              <div id="t-track" style="display:flex;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);">
+                <img src="portal-screenshot.png" alt="Portal principal" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="Formulario_acceso.png" alt="Acceso" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="Formulario_opo.png" alt="Oposicion" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="Formulario_rextificacion.png" alt="Rectificacion" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+              </div>
+              <button onclick="tGo(tCur-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(15,30,56,0.75);border:1px solid rgba(255,255,255,0.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,184,148,0.8)'" onmouseout="this.style.background='rgba(15,30,56,0.75)'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button onclick="tGo(tCur+1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(15,30,56,0.75);border:1px solid rgba(255,255,255,0.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,184,148,0.8)'" onmouseout="this.style.background='rgba(15,30,56,0.75)'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+            <div style="padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+              <span id="t-label" style="font-size:12px;color:rgba(255,255,255,0.5);">Portal principal</span>
+              <div id="t-dots" style="display:flex;gap:5px;align-items:center;"></div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="d-flex flex-column gap-4">
-            <div class="ad-pf-item d-flex gap-3 ad-reveal">
-              <div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div><h4 class="ad-pf-title">Datos en Chile</h4><p class="ad-pf-sub">GCP southamerica-west1 (Santiago). Sin transferencia internacional bajo Art. 27 Ley 21.719.</p></div>
+        <div class="col-lg-5">
+          <p style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#00B894;margin-bottom:10px;">Para el titular de datos</p>
+          <h3 style="font-size:22px;font-weight:500;color:var(--ad-navy);margin-bottom:12px;">Portal publico de derechos ARCOP</h3>
+          <p style="font-size:14px;color:var(--ad-gray-400);line-height:1.7;margin-bottom:20px;">Sus clientes ingresan su RUT, eligen el derecho que desean ejercer y envian su solicitud en menos de 2 minutos. Sin cuentas, sin barreras.</p>
+          <div class="d-flex flex-column gap-3">
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h4 class="ad-pf-title">Acceso, Rectificacion, Cancelacion</h4><p class="ad-pf-sub">Formularios por cada derecho ARCOP conforme a la Ley 21.719.</p></div></div>
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4 class="ad-pf-title">Confirmacion inmediata</h4><p class="ad-pf-sub">El titular recibe numero de caso y confirmacion por email al instante.</p></div></div>
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 class="ad-pf-title">Datos en Chile · reCAPTCHA v3</h4><p class="ad-pf-sub">GCP southamerica-west1. Sin transferencia internacional bajo Art. 27.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: Panel DPO -->
+      <div class="row align-items-center g-5 flex-lg-row-reverse">
+        <div class="col-lg-7 ad-reveal">
+          <div style="background:#0F1E38;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+            <div style="background:#162843;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <div style="display:flex;gap:5px;">
+                <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:6px;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(37,99,235,0.8)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                panel.aligndata.cl &middot; Acceso restringido DPO
+                <span style="margin-left:auto;font-size:10px;background:rgba(37,99,235,0.15);color:#2563EB;border:1px solid rgba(37,99,235,0.3);border-radius:4px;padding:1px 6px;">Panel DPO</span>
+              </div>
             </div>
-            <div class="ad-pf-item d-flex gap-3 ad-reveal">
-              <div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-              <div><h4 class="ad-pf-title">Workflow automatizado</h4><p class="ad-pf-sub">Estados PENDIENTE → VALIDADA → EN PROCESO → RESUELTA → CERRADA con control de SLA de 15 días hábiles.</p></div>
+            <div style="position:relative;overflow:hidden;background:#0b1422;">
+              <div id="d-track" style="display:flex;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);">
+                <img src="Dashboard.png" alt="Dashboard DPO" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="DPO_INICIA.png" alt="DPO Inicio" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="dpo_solicitudes.png" alt="Solicitudes" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="Reportes.png" alt="Reportes" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+                <img src="Configuracion.png" alt="Configuracion" style="width:100%;flex-shrink:0;display:block;max-height:480px;object-fit:contain;background:#0b1422;">
+              </div>
+              <button onclick="dGo(dCur-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(15,30,56,0.75);border:1px solid rgba(255,255,255,0.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.2s;" onmouseover="this.style.background='rgba(37,99,235,0.8)'" onmouseout="this.style.background='rgba(15,30,56,0.75)'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button onclick="dGo(dCur+1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(15,30,56,0.75);border:1px solid rgba(255,255,255,0.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.2s;" onmouseover="this.style.background='rgba(37,99,235,0.8)'" onmouseout="this.style.background='rgba(15,30,56,0.75)'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
             </div>
-            <div class="ad-pf-item d-flex gap-3 ad-reveal">
-              <div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-              <div><h4 class="ad-pf-title">Audit logs inmutables</h4><p class="ad-pf-sub">Trazabilidad completa para fiscalización APDP. Cada acción registrada con timestamp y actor.</p></div>
+            <div style="padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+              <span id="d-label" style="font-size:12px;color:rgba(255,255,255,0.5);">Dashboard</span>
+              <div id="d-dots" style="display:flex;gap:5px;align-items:center;"></div>
             </div>
-            <div class="ad-pf-item d-flex gap-3 ad-reveal">
-              <div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><h4 class="ad-pf-title">Notificaciones automáticas</h4><p class="ad-pf-sub">Email al titular en cada cambio de estado. Confirmación de recepción inmediata con número de caso.</p></div>
-            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <p style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#2563EB;margin-bottom:10px;">Para el equipo interno</p>
+          <h3 style="font-size:22px;font-weight:500;color:var(--ad-navy);margin-bottom:12px;">Panel DPO &middot; Gestion y trazabilidad</h3>
+          <p style="font-size:14px;color:var(--ad-gray-400);line-height:1.7;margin-bottom:20px;">El equipo DPO recibe, valida, procesa y cierra cada solicitud dentro del plazo legal de 15 dias habiles. Todo con evidencia lista para la APDP.</p>
+          <div class="d-flex flex-column gap-3">
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div><h4 class="ad-pf-title">Dashboard en tiempo real</h4><p class="ad-pf-sub">KPIs de solicitudes por estado, alertas de vencimiento y distribucion por tipo.</p></div></div>
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><h4 class="ad-pf-title">Workflow PENDIENTE a CERRADA</h4><p class="ad-pf-sub">5 estados con control de SLA de 15 dias habiles y audit log inmutable.</p></div></div>
+            <div class="ad-pf-item d-flex gap-3 ad-reveal"><div class="ad-pf-icon flex-shrink-0" style="display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><h4 class="ad-pf-title">Reportes y evidencia APDP</h4><p class="ad-pf-sub">Exportacion de registros para fiscalizacion. Cada accion con timestamp y actor.</p></div></div>
           </div>
           <div class="d-flex flex-wrap gap-2 mt-4">
             <span class="ad-tech-tag">Node.js + Cloud Run</span>
             <span class="ad-tech-tag">Firebase Auth</span>
-            <span class="ad-tech-tag">reCAPTCHA v3</span>
+            <span class="ad-tech-tag">Firestore</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+  (function(){
+    var tSlides = ['portal-screenshot.png','Formulario_acceso.png','Formulario_opo.png','Formulario_rextificacion.png'];
+    var tLabels = ['Portal principal','Derecho de Acceso','Derecho de Oposicion','Derecho de Rectificacion'];
+    var dSlides = ['Dashboard.png','DPO_INICIA.png','dpo_solicitudes.png','Reportes.png','Configuracion.png'];
+    var dLabels = ['Dashboard','Inicio DPO','Solicitudes','Reportes','Configuracion'];
+    window.tCur = 0;
+    window.dCur = 0;
+
+    function buildDots(dotsId, n, color, goFn) {
+      var el = document.getElementById(dotsId);
+      for(var i=0;i<n;i++){
+        var d = document.createElement('div');
+        d.style.cssText = 'width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:all 0.2s;';
+        (function(idx){ d.onclick = function(){ goFn(idx); }; })(i);
+        el.appendChild(d);
+      }
+    }
+
+    function updateUI(trackId, dotsId, labelId, slides, labels, n, color) {
+      var cur = ((n % slides.length) + slides.length) % slides.length;
+      document.getElementById(trackId).style.transform = 'translateX(-'+(cur*100)+'%)';
+      document.getElementById(labelId).textContent = labels[cur];
+      Array.from(document.getElementById(dotsId).children).forEach(function(d,i){
+        d.style.background = i===cur ? color : 'rgba(255,255,255,0.25)';
+        d.style.width = i===cur ? '18px' : '7px';
+        d.style.borderRadius = i===cur ? '3px' : '50%';
+      });
+      return cur;
+    }
+
+    window.tGo = function(n){ window.tCur = updateUI('t-track','t-dots','t-label',tSlides,tLabels,n,'#00B894'); };
+    window.dGo = function(n){ window.dCur = updateUI('d-track','d-dots','d-label',dSlides,dLabels,n,'#2563EB'); };
+
+    buildDots('t-dots', tSlides.length, '#00B894', window.tGo);
+    buildDots('d-dots', dSlides.length, '#2563EB', window.dGo);
+    window.tGo(0);
+    window.dGo(0);
+  })();
+  </script>
+
 
   <!-- FRAMEWORK -->
   <section class="ad-section bg-light-subtle" id="framework">
