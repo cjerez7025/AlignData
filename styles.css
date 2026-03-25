@@ -1563,3 +1563,8 @@ textarea.ad-form-input { resize: vertical; min-height: 100px; }
   .pc-detail-left { flex-direction: row; justify-content: flex-start; }
   .pc-node-name { display: none; }
 }
+.ad-pf-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
