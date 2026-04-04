@@ -95,6 +95,7 @@
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#mapa">Mapa global</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#guias">Guías</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="#metodologia">Metodología</a></li>
+          <li class="nav-item"><a class="nav-link ad-nav-link" href="#precios">Precios</a></li>
           <li class="nav-item"><a class="nav-link ad-nav-link" href="Contacto.html">Contacto</a></li>
           <li class="nav-item ms-lg-3"><a class="btn ad-btn-teal" href="assessment-d360.html">Solicitar información D360° →</a></li>
         </ul>
@@ -373,32 +374,11 @@
         <p class="ad-section-sub ad-reveal">Marco propietario de evaluación alineado a ISO 27701. Medimos su organización en escala 0–5 en cada dimensión.</p>
       </div>
       <style>
-        .ad-fw-card {
-          cursor: pointer;
-          transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
-        }
-        .ad-fw-card:hover {
-          border-color: #00B894 !important;
-          background: rgba(0,184,148,0.05);
-          transform: translateY(-2px);
-          box-shadow: 0 0 0 1px #00B894, 0 0 16px rgba(0,184,148,0.35), 0 0 32px rgba(0,184,148,0.15);
-        }
-        .ad-fw-card:hover .ad-fw-num,
-        .ad-fw-card.active .ad-fw-num {
-          color: #00B894;
-          font-weight: 700;
-          text-shadow: 0 0 8px rgba(0,184,148,0.7);
-        }
-        .ad-fw-card.active {
-          border-color: #00B894 !important;
-          border-width: 1.5px !important;
-          background: rgba(0,184,148,0.06);
-          box-shadow: 0 0 0 1px #00B894, 0 0 20px rgba(0,184,148,0.4), 0 0 40px rgba(0,184,148,0.18);
-        }
-        .ad-fw-card.active .ad-fw-name {
-          color: var(--ad-navy);
-          font-weight: 600;
-        }
+        .ad-fw-card { cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .ad-fw-card:hover { border-color: #00B894 !important; background: rgba(0,184,148,0.05); transform: translateY(-2px); box-shadow: 0 0 0 1px #00B894, 0 0 16px rgba(0,184,148,0.35), 0 0 32px rgba(0,184,148,0.15); }
+        .ad-fw-card:hover .ad-fw-num, .ad-fw-card.active .ad-fw-num { color: #00B894; font-weight: 700; text-shadow: 0 0 8px rgba(0,184,148,0.7); }
+        .ad-fw-card.active { border-color: #00B894 !important; border-width: 1.5px !important; background: rgba(0,184,148,0.06); box-shadow: 0 0 0 1px #00B894, 0 0 20px rgba(0,184,148,0.4), 0 0 40px rgba(0,184,148,0.18); }
+        .ad-fw-card.active .ad-fw-name { color: var(--ad-navy); font-weight: 600; }
       </style>
       <div class="row g-3 mb-5">
         <div class="col-6 col-md-3"><div class="ad-fw-card ad-reveal" onclick="fwSelect(this)"><span class="ad-fw-num">01</span><h5 class="ad-fw-name">Gobierno y liderazgo</h5><p class="ad-fw-sub">DPO, roles y comité de privacidad</p></div></div>
@@ -410,12 +390,7 @@
         <div class="col-6 col-md-3"><div class="ad-fw-card ad-reveal" onclick="fwSelect(this)"><span class="ad-fw-num">07</span><h5 class="ad-fw-name">Gestión de terceros</h5><p class="ad-fw-sub">Contratos y subprocesadores</p></div></div>
         <div class="col-6 col-md-3"><div class="ad-fw-card ad-reveal" onclick="fwSelect(this)"><span class="ad-fw-num">08</span><h5 class="ad-fw-name">Cultura y formación</h5><p class="ad-fw-sub">Capacitación y mejora continua</p></div></div>
       </div>
-      <script>
-      function fwSelect(el) {
-        document.querySelectorAll('.ad-fw-card').forEach(function(c){ c.classList.remove('active'); });
-        el.classList.add('active');
-      }
-      </script>
+      <script>function fwSelect(el) { document.querySelectorAll('.ad-fw-card').forEach(function(c){ c.classList.remove('active'); }); el.classList.add('active'); }</script>
       <div class="ad-maturity-box">
         <p class="ad-maturity-title">Escala de madurez — de 0 a 5</p>
         <div class="d-flex flex-column gap-2">
@@ -462,9 +437,9 @@
         <p class="ad-section-sub ad-reveal">Combinamos experiencia en consultoría estratégica y arquitectura tecnológica especializada en datos personales.</p>
       </div>
       <div class="row g-4 mb-4">
-        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="foto_carlosj.jpeg" alt="Carlos Jerez" class="ad-team-photo"></div><h4 class="ad-team-name">Carlos Jerez</h4><p class="ad-team-role">Tecnología y Producto</p><p class="ad-team-cert">Arquitectura · Desarrollo · Data Protection (Santander Open Academy)</p><a href="/cdn-cgi/l/email-protection#74171506181b075a1e1106110e3415181d131a101500155a1718" class="ad-team-email"><span class="__cf_email__" data-cfemail="533032213f3c207d393621362913323f3a343d373227327d303f">[email&#160;protected]</span></a></div></div>
-        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="foto_pato.jpeg" alt="Patricio Oliva" class="ad-team-photo"></div><h4 class="ad-team-name">Patricio Oliva</h4><p class="ad-team-role">Consultoría y Negocio</p><p class="ad-team-cert">Data Governance · Universidad de Chile</p><a href="/cdn-cgi/l/email-protection#61110015130802080e4f0e0d08170021000d08060f050015004f020d" class="ad-team-email"><span class="__cf_email__" data-cfemail="12627366607b717b7d3c7d7e7b647352737e7b757c767366733c717e">[email&#160;protected]</span></a></div></div>
-        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="Mati.jpeg" alt="Matías Lama" class="ad-team-photo" style="object-position: center 15%;"></div><h4 class="ad-team-name">Matías Lama</h4><p class="ad-team-role">Asesoría Legal</p><p class="ad-team-cert">Derecho · Universidad Adolfo Ibáñez</p><a href="/cdn-cgi/l/email-protection#2f42434e424e6f4e435a4241405c015a4e46014c43" class="ad-team-email"><span class="__cf_email__" data-cfemail="b2dfded3dfd3f2d3dec7dfdcddc19cc7d3db9cd1de">[email&#160;protected]</span></a></div></div>
+        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="foto_carlosj.jpeg" alt="Carlos Jerez" class="ad-team-photo"></div><h4 class="ad-team-name">Carlos Jerez</h4><p class="ad-team-role">Tecnología y Producto</p><p class="ad-team-cert">Arquitectura · Desarrollo · Data Protection (Santander Open Academy)</p><a href="mailto:carlos.jerez@aligndata.cl" class="ad-team-email">carlos.jerez@aligndata.cl</a></div></div>
+        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="foto_pato.jpeg" alt="Patricio Oliva" class="ad-team-photo"></div><h4 class="ad-team-name">Patricio Oliva</h4><p class="ad-team-role">Consultoría y Negocio</p><p class="ad-team-cert">Data Governance · Universidad de Chile</p><a href="mailto:patricio.oliva@aligndata.cl" class="ad-team-email">patricio.oliva@aligndata.cl</a></div></div>
+        <div class="col-md-4"><div class="ad-team-card ad-reveal h-100"><div class="ad-team-photo-wrap"><img src="Mati.jpeg" alt="Matías Lama" class="ad-team-photo" style="object-position: center 15%;"></div><h4 class="ad-team-name">Matías Lama</h4><p class="ad-team-role">Asesoría Legal</p><p class="ad-team-cert">Derecho · Universidad Adolfo Ibáñez</p><a href="mailto:mlama@alumnos.uai.cl" class="ad-team-email">mlama@alumnos.uai.cl</a></div></div>
       </div>
       <div class="d-flex flex-wrap gap-2 ad-reveal">
         <span class="ad-cert-pill"><i class="bi bi-check-circle-fill me-1 text-teal"></i>GCP southamerica-west1 (Santiago)</span>
@@ -557,6 +532,236 @@
     </div>
   </section>
 
+  <!-- PRICING -->
+  <section class="ad-section" id="precios" style="background:#070f1e;padding-top:80px;padding-bottom:80px;">
+    <div class="container-xl">
+      <!-- HEADER -->
+      <div style="text-align:center;margin-bottom:48px;">
+        <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.3);color:#00B894;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#00B894;display:inline-block;"></span>Precios
+        </span>
+        <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:600;color:#fff;margin-bottom:12px;line-height:1.15;">Planes claros para <span style="color:#00B894;">cumplir a tiempo</span></h2>
+        <p style="font-size:15px;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto 28px;">Sin letra chica. Precios en UF · 1&nbsp;UF&nbsp;&asymp;&nbsp;$39.800&nbsp;CLP · IVA no incluido.</p>
+        <!-- TOGGLE PILL -->
+        <div style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:99px;padding:4px 6px;gap:4px;">
+          <button id="btn-lista" onclick="toggleOferta(false)" style="border:none;border-radius:99px;padding:7px 18px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;background:#fff;color:#0F1E38;">Precio lista</button>
+          <button id="btn-oferta" onclick="toggleOferta(true)" style="border:none;border-radius:99px;padding:7px 18px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;background:transparent;color:rgba(255,255,255,0.5);">
+            Oferta abril&nbsp;<span style="background:rgba(0,184,148,0.25);color:#00B894;font-size:10px;font-weight:700;padding:1px 8px;border-radius:99px;">&#8722;15%</span>
+          </button>
+        </div>
+        <div id="nota-piloto" style="display:none;margin-top:14px;font-size:12px;color:rgba(0,184,148,0.8);">&#9432;&nbsp;M&aacute;ximo 3 cupos. A cambio: testimonial + caso de uso + referencia comercial.</div>
+      </div>
+      <!-- COMBO BANNER -->
+      <div style="position:relative;background:linear-gradient(135deg,rgba(0,184,148,0.08) 0%,rgba(37,99,235,0.08) 100%);border:1px solid rgba(0,184,148,0.35);border-radius:16px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:32px;overflow:hidden;">
+        <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,184,148,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="flex:1;min-width:260px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="background:rgba(0,184,148,0.2);color:#00B894;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid rgba(0,184,148,0.3);">Oferta m&aacute;s popular</span>
+          </div>
+          <div style="font-size:24px;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.2;">Combo D360&deg; Inicia + Eval&uacute;a</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:18px;max-width:420px;">Un solo kick-off, una sola presentaci&oacute;n final, entregables unificados. Ahorro real por eficiencia.</div>
+          <a href="assessment-d360.html" style="display:inline-flex;align-items:center;gap:6px;background:#00B894;color:#fff;text-decoration:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;">Solicitar cotizaci&oacute;n <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div id="combo-old" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;margin-bottom:4px;">Desde 144 UF por separado</div>
+          <div id="combo-price" style="font-size:48px;font-weight:700;color:#fff;line-height:1;letter-spacing:-2px;">107 <span style="font-size:22px;font-weight:400;color:rgba(255,255,255,0.6);">UF</span></div>
+          <div id="combo-sub" style="font-size:13px;color:rgba(255,255,255,0.45);margin:4px 0 10px;">&asymp; $4,3M CLP &middot; Precio lista</div>
+          <span id="combo-saving" style="display:inline-block;background:rgba(0,184,148,0.15);border:1px solid rgba(0,184,148,0.4);color:#00B894;font-size:12px;font-weight:600;padding:4px 14px;border-radius:99px;">Ahorro ~18% por eficiencia real</span>
+        </div>
+      </div>
+      <!-- 4 CARDS D360 -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-3 col-md-6">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;height:100%;display:flex;flex-direction:column;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(55,138,221,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#378ADD;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);padding:3px 10px;border-radius:99px;">D360&deg; Inicia</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.3);">~30 d&iacute;as</span>
+            </div>
+            <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;">Evaluaci&oacute;n base</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">Diagn&oacute;stico en 8 dimensiones. Punto de partida antes de diciembre.</div>
+            <div style="margin-bottom:20px;">
+              <div style="display:flex;align-items:baseline;gap:6px;">
+                <span id="p-inicia-old" style="font-size:13px;color:rgba(255,255,255,0.3);text-decoration:line-through;display:none;">48</span>
+                <span id="p-inicia" style="font-size:42px;font-weight:700;color:#378ADD;line-height:1;letter-spacing:-2px;">48</span>
+                <span style="font-size:18px;color:rgba(255,255,255,0.4);font-weight:400;">UF</span>
+              </div>
+              <div id="p-inicia-sub" style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">&asymp; $1,9M CLP</div>
+              <div id="p-inicia-badge" style="display:none;margin-top:8px;"><span style="background:rgba(0,184,148,0.15);color:#00B894;font-size:11px;font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid rgba(0,184,148,0.3);">&#8722;14% oferta abril</span></div>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);">
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Diagn&oacute;stico 8 dimensiones</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Dashboard ejecutivo de madurez</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Informe ejecutivo + detallado</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Plan de adecuaci&oacute;n 3&#8211;12 meses</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Presentaci&oacute;n a gerencia</li>
+            </ul>
+            <a href="assessment-d360.html" style="display:block;text-align:center;border:1px solid rgba(55,138,221,0.5);color:#378ADD;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">Solicitar D360&deg; Inicia</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="background:linear-gradient(160deg,rgba(0,184,148,0.1) 0%,rgba(0,184,148,0.04) 100%);border:1.5px solid rgba(0,184,148,0.5);border-radius:14px;padding:24px;height:100%;display:flex;flex-direction:column;position:relative;">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#00B894;color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 16px;border-radius:99px;white-space:nowrap;">&#9733;&nbsp;Producto estrella</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:4px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00B894;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.3);padding:3px 10px;border-radius:99px;">D360&deg; Eval&uacute;a</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.3);">~45 d&iacute;as</span>
+            </div>
+            <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;">An&aacute;lisis profundo</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">Levantamiento de sistemas, flujos y contratos. El plan exacto de qu&eacute; hay que hacer.</div>
+            <div style="margin-bottom:20px;">
+              <div style="display:flex;align-items:baseline;gap:6px;">
+                <span id="p-evalua-old" style="font-size:13px;color:rgba(255,255,255,0.3);text-decoration:line-through;display:none;">96</span>
+                <span id="p-evalua" style="font-size:42px;font-weight:700;color:#00B894;line-height:1;letter-spacing:-2px;">96</span>
+                <span style="font-size:18px;color:rgba(255,255,255,0.4);font-weight:400;">UF</span>
+              </div>
+              <div id="p-evalua-sub" style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">&asymp; $3,8M CLP</div>
+              <div id="p-evalua-badge" style="display:none;margin-top:8px;"><span style="background:rgba(0,184,148,0.15);color:#00B894;font-size:11px;font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid rgba(0,184,148,0.3);">&#8722;14% oferta abril</span></div>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);">
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del D360&deg; Inicia incluido</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Inventario de sistemas y tratamientos</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Mapeo de flujos y silos</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Revisi&oacute;n contratos con terceros</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>DPIA preliminar + roadmap priorizado</li>
+            </ul>
+            <a href="assessment-d360.html" style="display:block;text-align:center;background:#00B894;color:#fff;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:600;">Solicitar D360&deg; Eval&uacute;a</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;height:100%;display:flex;flex-direction:column;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(239,159,39,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EF9F27;background:rgba(186,117,23,0.12);border:1px solid rgba(186,117,23,0.25);padding:3px 10px;border-radius:99px;">D360&deg; Acompa&ntilde;a</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.3);">3&#8211;6 meses</span>
+            </div>
+            <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;">Ejecuci&oacute;n guiada</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">Equipo multidisciplinario que acompa&ntilde;a la implementaci&oacute;n por sprints.</div>
+            <div style="margin-bottom:20px;">
+              <div style="display:flex;align-items:baseline;gap:6px;">
+                <span style="font-size:42px;font-weight:700;color:#EF9F27;line-height:1;letter-spacing:-2px;">130</span>
+                <span style="font-size:18px;color:rgba(255,255,255,0.4);font-weight:400;">UF/mes</span>
+              </div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">&asymp; $5,2M CLP &middot; m&iacute;n. 3 meses</div>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);">
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Consultor Scrum Master dedicado</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Asesor legal + t&eacute;cnico + integraciones</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>PMO incluido</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Sprints quincenales con revisi&oacute;n</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Alcance seg&uacute;n D360&deg; Eval&uacute;a</li>
+            </ul>
+            <a href="mailto:patricio.oliva@aligndata.cl" style="display:block;text-align:center;border:1px solid rgba(239,159,39,0.5);color:#EF9F27;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">Cotizar D360&deg; Acompa&ntilde;a</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;height:100%;display:flex;flex-direction:column;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(175,169,236,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#AFA9EC;background:rgba(83,74,183,0.12);border:1px solid rgba(83,74,183,0.25);padding:3px 10px;border-radius:99px;">D360&deg; Implementa</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.3);">6&#8211;12 meses</span>
+            </div>
+            <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;">Implementaci&oacute;n total</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:20px;">Cambios t&eacute;cnicos, legales y operativos ejecutados por hitos verificables.</div>
+            <div style="margin-bottom:20px;">
+              <div style="display:flex;align-items:baseline;gap:6px;">
+                <span style="font-size:42px;font-weight:700;color:#AFA9EC;line-height:1;letter-spacing:-2px;">400</span>
+                <span style="font-size:18px;color:rgba(255,255,255,0.4);font-weight:400;">UF</span>
+              </div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">&asymp; $15,9M CLP &middot; a medida</div>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0 0 20px;flex:1;display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);">
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Implementaci&oacute;n t&eacute;cnica en sistemas propios</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Portal ARCOP + panel DPO en producci&oacute;n</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Adecuaci&oacute;n completa de contratos</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Capacitaci&oacute;n y certificaci&oacute;n del equipo</li>
+              <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Requiere D360&deg; Eval&uacute;a aprobado</li>
+            </ul>
+            <a href="mailto:patricio.oliva@aligndata.cl" style="display:block;text-align:center;border:1px solid rgba(175,169,236,0.5);color:#AFA9EC;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">Solicitar cotizaci&oacute;n</a>
+          </div>
+        </div>
+      </div>
+      <!-- RECURRENTES -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-6">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span style="font-size:15px;font-weight:600;color:#fff;">AlignData Protect&#8482;</span>
+              <span style="background:rgba(37,99,235,0.15);color:#378ADD;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;border:1px solid rgba(37,99,235,0.3);">SaaS</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#378ADD;text-transform:uppercase;letter-spacing:.07em;">Starter</div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Portal ARCOP + panel b&aacute;sico &middot; 1 usuario</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#378ADD;">4&#8211;5 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $159K&#8211;$199K</div></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(0,184,148,0.07);border-radius:10px;border:1px solid rgba(0,184,148,0.25);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#00B894;text-transform:uppercase;letter-spacing:.07em;">Business <span style="background:rgba(0,184,148,0.2);color:#00B894;padding:1px 7px;border-radius:99px;font-size:10px;margin-left:3px;">M&aacute;s popular</span></div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Audit logs + workflow &middot; 5 usuarios &middot; SLA 15 d&iacute;as</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#00B894;">8&#8211;12 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $318K&#8211;$478K</div></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#AFA9EC;text-transform:uppercase;letter-spacing:.07em;">Enterprise</div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">API + integraciones &middot; usuarios ilimitados</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#AFA9EC;">16&#8211;22 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $637K&#8211;$876K</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span style="font-size:15px;font-weight:600;color:#fff;">DPO Externo</span>
+              <span style="background:rgba(0,184,148,0.15);color:#00B894;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;border:1px solid rgba(0,184,148,0.3);">Mensual</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#378ADD;text-transform:uppercase;letter-spacing:.07em;">DPO Esencial</div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Representaci&oacute;n APDP &middot; Protect&#8482; Starter incl.</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#378ADD;">8&#8211;12 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $318K&#8211;$478K</div></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(0,184,148,0.07);border-radius:10px;border:1px solid rgba(0,184,148,0.25);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#00B894;text-transform:uppercase;letter-spacing:.07em;">DPO Activo <span style="background:rgba(0,184,148,0.2);color:#00B894;padding:1px 7px;border-radius:99px;font-size:10px;margin-left:3px;">Recomendado</span></div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Incidentes + capacitaci&oacute;n + auditor&iacute;a &middot; Protect&#8482; Business incl.</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#00B894;">16&#8211;22 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $637K&#8211;$876K</div></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);gap:12px;">
+                <div><div style="font-size:11px;font-weight:700;color:#AFA9EC;text-transform:uppercase;letter-spacing:.07em;">DPO Estrat&eacute;gico</div><div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Alto involucramiento + soporte legal &middot; Protect&#8482; Enterprise incl.</div></div>
+                <div style="text-align:right;flex-shrink:0;"><div style="font-size:18px;font-weight:700;color:#AFA9EC;">28&#8211;40 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);">UF/mes</span></div><div style="font-size:11px;color:rgba(255,255,255,0.3);">&asymp; $1,1M&#8211;$1,6M</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="nota-piloto" style="display:none;background:rgba(0,184,148,0.08);border:1px solid rgba(0,184,148,0.25);border-radius:10px;padding:14px 18px;font-size:13px;color:rgba(0,184,148,0.9);line-height:1.6;">
+        <strong>Condiciones oferta abril:</strong> M&aacute;ximo 3 cupos. A cambio AlignData solicita testimonial, caso de uso para portfolio y referencia comercial. Una vez cerrados los 3 cupos, el precio vuelve a lista.
+      </div>
+    </div>
+    <script>
+    var _ofertaOn = false;
+    function toggleOferta(on) {
+      _ofertaOn = on;
+      // pill toggle visual
+      var btnL = document.getElementById('btn-lista');
+      var btnO = document.getElementById('btn-oferta');
+      if(btnL && btnO){
+        btnL.style.background = on ? 'transparent' : '#fff';
+        btnL.style.color = on ? 'rgba(255,255,255,0.5)' : '#0F1E38';
+        btnO.style.background = on ? '#00B894' : 'transparent';
+        btnO.style.color = on ? '#fff' : 'rgba(255,255,255,0.5)';
+      }
+      // prices
+      document.getElementById('p-inicia').textContent = on ? '41' : '48';
+      document.getElementById('p-inicia').style.color = on ? '#00B894' : '#378ADD';
+      document.getElementById('p-inicia-old').style.display = on ? 'inline' : 'none';
+      document.getElementById('p-inicia-sub').textContent = on ? '\u2248 $1,6M CLP' : '\u2248 $1,9M CLP';
+      document.getElementById('p-inicia-badge').style.display = on ? 'block' : 'none';
+      document.getElementById('p-evalua').textContent = on ? '82' : '96';
+      document.getElementById('p-evalua').style.color = on ? '#5DCAA5' : '#00B894';
+      document.getElementById('p-evalua-old').style.display = on ? 'inline' : 'none';
+      document.getElementById('p-evalua-sub').textContent = on ? '\u2248 $3,3M CLP' : '\u2248 $3,8M CLP';
+      document.getElementById('p-evalua-badge').style.display = on ? 'block' : 'none';
+      document.getElementById('combo-price').textContent = on ? '91' : '107';
+      document.getElementById('combo-sub').textContent = on ? '\u2248 $3,6M CLP \u00b7 Oferta abril' : '\u2248 $4,3M CLP \u00b7 Precio lista';
+      document.getElementById('combo-saving').textContent = on ? 'Ahorro ~37% vs precio lista' : 'Ahorro ~18% por eficiencia real';
+      document.getElementById('nota-piloto').style.display = on ? 'block' : 'none';
+    }
+    </script>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="ad-cta-section">
     <div class="ad-cta-glow"></div>
@@ -596,7 +801,7 @@
           </div>
           <p class="ad-footer-tagline">"Cumplimiento inteligente. Protección real."</p>
           <div class="ad-footer-contact">
-            <p><i class="bi bi-envelope me-2"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="36465742445f555f5918595a5f405776575a5f51585257425718555a">[email&#160;protected]</a></p>
+            <p><i class="bi bi-envelope me-2"></i><a href="mailto:contacto@aligndata.cl">contacto@aligndata.cl</a></p>
             <p><i class="bi bi-globe me-2"></i>aligndata.cl</p>
             <p><i class="bi bi-geo-alt me-2"></i>Chile</p>
             <p><a href="https://www.linkedin.com/company/aligndata-protect/" target="_blank" rel="noopener" style="color:var(--ad-teal);text-decoration:none;display:inline-flex;align-items:center;gap:6px;"><i class="bi bi-linkedin"></i>LinkedIn — AlignData Protect</a></p>
