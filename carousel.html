@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { width:100%; height:420px; overflow:hidden; background:#070f1e; }
+    .hc-slide{position:absolute;inset:0;display:flex;opacity:0;transition:opacity .6s ease;}
+    .hc-slide.hc-active{opacity:1;}
+    .hc-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+    .hc-ov{position:absolute;inset:0;}
+    .hc-inner{position:relative;z-index:2;display:flex;align-items:center;width:100%;max-width:1320px;margin:0 auto;padding:0 40px;gap:36px;height:100%;}
+    .hc-left{flex:1;min-width:0;}
+    .hc-right{flex-shrink:0;width:300px;}
+    .hc-badge{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:4px 13px;margin-bottom:14px;border:1px solid;}
+    .hc-badge-dot{width:6px;height:6px;border-radius:50%;}
+    .hc-h1{font-family:'DM Sans',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:700;color:#fff;line-height:1.18;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,0.45);}
+    .hc-sub{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:18px;max-width:360px;text-shadow:0 1px 4px rgba(0,0,0,0.4);}
+    .hc-stats{display:flex;gap:20px;margin-bottom:20px;}
+    .hc-stat-n{font-size:22px;font-weight:700;line-height:1;}
+    .hc-stat-l{font-size:10px;color:rgba(255,255,255,0.45);margin-top:2px;}
+    .hc-cta{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;}
+    .hc-card{background:rgba(7,15,30,0.78);backdrop-filter:blur(14px);border-radius:14px;padding:20px 22px;}
+    .hc-card-tier{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px;}
+    .hc-card-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;}
+    .hc-card-desc{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.55;margin-bottom:14px;}
+    .hc-price-row{display:flex;align-items:baseline;gap:5px;margin-bottom:4px;}
+    .hc-price-old{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:line-through;}
+    .hc-price-num{font-size:48px;font-weight:700;line-height:1;letter-spacing:-2px;}
+    .hc-price-uf{font-size:17px;color:rgba(255,255,255,0.4);font-weight:400;}
+    .hc-price-clp{font-size:11px;color:rgba(255,255,255,0.32);margin-bottom:12px;}
+    .hc-feats{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px;}
+    .hc-feats li{font-size:11px;color:rgba(255,255,255,0.58);display:flex;gap:7px;align-items:flex-start;}
+    .hc-btn{display:block;width:100%;text-align:center;padding:9px;border-radius:8px;font-size:12px;font-weight:700;border:none;cursor:pointer;}
+    .hc-row-card{background:rgba(255,255,255,0.04);border-radius:9px;padding:9px 12px;border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+    .hc-row-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+    .hc-row-desc{font-size:10px;color:rgba(255,255,255,0.38);margin-top:2px;}
+    .hc-row-price{font-size:15px;font-weight:700;white-space:nowrap;text-align:right;}
+    .hc-row-sub{font-size:9px;color:rgba(255,255,255,0.3);}
+    .hc-art-img{height:110px;background-size:cover;background-position:center;position:relative;border-radius:10px 10px 0 0;}
+    .hc-art-tag{position:absolute;bottom:8px;left:10px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 10px;border-radius:99px;}
+    .hc-art-body{padding:13px 14px;}
+    .hc-art-title{font-size:13px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:5px;}
+    .hc-art-excerpt{font-size:10px;color:rgba(255,255,255,0.42);line-height:1.5;margin-bottom:10px;}
+    .hc-art-footer{display:flex;align-items:center;justify-content:space-between;}
+    .hc-nav{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:10;}
+    .hc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.22);cursor:pointer;transition:all .25s;border:none;padding:0;}
+    .hc-dot.hc-on{width:22px;border-radius:4px;background:#00B894;}
+    .hc-arr{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+    .hc-num{position:absolute;top:14px;right:18px;font-size:10px;color:rgba(255,255,255,0.3);z-index:10;background:rgba(0,0,0,0.28);padding:2px 9px;border-radius:99px;}
+    @media(max-width:768px){.hc-right{display:none;}.hc-inner{padding:0 20px;}.hc-h1{font-size:22px;}}
+  </style>
+</head>
+<body>
+  <div id="hero-carousel" style="position:relative;height:420px;overflow:hidden;background:#070f1e;">
+    <!-- SLIDE 1: Oferta abril combo -->
+    <div class="hc-slide hc-active" id="hcs0">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(7,15,30,0.92) 42%,rgba(7,15,30,0.52) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(0,184,148,0.12);border-color:rgba(0,184,148,0.3);"><div class="hc-badge-dot" style="background:#00B894;"></div><span style="font-size:10px;font-weight:700;color:#00B894;letter-spacing:.09em;text-transform:uppercase;">Oferta abril &middot; M&aacute;x. 3 cupos</span></div>
+          <div class="hc-h1">Cumple la Ley 21.719<br>a precio de <span style="color:#00B894;">lanzamiento</span></div>
+          <div class="hc-sub">Diagn&oacute;stico completo + plan ejecutable desde 41 UF. Solo este mes. Sin letra chica.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#00B894;">&#8722;15%</div><div class="hc-stat-l">descuento</div></div>
+            <div><div class="hc-stat-n" style="color:#00B894;">3</div><div class="hc-stat-l">cupos</div></div>
+            <div><div class="hc-stat-n" style="color:#00B894;">41 UF</div><div class="hc-stat-l">desde</div></div>
+          </div>
+          <a href="assessment-d360.html" class="hc-cta" style="background:#00B894;color:#fff;">Solicitar oferta abril &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(0,184,148,0.38);">
+            <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;">Oferta m&aacute;s popular</div>
+            <div class="hc-card-name">Combo D360&deg; Inicia + Eval&uacute;a</div>
+            <div class="hc-card-desc">Un kick-off &middot; entregables unificados &middot; ahorro real</div>
+            <div style="font-size:9px;font-weight:700;color:#00B894;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.28);border-radius:99px;padding:2px 10px;display:inline-block;margin-bottom:10px;">Ahorro ~37% vs precio lista</div>
+            <div class="hc-price-row"><span class="hc-price-old">144 UF</span><span class="hc-price-num" style="color:#fff;">91</span><span class="hc-price-uf">UF</span></div>
+            <div class="hc-price-clp">&asymp; $3,6M CLP &middot; oferta abril</div>
+            <a href="assessment-d360.html" class="hc-btn" style="background:#00B894;color:#fff;">Solicitar cotizaci&oacute;n &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">1 / 8</div>
+    </div>
+
+    <!-- SLIDE 2: D360 Inicia -->
+    <div class="hc-slide" id="hcs1">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(7,15,30,0.93) 45%,rgba(7,15,30,0.45) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(55,138,221,0.12);border-color:rgba(55,138,221,0.3);"><div class="hc-badge-dot" style="background:#378ADD;"></div><span style="font-size:10px;font-weight:700;color:#378ADD;letter-spacing:.09em;text-transform:uppercase;">D360&deg; Inicia</span></div>
+          <div class="hc-h1">Conoce tu nivel real<br>de <span style="color:#378ADD;">cumplimiento</span></div>
+          <div class="hc-sub">Diagn&oacute;stico en 8 dimensiones. Dashboard ejecutivo y roadmap priorizado en ~30 d&iacute;as.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#378ADD;">8</div><div class="hc-stat-l">dimensiones</div></div>
+            <div><div class="hc-stat-n" style="color:#378ADD;">30d</div><div class="hc-stat-l">entregable</div></div>
+            <div><div class="hc-stat-n" style="color:#378ADD;">41 UF</div><div class="hc-stat-l">oferta abril</div></div>
+          </div>
+          <a href="assessment-d360.html" class="hc-cta" style="background:#378ADD;color:#fff;">Solicitar D360&deg; Inicia &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(55,138,221,0.38);">
+            <div class="hc-card-tier" style="color:#378ADD;">D360&deg; Inicia</div>
+            <div class="hc-card-name">Evaluaci&oacute;n base</div>
+            <div class="hc-card-desc">Diagn&oacute;stico completo en 8 dimensiones. Punto de partida.</div>
+            <div class="hc-price-row"><span class="hc-price-old">48 UF</span><span class="hc-price-num" style="color:#378ADD;">41</span><span class="hc-price-uf">UF</span></div>
+            <div class="hc-price-clp">&asymp; $1,6M CLP &middot; oferta abril</div>
+            <ul class="hc-feats">
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>Diagn&oacute;stico 8 dimensiones</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>Dashboard ejecutivo de madurez</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>Plan de adecuaci&oacute;n 3&#8211;12 meses</li>
+            </ul>
+            <a href="assessment-d360.html" class="hc-btn" style="background:#378ADD;color:#fff;">Solicitar D360&deg; Inicia</a>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">2 / 8</div>
+    </div>
+
+    <!-- SLIDE 3: D360 Evalúa -->
+    <div class="hc-slide" id="hcs2">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(4,52,44,0.93) 42%,rgba(7,15,30,0.55) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(0,184,148,0.12);border-color:rgba(0,184,148,0.35);"><div class="hc-badge-dot" style="background:#00B894;"></div><span style="font-size:10px;font-weight:700;color:#00B894;letter-spacing:.09em;text-transform:uppercase;">D360&deg; Eval&uacute;a &middot; &#9733; Producto estrella</span></div>
+          <div class="hc-h1">El plan exacto de<br><span style="color:#00B894;">qu&eacute; hay que hacer</span></div>
+          <div class="hc-sub">Levantamiento de sistemas, flujos y contratos. DPIA preliminar. Roadmap ejecutivo priorizado en ~45 d&iacute;as.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#00B894;">45d</div><div class="hc-stat-l">entregable</div></div>
+            <div><div class="hc-stat-n" style="color:#00B894;">DPIA</div><div class="hc-stat-l">incluido</div></div>
+            <div><div class="hc-stat-n" style="color:#00B894;">82 UF</div><div class="hc-stat-l">oferta abril</div></div>
+          </div>
+          <a href="assessment-d360.html" class="hc-cta" style="background:#00B894;color:#fff;">Solicitar D360&deg; Eval&uacute;a &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(0,184,148,0.42);">
+            <div style="font-size:9px;font-weight:700;color:#00B894;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.25);border-radius:99px;padding:2px 10px;display:inline-block;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase;">&#9733; Producto estrella</div>
+            <div class="hc-card-tier" style="color:#00B894;">D360&deg; Eval&uacute;a</div>
+            <div class="hc-card-name">An&aacute;lisis profundo</div>
+            <div class="hc-price-row"><span class="hc-price-old">96 UF</span><span class="hc-price-num" style="color:#00B894;">82</span><span class="hc-price-uf">UF</span></div>
+            <div class="hc-price-clp">&asymp; $3,3M CLP &middot; oferta abril</div>
+            <ul class="hc-feats">
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del D360&deg; Inicia</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>Inventario sistemas + contratos</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><polyline points="20 6 9 17 4 12"/></svg>DPIA + roadmap priorizado</li>
+            </ul>
+            <a href="assessment-d360.html" class="hc-btn" style="background:#00B894;color:#fff;">Solicitar D360&deg; Eval&uacute;a</a>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">3 / 8</div>
+    </div>
+
+    <!-- SLIDE 4: Protect SaaS -->
+    <div class="hc-slide" id="hcs3">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(4,20,60,0.93) 42%,rgba(7,15,30,0.5) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.3);"><div class="hc-badge-dot" style="background:#85B7EB;"></div><span style="font-size:10px;font-weight:700;color:#85B7EB;letter-spacing:.09em;text-transform:uppercase;">AlignData Protect&#8482; &middot; SaaS</span></div>
+          <div class="hc-h1">Portal ARCOP y panel<br><span style="color:#85B7EB;">DPO desde 4 UF/mes</span></div>
+          <div class="hc-sub">Gesti&oacute;n de derechos ARCO/ARCOP con audit logs inmutables. Datos en Chile &mdash; GCP Santiago.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#85B7EB;">4 UF</div><div class="hc-stat-l">desde/mes</div></div>
+            <div><div class="hc-stat-n" style="color:#85B7EB;">15d</div><div class="hc-stat-l">SLA</div></div>
+            <div><div class="hc-stat-n" style="color:#85B7EB;">GCP</div><div class="hc-stat-l">Santiago</div></div>
+          </div>
+          <a href="#precios" class="hc-cta" style="background:#2563EB;color:#fff;">Ver planes Protect&#8482; &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(37,99,235,0.35);display:flex;flex-direction:column;gap:7px;">
+            <div style="font-size:10px;font-weight:700;color:#85B7EB;letter-spacing:.08em;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">AlignData Protect&#8482;</div>
+            <div class="hc-row-card"><div><div class="hc-row-label" style="color:#378ADD;">Starter</div><div class="hc-row-desc">1 usuario &middot; portal b&aacute;sico</div></div><div><div class="hc-row-price" style="color:#378ADD;">4&#8211;5 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <div class="hc-row-card" style="background:rgba(0,184,148,0.07);border-color:rgba(0,184,148,0.28);"><div><div class="hc-row-label" style="color:#00B894;">Business &#9733;</div><div class="hc-row-desc">5 usuarios &middot; audit logs</div></div><div><div class="hc-row-price" style="color:#00B894;">8&#8211;12 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <div class="hc-row-card"><div><div class="hc-row-label" style="color:#AFA9EC;">Enterprise</div><div class="hc-row-desc">ilimitados &middot; API</div></div><div><div class="hc-row-price" style="color:#AFA9EC;">16&#8211;22 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <a href="#precios" class="hc-btn" style="background:#2563EB;color:#fff;margin-top:2px;">Ver planes Protect&#8482;</a>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">4 / 8</div>
+    </div>
+
+    <!-- SLIDE 5: DPO Externo -->
+    <div class="hc-slide" id="hcs4">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(20,10,40,0.93) 42%,rgba(7,15,30,0.5) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(175,169,236,0.12);border-color:rgba(175,169,236,0.3);"><div class="hc-badge-dot" style="background:#AFA9EC;"></div><span style="font-size:10px;font-weight:700;color:#AFA9EC;letter-spacing:.09em;text-transform:uppercase;">DPO Externo &middot; Mensual</span></div>
+          <div class="hc-h1">Representaci&oacute;n formal<br><span style="color:#AFA9EC;">ante la APDP</span></div>
+          <div class="hc-sub">Delegado de Protecci&oacute;n de Datos como servicio. Incidentes, capacitaci&oacute;n y auditor&iacute;a anual incluida.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#AFA9EC;">8 UF</div><div class="hc-stat-l">desde/mes</div></div>
+            <div><div class="hc-stat-n" style="color:#AFA9EC;">APDP</div><div class="hc-stat-l">representaci&oacute;n</div></div>
+            <div><div class="hc-stat-n" style="color:#AFA9EC;">1/a&ntilde;o</div><div class="hc-stat-l">auditor&iacute;a</div></div>
+          </div>
+          <a href="#precios" class="hc-cta" style="background:#7F77DD;color:#fff;">Ver planes DPO &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(175,169,236,0.38);display:flex;flex-direction:column;gap:7px;">
+            <div style="font-size:10px;font-weight:700;color:#AFA9EC;letter-spacing:.08em;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">DPO Externo</div>
+            <div class="hc-row-card"><div><div class="hc-row-label" style="color:#378ADD;">Esencial</div><div class="hc-row-desc">Representaci&oacute;n + consultas</div></div><div><div class="hc-row-price" style="color:#378ADD;">8&#8211;12 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <div class="hc-row-card" style="background:rgba(0,184,148,0.07);border-color:rgba(0,184,148,0.28);"><div><div class="hc-row-label" style="color:#00B894;">Activo &#9733;</div><div class="hc-row-desc">Incidentes + cap. + auditor&iacute;a</div></div><div><div class="hc-row-price" style="color:#00B894;">16&#8211;22 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <div class="hc-row-card"><div><div class="hc-row-label" style="color:#AFA9EC;">Estrat&eacute;gico</div><div class="hc-row-desc">Soporte legal + contratos</div></div><div><div class="hc-row-price" style="color:#AFA9EC;">28&#8211;40 UF</div><div class="hc-row-sub">/mes</div></div></div>
+            <a href="#precios" class="hc-btn" style="background:#7F77DD;color:#fff;margin-top:2px;">Ver planes DPO</a>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">5 / 8</div>
+    </div>
+
+    <!-- SLIDE 6: Guía Ley 21.719 -->
+    <div class="hc-slide" id="hcs5">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(7,15,30,0.93) 45%,rgba(7,15,30,0.52) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(239,159,39,0.12);border-color:rgba(239,159,39,0.3);"><div class="hc-badge-dot" style="background:#EF9F27;"></div><span style="font-size:10px;font-weight:700;color:#EF9F27;letter-spacing:.09em;text-transform:uppercase;">Gu&iacute;as &middot; Fundamentos</span></div>
+          <div class="hc-h1">&iquest;Qu&eacute; es la<br><span style="color:#EF9F27;">Ley 21.719?</span></div>
+          <div class="hc-sub">Todo lo que necesita saber sobre la nueva ley de protecci&oacute;n de datos personales en Chile y c&oacute;mo afecta a su empresa.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#EF9F27;">8</div><div class="hc-stat-l">min lectura</div></div>
+            <div><div class="hc-stat-n" style="color:#EF9F27;">Dic 2026</div><div class="hc-stat-l">vigencia</div></div>
+            <div><div class="hc-stat-n" style="color:#EF9F27;">100%</div><div class="hc-stat-l">gratuita</div></div>
+          </div>
+          <a href="ley-21719-que-es.html" class="hc-cta" style="background:#BA7517;color:#fff;">Leer gu&iacute;a completa &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(239,159,39,0.3);padding:0;overflow:hidden;">
+            <div class="hc-art-img" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80');border-radius:0;"><div class="hc-art-tag" style="background:rgba(186,117,23,0.9);color:#fff;">Fundamentos</div></div>
+            <div class="hc-art-body">
+              <div class="hc-art-title">&iquest;Qu&eacute; es la Ley 21.719 y c&oacute;mo afecta a mi empresa?</div>
+              <div class="hc-art-excerpt">Gu&iacute;a completa sobre obligaciones, plazos y consecuencias de la nueva ley de datos personales de Chile.</div>
+              <div class="hc-art-footer"><span style="font-size:10px;color:rgba(255,255,255,0.3);">8 min de lectura</span><span style="color:#EF9F27;font-size:13px;font-weight:700;">&rarr;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">6 / 8</div>
+    </div>
+
+    <!-- SLIDE 7: Guía Multas -->
+    <div class="hc-slide" id="hcs6">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(50,10,10,0.93) 45%,rgba(7,15,30,0.5) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(226,75,74,0.12);border-color:rgba(226,75,74,0.3);"><div class="hc-badge-dot" style="background:#E24B4A;"></div><span style="font-size:10px;font-weight:700;color:#E24B4A;letter-spacing:.09em;text-transform:uppercase;">Gu&iacute;as &middot; Riesgo</span></div>
+          <div class="hc-h1">Multas Ley 21.719:<br><span style="color:#E24B4A;">hasta $1.400MM CLP</span></div>
+          <div class="hc-sub">Conozca los rangos de sanci&oacute;n, los criterios de la APDP y c&oacute;mo reducir su exposici&oacute;n ante una fiscalizaci&oacute;n.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#E24B4A;">5.000</div><div class="hc-stat-l">UTM graves</div></div>
+            <div><div class="hc-stat-n" style="color:#E24B4A;">10.000</div><div class="hc-stat-l">UTM reincid.</div></div>
+            <div><div class="hc-stat-n" style="color:#E24B4A;">6</div><div class="hc-stat-l">min lectura</div></div>
+          </div>
+          <a href="multas-ley-21719.html" class="hc-cta" style="background:#A32D2D;color:#fff;">Leer gu&iacute;a de multas &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(226,75,74,0.3);padding:0;overflow:hidden;">
+            <div class="hc-art-img" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80');border-radius:0;"><div class="hc-art-tag" style="background:rgba(163,45,45,0.9);color:#fff;">Riesgo</div></div>
+            <div class="hc-art-body">
+              <div class="hc-art-title">Multas Ley 21.719: cu&aacute;nto puede costar el incumplimiento</div>
+              <div class="hc-art-excerpt">R&eacute;gimen sancionatorio, criterios APDP y c&oacute;mo reducir su exposici&oacute;n legal ante una fiscalizaci&oacute;n.</div>
+              <div class="hc-art-footer"><span style="font-size:10px;color:rgba(255,255,255,0.3);">6 min de lectura</span><span style="color:#E24B4A;font-size:13px;font-weight:700;">&rarr;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">7 / 8</div>
+    </div>
+
+    <!-- SLIDE 8: Guía Plan de acción -->
+    <div class="hc-slide" id="hcs7">
+      <div class="hc-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80');"></div>
+      <div class="hc-ov" style="background:linear-gradient(90deg,rgba(4,20,60,0.93) 45%,rgba(7,15,30,0.5) 100%);"></div>
+      <div class="hc-inner">
+        <div class="hc-left">
+          <div class="hc-badge" style="background:rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.3);"><div class="hc-badge-dot" style="background:#378ADD;"></div><span style="font-size:10px;font-weight:700;color:#378ADD;letter-spacing:.09em;text-transform:uppercase;">Gu&iacute;as &middot; Plan de acci&oacute;n</span></div>
+          <div class="hc-h1">C&oacute;mo preparar tu empresa<br><span style="color:#378ADD;">antes de diciembre 2026</span></div>
+          <div class="hc-sub">Hoja de ruta pr&aacute;ctica con los pasos concretos que su organizaci&oacute;n debe seguir para cumplir a tiempo.</div>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n" style="color:#378ADD;">10</div><div class="hc-stat-l">min lectura</div></div>
+            <div><div class="hc-stat-n" style="color:#378ADD;">238d</div><div class="hc-stat-l">para el plazo</div></div>
+            <div><div class="hc-stat-n" style="color:#378ADD;">5</div><div class="hc-stat-l">pasos clave</div></div>
+          </div>
+          <a href="preparar-empresa-2026.html" class="hc-cta" style="background:#185FA5;color:#fff;">Leer plan de acci&oacute;n &rarr;</a>
+        </div>
+        <div class="hc-right">
+          <div class="hc-card" style="border:1px solid rgba(37,99,235,0.3);padding:0;overflow:hidden;">
+            <div class="hc-art-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80');border-radius:0;"><div class="hc-art-tag" style="background:rgba(24,95,165,0.9);color:#fff;">Plan de acci&oacute;n</div></div>
+            <div class="hc-art-body">
+              <div class="hc-art-title">C&oacute;mo preparar tu empresa antes de diciembre 2026</div>
+              <div class="hc-art-excerpt">Hoja de ruta pr&aacute;ctica con pasos concretos para cumplir con la Ley 21.719 antes del plazo.</div>
+              <div class="hc-art-footer"><span style="font-size:10px;color:rgba(255,255,255,0.3);">10 min de lectura</span><span style="color:#378ADD;font-size:13px;font-weight:700;">&rarr;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hc-num">8 / 8</div>
+    </div>
+    <div class="hc-nav">
+      <div class="hc-arr" onclick="hcGo(-1)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <div id="hc-dots" style="display:flex;gap:5px;align-items:center;"></div>
+      <div class="hc-arr" onclick="hcGo(1)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var cur=0,n=8,tmr;
+    var dotsEl=document.getElementById('hc-dots');
+    for(var i=0;i<n;i++){
+      var d=document.createElement('button');
+      d.className='hc-dot'+(i===0?' hc-on':'');
+      d.onclick=(function(idx){return function(){hcGoTo(idx);};})(i);
+      dotsEl.appendChild(d);
+    }
+    function hcGoTo(next){
+      document.getElementById('hcs'+cur).classList.remove('hc-active');
+      dotsEl.children[cur].classList.remove('hc-on');
+      cur=(next+n)%n;
+      document.getElementById('hcs'+cur).classList.add('hc-active');
+      dotsEl.children[cur].classList.add('hc-on');
+      clearInterval(tmr);tmr=setInterval(function(){hcGoTo(cur+1);},5500);
+    }
+    window.hcGo=function(d){hcGoTo(cur+d);};
+    tmr=setInterval(function(){hcGoTo(cur+1);},5500);
+  })();
+  </script>
+</body>
+</html>
