@@ -104,7 +104,7 @@
   </nav>
 
   <!-- HERO CAROUSEL -->
-  <iframe src="carousel.html" scrolling="no" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups" style="width:100%;height:420px;display:block;border:none;overflow:hidden;" title="AlignData Carousel"></iframe>
+  <iframe src="carousel.html" scrolling="no" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation" style="width:100%;height:420px;display:block;border:none;overflow:hidden;" title="AlignData Carousel"></iframe>
 
   <!-- HERO -->
   <section class="ad-hero">
@@ -563,7 +563,7 @@
           </div>
           <div style="font-size:24px;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.2;">Combo D360&deg; Inicia + Eval&uacute;a</div>
           <div style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:18px;max-width:420px;">Un solo kick-off, una sola presentaci&oacute;n final, entregables unificados. Ahorro real por eficiencia.</div>
-          <a href="assessment-d360.html" style="display:inline-flex;align-items:center;gap:6px;background:#00B894;color:#fff;text-decoration:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;">Solicitar cotizaci&oacute;n <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="Contacto.html" style="display:inline-flex;align-items:center;gap:6px;background:#00B894;color:#fff;text-decoration:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:-.01em;">Solicitar cotizaci&oacute;n <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div style="text-align:right;flex-shrink:0;">
           <div id="combo-old" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;margin-bottom:4px;">Desde 144 UF por separado</div>
@@ -598,7 +598,7 @@
               <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Plan de adecuaci&oacute;n 3&#8211;12 meses</li>
               <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Presentaci&oacute;n a gerencia</li>
             </ul>
-            <a href="assessment-d360.html" style="display:block;text-align:center;border:1px solid rgba(55,138,221,0.5);color:#378ADD;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">Solicitar D360&deg; Inicia</a>
+            <a href="Contacto.html" style="display:block;text-align:center;border:1px solid rgba(55,138,221,0.5);color:#378ADD;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:500;">Solicitar D360&deg; Inicia</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -626,7 +626,7 @@
               <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Revisi&oacute;n contratos con terceros</li>
               <li style="display:flex;gap:8px;align-items:flex-start;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>DPIA preliminar + roadmap priorizado</li>
             </ul>
-            <a href="assessment-d360.html" style="display:block;text-align:center;background:#00B894;color:#fff;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:600;">Solicitar D360&deg; Eval&uacute;a</a>
+            <a href="Contacto.html" style="display:block;text-align:center;background:#00B894;color:#fff;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:600;">Solicitar D360&deg; Eval&uacute;a</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -757,7 +757,7 @@
       document.getElementById('p-evalua-old').style.display = on ? 'inline' : 'none';
       document.getElementById('p-evalua-sub').textContent = on ? '\u2248 $3,3M CLP' : '\u2248 $3,8M CLP';
       document.getElementById('p-evalua-badge').style.display = on ? 'block' : 'none';
-      document.getElementById('combo-price').textContent = on ? '91' : '107';
+      document.getElementById('combo-price').innerHTML = on ? '91 <span style="font-size:22px;font-weight:400;color:rgba(255,255,255,0.6);">UF</span>' : '107 <span style="font-size:22px;font-weight:400;color:rgba(255,255,255,0.6);">UF</span>';
       document.getElementById('combo-sub').textContent = on ? '\u2248 $3,6M CLP \u00b7 Oferta abril' : '\u2248 $4,3M CLP \u00b7 Precio lista';
       document.getElementById('combo-saving').textContent = on ? 'Ahorro ~37% vs precio lista' : 'Ahorro ~18% por eficiencia real';
       document.getElementById('nota-piloto').style.display = on ? 'block' : 'none';
