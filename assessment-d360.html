@@ -3,548 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D360° Assessment — AlignData</title>
+<title>Autodiagnóstico gratuito Ley 21.719 — AlignData</title>
+<meta name="description" content="Responda 8 preguntas y conozca en 5 minutos su nivel de madurez referencial en protección de datos personales frente a la Ley 21.719. Gratuito.">
+<link rel="canonical" href="https://aligndata.cl/assessment-d360.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aligndata.cl/assessment-d360.html">
+<meta property="og:title" content="Autodiagnóstico gratuito Ley 21.719 — AlignData">
+<meta property="og:description" content="Conozca en 5 minutos su nivel de madurez referencial frente a la Ley 21.719.">
+<meta property="og:image" content="https://aligndata.cl/og-image.png">
+<meta property="og:locale" content="es_CL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+<meta name="theme-color" content="#0F1E38">
 <style>
 :root {
   --navy: #0F1E38;
   --navy-mid: #162236;
-  --navy-light: #1e2f4a;
   --teal: #00B894;
-  --teal-dark: #008f74;
   --blue: #2563EB;
-  --border: rgba(255,255,255,0.08);
-  --text: rgba(255,255,255,0.9);
-  --muted: rgba(255,255,255,0.45);
-  --danger: #e74c3c;
-  --warn: #f39c12;
-  --success: #00B894;
+  --border: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.68);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--navy);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
+body { background: var(--navy); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 72px 24px 32px; }
 .shell { width: 100%; max-width: 720px; }
-.progress-wrap { margin-bottom: 32px; }
-.progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; color: var(--muted); }
-.progress-track { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.back { position: fixed; top: 16px; left: 16px; z-index: 100; display: inline-flex; align-items: center; gap: 6px; background: rgba(15,30,56,0.9); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; color: rgba(255,255,255,0.8); font-size: 13px; padding: 8px 14px; text-decoration: none; }
+.back:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+a:focus-visible, button:focus-visible, input:focus-visible, .opt:focus-within { outline: 2px solid #fff; outline-offset: 2px; }
+.progress-wrap { margin-bottom: 28px; }
+.progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12.5px; color: var(--muted); }
+.progress-track { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--teal)); border-radius: 2px; transition: width 0.4s cubic-bezier(0.22,1,0.36,1); }
-.dim-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+.dim-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
 .dim-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
 .card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--teal)); }
-.q-num { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
-.q-text { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.35; color: #fff; margin-bottom: 8px; }
-.q-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+.q-num { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+fieldset { border: 0; min-width: 0; }
+legend.q-text { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.35; color: #fff; margin-bottom: 8px; padding: 0; float: left; width: 100%; }
+.q-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 24px; line-height: 1.5; clear: both; }
 .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.opt { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; cursor: pointer; transition: all 0.18s; }
-.opt:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
-.opt.selected { background: rgba(0,184,148,0.1); border-color: rgba(0,184,148,0.4); }
-.opt-circle { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.25); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
+.opt { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; cursor: pointer; transition: all 0.18s; position: relative; }
+.opt:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); }
+.opt.selected { background: rgba(0,184,148,0.12); border-color: rgba(0,184,148,0.55); }
+.opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.opt-circle { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
 .opt.selected .opt-circle { background: var(--teal); border-color: var(--teal); }
 .opt-check { width: 8px; height: 8px; border-radius: 50%; background: #fff; display: none; }
 .opt.selected .opt-check { display: block; }
-.opt-label { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-.opt-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
-.opt.selected .opt-label { color: var(--teal); }
+.opt-label { font-size: 14.5px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.opt-desc { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+.opt.selected .opt-label { color: #2fe0bb; }
 .nav { display: flex; justify-content: space-between; align-items: center; }
-.btn-back { background: transparent; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--muted); font-size: 13px; padding: 10px 20px; cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
-.btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
-.btn-next { background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; padding: 12px 28px; cursor: pointer; transition: opacity 0.15s, transform 0.15s; font-family: 'DM Sans', sans-serif; opacity: 0.4; pointer-events: none; }
-.btn-next.active { opacity: 1; pointer-events: all; }
-.btn-next.active:hover { transform: translateY(-1px); opacity: 0.9; }
-.intro { text-align: center; padding: 48px 36px; }
-.intro-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(0,184,148,0.1); border: 1px solid rgba(0,184,148,0.3); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: var(--teal); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
-.intro h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.2; color: #fff; margin-bottom: 16px; }
-.intro h1 em { color: var(--teal); font-style: italic; }
-.intro p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto 32px; }
-.intro-meta { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; }
+.btn-back { background: transparent; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; color: rgba(255,255,255,0.8); font-size: 13px; padding: 10px 20px; cursor: pointer; font-family: inherit; }
+.btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+.btn-next { background: linear-gradient(135deg, var(--blue), #00957a); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; padding: 12px 28px; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+.btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-next:not(:disabled):hover { transform: translateY(-1px); opacity: 0.92; }
+.intro { text-align: center; padding: 40px 28px; }
+.intro-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(0,184,148,0.12); border: 1px solid rgba(0,184,148,0.35); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: #2fe0bb; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.intro h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.2; color: #fff; margin-bottom: 16px; font-weight: 400; }
+.intro h1 em { color: #2fe0bb; font-style: italic; }
+.intro p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto 28px; }
+.intro-meta { display: flex; justify-content: center; gap: 28px; margin-bottom: 28px; }
 .intro-meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .intro-meta-num { font-size: 24px; font-weight: 600; color: #fff; }
-.intro-meta-lbl { font-size: 11px; color: var(--muted); }
-.btn-start { background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 10px; color: #fff; font-size: 15px; font-weight: 500; padding: 14px 40px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: transform 0.15s, opacity 0.15s; }
-.btn-start:hover { transform: translateY(-2px); opacity: 0.9; }
-.result { padding: 36px; }
+.intro-meta-lbl { font-size: 11.5px; color: var(--muted); }
+.btn-start { background: linear-gradient(135deg, var(--blue), #00957a); border: none; border-radius: 10px; color: #fff; font-size: 15px; font-weight: 500; padding: 14px 40px; cursor: pointer; font-family: inherit; transition: transform 0.15s, opacity 0.15s; }
+.btn-start:hover { transform: translateY(-2px); opacity: 0.92; }
+.disclaimer { font-size: 12px; color: var(--muted); margin-top: 18px; line-height: 1.5; }
+.result { padding: 8px 0 0; }
 .result-header { text-align: center; margin-bottom: 32px; }
 .score-ring { width: 120px; height: 120px; margin: 0 auto 16px; position: relative; }
 .score-ring svg { transform: rotate(-90deg); }
-.score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+.score-ring-bg { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 8; }
 .score-ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.22,1,0.36,1); }
 .score-num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .score-val { font-size: 28px; font-weight: 600; color: #fff; line-height: 1; }
 .score-max { font-size: 11px; color: var(--muted); }
-.result-level { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; margin-bottom: 6px; }
-.result-sub { font-size: 14px; color: var(--muted); }
+.result-level { font-family: 'DM Serif Display', serif; font-size: 24px; color: #fff; margin-bottom: 6px; font-weight: 400; outline: none; }
+.result-sub { font-size: 14px; color: var(--muted); line-height: 1.6; }
 .dim-bars { margin-bottom: 28px; }
 .dim-bar-item { margin-bottom: 14px; }
 .dim-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; }
 .dim-bar-name { color: var(--text); font-weight: 500; }
-.dim-bar-score { color: var(--muted); font-size: 12px; }
-.dim-bar-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.dim-bar-score { color: var(--muted); font-size: 12.5px; }
+.dim-bar-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
 .dim-bar-fill { height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(0.22,1,0.36,1); }
-
-/* ── Brechas ── */
 .recos { margin-bottom: 28px; }
-.reco-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
-.reco-count-badge { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 20px; color: #EF4444; font-size: 11px; font-weight: 600; padding: 2px 10px; letter-spacing: 0; text-transform: none; }
-
-/* Brecha visible */
-.reco-item { display: flex; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 8px; font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.8); align-items: flex-start; }
+.reco-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.reco-count-badge { background: rgba(239,68,68,0.16); border: 1px solid rgba(239,68,68,0.4); border-radius: 20px; color: #ff9d9d; font-size: 11.5px; font-weight: 600; padding: 2px 10px; letter-spacing: 0; text-transform: none; }
+.reco-count-badge.ok { background: rgba(0,184,148,0.14); border-color: rgba(0,184,148,0.4); color: #2fe0bb; }
+.reco-item { display: flex; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; margin-bottom: 8px; font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.88); align-items: flex-start; }
+.reco-item strong { display: block; color: #fff; font-size: 13.5px; margin-bottom: 2px; }
+.reco-item--locked { color: var(--muted); }
 .reco-icon-wrap { width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .reco-icon-wrap svg { width: 20px; height: 20px; }
-
-/* Brecha nublada */
-.reco-blurred-wrap { position: relative; margin-bottom: 8px; border-radius: 10px; overflow: hidden; }
-.reco-blurred { display: flex; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.8); filter: blur(5px); user-select: none; pointer-events: none; align-items: flex-start; }
-.reco-blurred-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,30,56,0.55), rgba(22,34,54,0.7)); display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
-.reco-lock-icon { font-size: 13px; color: rgba(255,255,255,0.3); }
-
-/* Blur wall CTA */
-.blur-wall-cta { margin-top: 4px; margin-bottom: 4px; padding: 16px 18px; background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(0,184,148,0.08)); border: 1px solid rgba(37,99,235,0.25); border-radius: 10px; display: flex; align-items: center; gap: 14px; }
+.blur-wall-cta { margin-top: 4px; padding: 16px 18px; background: linear-gradient(135deg, rgba(37,99,235,0.14), rgba(0,184,148,0.1)); border: 1px solid rgba(37,99,235,0.35); border-radius: 10px; display: flex; align-items: center; gap: 14px; }
 .blur-wall-cta-icon { font-size: 22px; flex-shrink: 0; }
-.blur-wall-cta-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
-.blur-wall-cta-sub { font-size: 12px; color: var(--muted); line-height: 1.45; }
-
-/* Lead form */
-.lead-form { background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.25); border-radius: 12px; padding: 24px; }
-.lead-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff; margin-bottom: 6px; }
-.lead-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+.blur-wall-cta-title { font-size: 13.5px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+.blur-wall-cta-sub { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.lead-form { background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.35); border-radius: 12px; padding: 24px; }
+.lead-title { font-family: 'DM Serif Display', serif; font-size: 19px; color: #fff; margin-bottom: 6px; font-weight: 400; }
+.lead-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
 .lead-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 .field-wrap { display: flex; flex-direction: column; gap: 4px; }
-.field-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-.field-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 7px; color: #fff; font-size: 13px; padding: 9px 12px; outline: none; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; }
-.field-input:focus { border-color: var(--teal); }
-.field-input::placeholder { color: rgba(255,255,255,0.25); }
-.btn-lead { width: 100%; background: linear-gradient(135deg, var(--blue), var(--teal)); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; padding: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 10px; transition: opacity 0.15s; }
-.btn-lead:hover { opacity: 0.9; }
-.lead-privacy { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 8px; }
+.field-label { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.field-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.2); border-radius: 7px; color: #fff; font-size: 14px; padding: 10px 12px; font-family: inherit; }
+.field-input:focus { border-color: var(--teal); outline: 2px solid rgba(0,184,148,0.3); }
+.field-input[aria-invalid="true"] { border-color: #ff7b7b; }
+.field-input::placeholder { color: rgba(255,255,255,0.4); }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: var(--muted); line-height: 1.5; margin: 6px 0 4px; }
+.consent input { margin-top: 3px; width: 16px; height: 16px; flex-shrink: 0; accent-color: #00B894; }
+.consent a { color: #2fe0bb; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { color: #ff9d9d; font-size: 13px; margin-top: 8px; }
+.btn-lead { width: 100%; background: linear-gradient(135deg, var(--blue), #00957a); border: none; border-radius: 8px; color: #fff; font-size: 14.5px; font-weight: 500; padding: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+.btn-lead:disabled { opacity: 0.5; cursor: wait; }
+.btn-lead:not(:disabled):hover { opacity: 0.92; }
+.lead-privacy { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; }
 .sent-state { text-align: center; padding: 20px 0; }
 .sent-icon { font-size: 36px; margin-bottom: 10px; }
-.sent-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; margin-bottom: 6px; }
-.sent-sub { font-size: 13px; color: var(--muted); }
+.sent-title { font-family: 'DM Serif Display', serif; font-size: 21px; color: #fff; margin-bottom: 6px; font-weight: 400; }
+.sent-sub { font-size: 13.5px; color: var(--muted); }
 .fade-in-r { animation: fadeInR 0.3s ease both; }
-@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fadeInR { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .fade-in-r, .score-ring-fill, .dim-bar-fill, .progress-fill { animation: none; transition: none; } }
 @media (max-width: 600px) {
+  body { padding-top: 64px; }
   .card { padding: 24px 20px; }
-  .q-text { font-size: 18px; }
-  .intro h1 { font-size: 26px; }
+  legend.q-text { font-size: 19px; }
+  .intro h1 { font-size: 27px; }
   .lead-fields { grid-template-columns: 1fr; }
   .blur-wall-cta { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-  <meta name="theme-color" content="#0F1E38">
 </head>
 <body>
-<div style="position:fixed;top:16px;left:16px;z-index:100;">
-  <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:rgba(255,255,255,0.5);font-size:13px;padding:8px 14px;text-decoration:none;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.25)'" onmouseout="this.style.color='rgba(255,255,255,0.5)';this.style.borderColor='rgba(255,255,255,0.1)'">
-    ← aligndata.cl
-  </a>
-</div>
-<div class="shell">
-  <div class="progress-wrap" id="progressWrap" style="display:none">
-    <div class="progress-meta">
-      <span id="progressLabel">Pregunta 1 de 8</span>
-      <span id="dimName">Gobierno</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width:0%"></div>
-    </div>
+<a class="back" href="index.html">← aligndata.cl</a>
+<main class="shell">
+  <div class="progress-wrap" id="progressWrap" hidden>
+    <div class="progress-meta"><span id="progressLabel">Pregunta 1 de 8</span><span id="dimName">Gobierno</span></div>
+    <div class="progress-track" role="progressbar" aria-label="Avance del autodiagnóstico" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   </div>
-  <div class="card" id="mainCard"></div>
-</div>
+  <div class="card" id="mainCard" aria-live="polite"><noscript><p style="padding:16px;line-height:1.6;">Este autodiagnóstico necesita JavaScript. Si prefiere, escríbanos a <a href="mailto:contacto@aligndata.cl" style="color:#2fe0bb;">contacto@aligndata.cl</a>.</p></noscript></div>
+</main>
 
+<script src="site-config.js"></script>
+<script src="forms.js"></script>
+<script src="consent.js"></script>
 <script>
 const DIMS = [
-  { id:'gov',  name:'Gobierno y Políticas',    color:'#2563EB', questions:[0,1] },
-  { id:'data', name:'Gestión de Datos',         color:'#8B5CF6', questions:[2,3] },
-  { id:'arco', name:'Derechos ARCOP',           color:'#00B894', questions:[4,5] },
-  { id:'sec',  name:'Seguridad Tecnológica',    color:'#F59E0B', questions:[6]   },
-  { id:'risk', name:'Riesgo y Cumplimiento',    color:'#EF4444', questions:[7]   },
+  { id:'gov',  name:'Gobierno y Políticas',  color:'#2563EB', questions:[0,1] },
+  { id:'data', name:'Gestión de Datos',      color:'#8B5CF6', questions:[2,3] },
+  { id:'arco', name:'Derechos del titular',  color:'#00B894', questions:[4,5] },
+  { id:'sec',  name:'Seguridad Tecnológica', color:'#F59E0B', questions:[6]   },
+  { id:'risk', name:'Riesgo y Cumplimiento', color:'#EF4444', questions:[7]   },
 ];
 
 const QUESTIONS = [
   { dim:'gov', q:'¿Su organización tiene una política formal de protección de datos personales?', sub:'Documentos aprobados por la dirección que regulan el tratamiento de datos.', opts:[{v:0,l:'No existe ninguna política',d:'No hay documentos formales sobre privacidad'},{v:1,l:'Está en desarrollo',d:'Se está elaborando pero no está aprobada'},{v:2,l:'Existe pero no está actualizada',d:'Hay política pero data de más de 2 años'},{v:3,l:'Sí, vigente y comunicada',d:'Política aprobada, comunicada a todos los empleados'}] },
   { dim:'gov', q:'¿Tienen designado un responsable o encargado de protección de datos?', sub:'Persona o rol formal que supervisa el cumplimiento en materia de privacidad.', opts:[{v:0,l:'No hay nadie asignado',d:'Nadie es responsable de privacidad'},{v:1,l:'Informalmente asignado',d:'Alguien lo hace pero sin cargo formal'},{v:2,l:'Rol asignado parcialmente',d:'Hay un responsable pero sin dedicación exclusiva'},{v:3,l:'DPO o equivalente designado',d:'Rol formal con funciones claras y recursos'}] },
   { dim:'data', q:'¿Saben qué datos personales recopilan y dónde se almacenan?', sub:'Inventario o registro de actividades de tratamiento de datos.', opts:[{v:0,l:'No tenemos ese inventario',d:'No sabemos con certeza qué datos tenemos'},{v:1,l:'Conocimiento parcial e informal',d:'Sabemos aproximadamente pero no está documentado'},{v:2,l:'Inventario parcial documentado',d:'Hay un registro de los sistemas principales'},{v:3,l:'Registro completo y actualizado',d:'Inventario formal de todos los tratamientos de datos'}] },
-  { dim:'data', q:'¿Informan a las personas sobre cómo usan sus datos personales?', sub:'Avisos de privacidad, términos y condiciones, transparencia con los titulares.', opts:[{v:0,l:'No informamos formalmente',d:'No hay avisos de privacidad para los titulares'},{v:1,l:'Solo en contratos generales',d:'Hay mención en contratos pero no es específica'},{v:2,l:'Aviso de privacidad básico',d:'Existe pero no cumple todos los requisitos de la ley'},{v:3,l:'Aviso completo y accesible',d:'Aviso conforme a Ley 21.719, visible y comprensible'}] },
-  { dim:'arco', q:'¿Tienen un proceso para atender solicitudes de acceso, rectificación o cancelación de datos (ARCOP)?', sub:'Los titulares tienen derecho a ejercer sus derechos sobre sus datos personales.', opts:[{v:0,l:'No existe ningún proceso',d:'No sabríamos cómo responder a una solicitud'},{v:1,l:'Se atiende caso a caso sin proceso',d:'Se resuelve si llega, pero sin procedimiento definido'},{v:2,l:'Proceso informal documentado',d:'Hay procedimiento pero no está sistematizado'},{v:3,l:'Proceso formal dentro del plazo legal',d:'Sistema que garantiza respuesta en 15 días hábiles'}] },
-  { dim:'arco', q:'¿Pueden rectificar o eliminar datos personales a petición del titular?', sub:'Derechos de Rectificación y Cancelación bajo la Ley 21.719.', opts:[{v:0,l:'No, técnicamente no es posible',d:'Los sistemas no permiten modificar o eliminar datos'},{v:1,l:'Es posible pero muy difícil',d:'Se puede hacer pero requiere intervención técnica'},{v:2,l:'Posible con proceso manual',d:'Hay un procedimiento aunque no automatizado'},{v:3,l:'Proceso ágil y trazable',d:'Se puede hacer con registro de auditoría y confirmación'}] },
-  { dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?', sub:'Cifrado, control de accesos, backups y otras medidas técnicas.', opts:[{v:0,l:'Sin medidas específicas',d:'Los datos no tienen protección técnica especial'},{v:1,l:'Medidas básicas (antivirus, contraseñas)',d:'Solo medidas de seguridad general'},{v:2,l:'Controles parciales implementados',d:'Cifrado o control de accesos en algunos sistemas'},{v:3,l:'Controles completos y documentados',d:'Cifrado, accesos basados en roles, auditoría activa'}] },
-  { dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su organización?', sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.', opts:[{v:0,l:'No conocemos la Ley 21.719',d:'La ley no es conocida en la organización'},{v:1,l:'Conocimiento básico general',d:'Sabemos que existe pero no sus implicancias específicas'},{v:2,l:'Conocemos los puntos principales',d:'Entendemos los derechos ARCOP y obligaciones generales'},{v:3,l:'Preparados para el cumplimiento',d:'Plan de adecuación en marcha antes de diciembre 2026'}] },
+  { dim:'data', q:'¿Informan a las personas sobre cómo usan sus datos personales?', sub:'Avisos de privacidad, términos y condiciones, transparencia con los titulares.', opts:[{v:0,l:'No informamos formalmente',d:'No hay avisos de privacidad para los titulares'},{v:1,l:'Solo en contratos generales',d:'Hay mención en contratos pero no es específica'},{v:2,l:'Aviso de privacidad básico',d:'Existe pero no cumple todos los requisitos de la ley'},{v:3,l:'Aviso completo y accesible',d:'Aviso conforme a la Ley 21.719, visible y comprensible'}] },
+  { dim:'arco', q:'¿Tienen un proceso para atender las solicitudes de los titulares (acceso, rectificación, supresión, oposición, portabilidad)?', sub:'Las personas tienen derecho a ejercer control sobre sus datos personales.', opts:[{v:0,l:'No existe ningún proceso',d:'No sabríamos cómo responder a una solicitud'},{v:1,l:'Se atiende caso a caso sin proceso',d:'Se resuelve si llega, pero sin procedimiento definido'},{v:2,l:'Proceso informal documentado',d:'Hay procedimiento pero no está sistematizado'},{v:3,l:'Proceso formal dentro del plazo legal',d:'Sistema que garantiza responder dentro del plazo que fija la ley'}] },
+  { dim:'arco', q:'¿Pueden rectificar o suprimir datos personales a petición del titular?', sub:'Derechos de rectificación y supresión bajo la Ley 21.719.', opts:[{v:0,l:'No, técnicamente no es posible',d:'Los sistemas no permiten modificar o eliminar datos'},{v:1,l:'Es posible pero muy difícil',d:'Se puede hacer pero requiere intervención técnica'},{v:2,l:'Posible con proceso manual',d:'Hay un procedimiento aunque no automatizado'},{v:3,l:'Proceso ágil y trazable',d:'Se puede hacer con registro de auditoría y confirmación'}] },
+  { dim:'sec', q:'¿Tienen medidas de seguridad para proteger los datos personales almacenados?', sub:'Cifrado, control de accesos, respaldos y otras medidas técnicas.', opts:[{v:0,l:'Sin medidas específicas',d:'Los datos no tienen protección técnica especial'},{v:1,l:'Medidas básicas (antivirus, contraseñas)',d:'Solo medidas de seguridad general'},{v:2,l:'Controles parciales implementados',d:'Cifrado o control de accesos en algunos sistemas'},{v:3,l:'Controles completos y documentados',d:'Cifrado, accesos basados en roles, auditoría activa'}] },
+  { dim:'risk', q:'¿Conocen los requerimientos específicos de la Ley 21.719 para su organización?', sub:'Nivel de conocimiento y preparación para el cumplimiento de la ley chilena.', opts:[{v:0,l:'No conocemos la Ley 21.719',d:'La ley no es conocida en la organización'},{v:1,l:'Conocimiento básico general',d:'Sabemos que existe pero no sus implicancias específicas'},{v:2,l:'Conocemos los puntos principales',d:'Entendemos los derechos de los titulares y las obligaciones generales'},{v:3,l:'Preparados para el cumplimiento',d:'Plan de adecuación en marcha'}] },
 ];
 
 const LEVELS = [
-  { min:0,  max:20,  name:'Nivel 0 — Sin protección', color:'#EF4444', desc:'Su organización no cuenta con medidas de protección de datos. El riesgo de incumplimiento de la Ley 21.719 es crítico.' },
-  { min:21, max:40,  name:'Nivel 1 — Reactivo',       color:'#F59E0B', desc:'Existen algunas medidas aisladas, pero no hay un enfoque sistemático. Se requiere acción inmediata.' },
-  { min:41, max:60,  name:'Nivel 2 — En desarrollo',  color:'#F59E0B', desc:'Hay avances concretos en algunas dimensiones, pero existen brechas importantes que deben cerrarse.' },
-  { min:61, max:80,  name:'Nivel 3 — Gestionado',     color:'#00B894', desc:'La organización tiene controles establecidos. Se necesita formalización y mejora continua.' },
-  { min:81, max:100, name:'Nivel 4 — Optimizado',     color:'var(--teal)', desc:'Gestión madura de privacidad. Foco en mejora continua y certificación ISO 27701.' },
+  { min:0,  max:20,  name:'Nivel 0 — Inexistente',   color:'#EF4444', desc:'Su organización no cuenta con medidas de protección de datos identificables. El riesgo de incumplimiento de la Ley 21.719 es crítico.' },
+  { min:21, max:40,  name:'Nivel 1 — Reactivo',      color:'#F97316', desc:'Existen algunas medidas aisladas, pero no hay un enfoque sistemático. Se recomienda actuar con prontitud.' },
+  { min:41, max:60,  name:'Nivel 2 — En desarrollo', color:'#EAB308', desc:'Hay avances concretos en algunas dimensiones, pero existen brechas importantes que deben cerrarse.' },
+  { min:61, max:80,  name:'Nivel 3 — Gestionado',    color:'#00B894', desc:'La organización tiene controles establecidos. Se necesita formalización y mejora continua.' },
+  { min:81, max:100, name:'Nivel 4 — Optimizado',    color:'#2fe0bb', desc:'Gestión madura de privacidad. El foco está en la mejora continua y, eventualmente, en una certificación como ISO/IEC 27701.' },
 ];
 
-// ── Íconos duotone SVG por dimensión ──
 const ICONS = {
-  gov: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" fill="#3B82F6" opacity="0.2"/>
-    <path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" stroke="#3B82F6" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-    <path d="M9 15v6.75M15 15v6.75" stroke="#3B82F6" stroke-width="1.5" opacity="0.5"/>
-    <rect x="9" y="9" width="6" height="5" rx="1" fill="#3B82F6" opacity="0.6"/>
-  </svg>`,
-  data: `<svg viewBox="0 0 24 24" fill="none">
-    <ellipse cx="12" cy="6.5" rx="8.25" ry="3" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1.5"/>
-    <path d="M3.75 6.5v4c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-4" stroke="#8B5CF6" stroke-width="1.5" fill="none" opacity="0.5"/>
-    <path d="M3.75 10.5v4c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-4" stroke="#8B5CF6" stroke-width="1.5" fill="none" opacity="0.5"/>
-    <path d="M3.75 14.5v3c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-3" stroke="#8B5CF6" stroke-width="1.5" fill="none"/>
-    <ellipse cx="12" cy="17.5" rx="8.25" ry="3" fill="#8B5CF6" opacity="0.25"/>
-  </svg>`,
-  arco: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M12 3L4 6.5v5c0 4.5 3.4 8.7 8 9.5 4.6-.8 8-5 8-9.5v-5L12 3z" fill="#00B894" opacity="0.2" stroke="#00B894" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M12 3L4 6.5v5c0 4.5 3.4 8.7 8 9.5" stroke="#00B894" stroke-width="1.5" stroke-linejoin="round" fill="none" opacity="0.4"/>
-    <path d="M8.5 12l2.5 2.5 4.5-4.5" stroke="#00B894" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`,
-  sec: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-    <rect x="3.75" y="10.5" width="16.5" height="11.25" rx="2.25" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1.5"/>
-    <rect x="3.75" y="10.5" width="16.5" height="5" rx="2.25" fill="#F59E0B" opacity="0.3"/>
-    <circle cx="12" cy="16.125" r="1.75" fill="#F59E0B" opacity="0.9"/>
-    <path d="M12 17.875v1.5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-  </svg>`,
-  risk: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M12 2.25L3.75 6.75v4.5c0 5.25 3.6 10.15 8.25 11.25 4.65-1.1 8.25-6 8.25-11.25v-4.5L12 2.25z" fill="#EF4444" opacity="0.15" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M12 2.25L3.75 6.75v4.5c0 5.25 3.6 10.15 8.25 11.25" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round" fill="none" opacity="0.35"/>
-    <path d="M12 8v4M12 14.5v.5" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
-  </svg>`,
-  // Genéricas
-  contrato: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M3.375 19.5h13.5A1.875 1.875 0 0018.75 17.625V8.25L13.5 2.25H5.25A1.875 1.875 0 003.375 4.125v15.375z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round"/>
-  </svg>`,
-  capacitacion: `<svg viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="7.5" r="3.75" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <path d="M15.75 7.5a3.75 3.75 0 11-7.5 0" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
-    <path d="M3 19.5a9 9 0 1118 0" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <path d="M19.5 14.25a6.75 6.75 0 00-13.5 0" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
-  </svg>`,
-  dpia: `<svg viewBox="0 0 24 24" fill="none">
-    <circle cx="11" cy="11" r="7.25" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <circle cx="11" cy="11" r="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <path d="M16.5 16.5L21 21" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-  </svg>`,
-  protocolo: `<svg viewBox="0 0 24 24" fill="none">
-    <path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.311 6.022c1.733.64 3.56 1.085 5.455 1.31" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M14.857 17.082a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <path d="M6 9v.75a8.967 8.967 0 01-1.5 5" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/>
-  </svg>`,
+  gov:  '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" fill="#3B82F6" opacity="0.2"/><path d="M12 2.25L3 8.25v13.5h6.75V15h4.5v6.75H21V8.25L12 2.25z" stroke="#3B82F6" stroke-width="1.5" stroke-linejoin="round" fill="none"/><rect x="9" y="9" width="6" height="5" rx="1" fill="#3B82F6" opacity="0.6"/></svg>',
+  data: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6.5" rx="8.25" ry="3" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1.5"/><path d="M3.75 6.5v4c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-4" stroke="#8B5CF6" stroke-width="1.5" fill="none" opacity="0.5"/><path d="M3.75 14.5v3c0 1.657 3.694 3 8.25 3s8.25-1.343 8.25-3v-3" stroke="#8B5CF6" stroke-width="1.5" fill="none"/></svg>',
+  arco: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3L4 6.5v5c0 4.5 3.4 8.7 8 9.5 4.6-.8 8-5 8-9.5v-5L12 3z" fill="#00B894" opacity="0.2" stroke="#00B894" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-4.5" stroke="#00B894" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  sec:  '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><rect x="3.75" y="10.5" width="16.5" height="11.25" rx="2.25" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1.5"/><circle cx="12" cy="16.125" r="1.75" fill="#F59E0B" opacity="0.9"/></svg>',
+  risk: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.25L3.75 6.75v4.5c0 5.25 3.6 10.15 8.25 11.25 4.65-1.1 8.25-6 8.25-11.25v-4.5L12 2.25z" fill="#EF4444" opacity="0.15" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 8v4M12 14.5v.5" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/></svg>',
 };
+const ICON_BG = { gov:'rgba(37,99,235,0.14)', data:'rgba(139,92,246,0.14)', arco:'rgba(0,184,148,0.14)', sec:'rgba(245,158,11,0.14)', risk:'rgba(239,68,68,0.14)' };
 
-// Colores de fondo del ícono por dimensión
-const ICON_BG = {
-  gov:  'rgba(37,99,235,0.12)',
-  data: 'rgba(139,92,246,0.12)',
-  arco: 'rgba(0,184,148,0.12)',
-  sec:  'rgba(245,158,11,0.12)',
-  risk: 'rgba(239,68,68,0.12)',
-};
-const ICON_BORDER = {
-  gov:  'rgba(37,99,235,0.25)',
-  data: 'rgba(139,92,246,0.25)',
-  arco: 'rgba(0,184,148,0.25)',
-  sec:  'rgba(245,158,11,0.25)',
-  risk: 'rgba(239,68,68,0.25)',
-};
-
+// Recomendación por dimensión: texto genérico, sin plazos ni artículos específicos.
 const RECOS = {
-  gov:  { iconKey:'gov',  text:'Formalizar una política de protección de datos aprobada por la dirección y designar un DPO o encargado de privacidad con atribuciones claras.' },
-  data: { iconKey:'data', text:'Elaborar un registro de actividades de tratamiento (RAT) con los datos que recopilan, su finalidad y plazos de retención. Publicar aviso de privacidad conforme a la Ley 21.719.' },
-  arco: { iconKey:'arco', text:'Implementar un canal formal para que sus clientes ejerzan sus derechos ARCOP (Acceso, Rectificación, Cancelación, Oposición, Portabilidad) dentro del plazo legal de 15 días hábiles.' },
-  sec:  { iconKey:'sec',  text:'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas con notificación a la APDP.' },
-  risk: { iconKey:'risk', text:'Capacitar al equipo en los requerimientos de la Ley 21.719 e iniciar un plan de adecuación con acciones concretas antes de diciembre 2026.' },
+  gov:  'Formalizar una política de protección de datos aprobada por la dirección y designar un responsable de privacidad (o un DPO) con atribuciones claras.',
+  data: 'Elaborar un registro de actividades de tratamiento con los datos que recopilan, su finalidad y plazos de conservación, y publicar un aviso de privacidad conforme a la Ley 21.719.',
+  arco: 'Implementar un canal formal para que sus clientes ejerzan sus derechos (acceso, rectificación, supresión, oposición y portabilidad) y responder dentro de los plazos que fija la ley.',
+  sec:  'Implementar cifrado de datos sensibles, control de accesos por roles y un plan de respuesta ante brechas de seguridad con notificación a la autoridad cuando corresponda.',
+  risk: 'Capacitar al equipo en los requerimientos de la Ley 21.719 e iniciar un plan de adecuación con acciones concretas antes de la entrada en vigor de la ley.',
 };
-
-const RECOS_GENERICAS = [
-  { iconKey:'contrato',     text:'Revisar y actualizar los contratos con proveedores y subprocesadores para incluir cláusulas de protección de datos conforme a la Ley 21.719.' },
-  { iconKey:'capacitacion', text:'Implementar un programa de capacitación continua para todo el personal que tenga acceso a datos personales.' },
-  { iconKey:'dpia',         text:'Realizar una Evaluación de Impacto en la Protección de Datos (DPIA) para los tratamientos de mayor riesgo.' },
-  { iconKey:'protocolo',    text:'Establecer un protocolo de respuesta ante brechas de seguridad con plazos de notificación a la APDP conforme a la ley.' },
-];
 
 let current = -1;
-let answers = new Array(8).fill(null);
+const answers = new Array(8).fill(null);
+const $ = (id) => document.getElementById(id);
 
-function getScore() {
-  const total = answers.reduce((s, v) => s + (v !== null ? v : 0), 0);
-  return Math.round((total / 24) * 100);
-}
-function getDimScore(dimIdx) {
-  const qs = DIMS[dimIdx].questions;
-  const total = qs.reduce((s, qi) => s + (answers[qi] !== null ? answers[qi] : 0), 0);
-  return Math.round((total / (qs.length * 3)) * 100);
-}
-function getLevel(score) {
-  return LEVELS.find(l => score >= l.min && score <= l.max) || LEVELS[0];
-}
-function getAllWeakDims() {
-  return DIMS.map((d, i) => ({ ...d, score: getDimScore(i) }))
-             .filter(d => d.score < 80)
-             .sort((a, b) => a.score - b.score);
-}
-
-function iconHtml(key, dimId) {
-  const bg = ICON_BG[dimId] || 'rgba(255,255,255,0.05)';
-  const border = ICON_BORDER[dimId] || 'rgba(255,255,255,0.1)';
-  return `<div class="reco-icon-wrap" style="background:${bg};border:1px solid ${border}">${ICONS[key]}</div>`;
-}
+function getScore() { return Math.round((answers.reduce((s, v) => s + (v !== null ? v : 0), 0) / 24) * 100); }
+function getDimScore(i) { const qs = DIMS[i].questions; return Math.round((qs.reduce((s, qi) => s + (answers[qi] !== null ? answers[qi] : 0), 0) / (qs.length * 3)) * 100); }
+function getLevel(score) { return LEVELS.find(l => score >= l.min && score <= l.max) || LEVELS[0]; }
 
 function renderIntro() {
-  const card = document.getElementById('mainCard');
-  document.getElementById('progressWrap').style.display = 'none';
-  card.innerHTML = `
+  $('progressWrap').hidden = true;
+  $('mainCard').innerHTML = `
     <div class="intro">
-      <div class="intro-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block"></span>D360° Assessment · Ley 21.719</div>
+      <div class="intro-badge"><span style="width:6px;height:6px;border-radius:50%;background:#2fe0bb;display:inline-block"></span>Autodiagnóstico gratuito · Ley 21.719</div>
       <h1>¿Está su empresa<br>preparada para la <em>Ley 21.719?</em></h1>
-      <p>Responda 8 preguntas y obtenga en 3 minutos su nivel de madurez en protección de datos personales, con recomendaciones concretas.</p>
+      <p>Responda 8 preguntas y obtenga en unos 5 minutos su nivel de madurez referencial en protección de datos personales, con recomendaciones concretas.</p>
       <div class="intro-meta">
         <div class="intro-meta-item"><div class="intro-meta-num">8</div><div class="intro-meta-lbl">Preguntas</div></div>
         <div class="intro-meta-item"><div class="intro-meta-num">5</div><div class="intro-meta-lbl">Dimensiones</div></div>
         <div class="intro-meta-item"><div class="intro-meta-num">~5'</div><div class="intro-meta-lbl">Minutos</div></div>
       </div>
-      <button class="btn-start" onclick="startAssessment()">Iniciar diagnóstico →</button>
+      <button class="btn-start" id="btnStart" type="button">Iniciar autodiagnóstico →</button>
+      <p class="disclaimer">Resultado referencial, basado en sus respuestas. No constituye asesoría legal. Sus respuestas solo se guardan si usted solicita el diagnóstico completo.</p>
     </div>`;
+  $('btnStart').addEventListener('click', () => { current = 0; renderQuestion(); });
 }
-
-function startAssessment() { current = 0; renderQuestion(); }
 
 function renderQuestion() {
   const q = QUESTIONS[current];
   const dim = DIMS.find(d => d.id === q.dim);
-  const card = document.getElementById('mainCard');
-  const pct = Math.round((current / 8) * 100);
-  document.getElementById('progressWrap').style.display = 'block';
-  document.getElementById('progressLabel').textContent = `Pregunta ${current+1} de 8`;
-  document.getElementById('dimName').textContent = dim.name;
-  document.getElementById('progressFill').style.width = pct + '%';
   const sel = answers[current];
-  card.innerHTML = `
+  $('progressWrap').hidden = false;
+  $('progressLabel').textContent = `Pregunta ${current + 1} de 8`;
+  $('dimName').textContent = dim.name;
+  const pct = Math.round((current / 8) * 100);
+  $('progressFill').style.width = pct + '%';
+  $('progressBar').setAttribute('aria-valuenow', pct);
+  $('mainCard').innerHTML = `
     <div class="fade-in-r">
       <div class="dim-label"><span class="dim-dot" style="background:${dim.color}"></span>${dim.name}</div>
-      <div class="q-num">Pregunta ${current+1} de 8</div>
-      <div class="q-text">${q.q}</div>
-      <div class="q-sub">${q.sub}</div>
-      <div class="options">
-        ${q.opts.map(o => `
-          <div class="opt ${sel === o.v ? 'selected' : ''}" onclick="selectOpt(${o.v})">
-            <div class="opt-circle"><div class="opt-check"></div></div>
-            <div class="opt-content">
-              <div class="opt-label">${o.l}</div>
-              <div class="opt-desc">${o.d}</div>
-            </div>
-          </div>`).join('')}
-      </div>
+      <div class="q-num">Pregunta ${current + 1} de 8</div>
+      <fieldset>
+        <legend class="q-text" id="qText" tabindex="-1">${q.q}</legend>
+        <div class="q-sub">${q.sub}</div>
+        <div class="options">
+          ${q.opts.map(o => `
+            <label class="opt ${sel === o.v ? 'selected' : ''}">
+              <input type="radio" name="q${current}" value="${o.v}" ${sel === o.v ? 'checked' : ''}>
+              <span class="opt-circle"><span class="opt-check"></span></span>
+              <span class="opt-content"><span class="opt-label" style="display:block">${o.l}</span><span class="opt-desc" style="display:block">${o.d}</span></span>
+            </label>`).join('')}
+        </div>
+      </fieldset>
       <div class="nav">
-        <button class="btn-back" onclick="goBack()" ${current === 0 ? 'style="visibility:hidden"' : ''}>← Anterior</button>
-        <button class="btn-next ${sel !== null ? 'active' : ''}" id="btnNext" onclick="goNext()">
-          ${current === 7 ? 'Ver resultados →' : 'Siguiente →'}
-        </button>
+        <button class="btn-back" id="btnBack" type="button" ${current === 0 ? 'style="visibility:hidden"' : ''}>← Anterior</button>
+        <button class="btn-next" id="btnNext" type="button" ${sel === null ? 'disabled' : ''}>${current === 7 ? 'Ver resultados →' : 'Siguiente →'}</button>
       </div>
     </div>`;
-}
-
-function selectOpt(val) {
-  answers[current] = val;
-  document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
-  document.getElementById('btnNext').classList.add('active');
-}
-function goNext() {
-  if (answers[current] === null) return;
-  if (current < 7) { current++; renderQuestion(); } else { renderResults(); }
-}
-function goBack() {
-  if (current > 0) { current--; renderQuestion(); }
+  document.querySelectorAll('.opt input').forEach(inp => inp.addEventListener('change', () => {
+    answers[current] = parseInt(inp.value, 10);
+    document.querySelectorAll('.opt').forEach(o => o.classList.toggle('selected', o.contains(inp) && inp.checked));
+    $('btnNext').disabled = false;
+  }));
+  $('btnBack').addEventListener('click', () => { if (current > 0) { current--; renderQuestion(); } });
+  $('btnNext').addEventListener('click', () => {
+    if (answers[current] === null) return;
+    if (current < 7) { current++; renderQuestion(); } else renderResults();
+  });
+  $('qText').focus({ preventScroll: true });
 }
 
 function renderResults() {
   const score = getScore();
   const level = getLevel(score);
-  const weakDims = getAllWeakDims();
-  document.getElementById('progressWrap').style.display = 'none';
-  const card = document.getElementById('mainCard');
+  $('progressWrap').hidden = true;
 
-  const dimBars = DIMS.map((d, i) => {
-    const s = getDimScore(i);
-    let color = d.color;
-    if (s < 33) color = '#EF4444';
-    else if (s < 66) color = '#F59E0B';
-    return `
-      <div class="dim-bar-item">
-        <div class="dim-bar-top">
-          <span class="dim-bar-name">${d.name}</span>
-          <span class="dim-bar-score">${s}%</span>
-        </div>
-        <div class="dim-bar-track">
-          <div class="dim-bar-fill" style="width:0%;background:${color}" data-width="${s}%"></div>
-        </div>
-      </div>`;
+  const dimScores = DIMS.map((d, i) => ({ ...d, score: getDimScore(i) }));
+  const gaps = dimScores.filter(d => d.score < 80).sort((a, b) => a.score - b.score);   // brechas reales, según sus respuestas
+  const shown = gaps.slice(0, 2), locked = gaps.slice(2);
+
+  const bars = dimScores.map(d => {
+    const c = d.score < 33 ? '#EF4444' : d.score < 66 ? '#F59E0B' : d.color;
+    return `<div class="dim-bar-item">
+      <div class="dim-bar-top"><span class="dim-bar-name">${d.name}</span><span class="dim-bar-score">${d.score}%</span></div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:0%;background:${c}" data-width="${d.score}%"></div></div>
+    </div>`;
   }).join('');
 
-  // Pool de 6 brechas: reales primero, luego genéricas
-  const realesPool = weakDims.map(d => ({ iconKey: RECOS[d.id].iconKey, dimId: d.id, text: RECOS[d.id].text }));
-  const pool = [...realesPool];
-  let gi = 0;
-  while (pool.length < 6 && gi < RECOS_GENERICAS.length) {
-    pool.push({ ...RECOS_GENERICAS[gi], dimId: null });
-    gi++;
-  }
+  const item = (d, full) => `
+    <div class="reco-item ${full ? '' : 'reco-item--locked'}">
+      <div class="reco-icon-wrap" style="background:${ICON_BG[d.id]}">${ICONS[d.id]}</div>
+      <div><strong>${d.name} · ${d.score}%</strong>${full ? RECOS[d.id] : '🔒 El detalle y las acciones recomendadas están en el diagnóstico completo.'}</div>
+    </div>`;
 
-  // 2 visibles + 4 nubladas
-  const visibles = pool.slice(0, 2);
-  const totalBrechas = pool.length;
+  const gapsHtml = gaps.length === 0
+    ? `<div class="reco-item"><div class="reco-icon-wrap" style="background:rgba(0,184,148,0.14)">${ICONS.arco}</div><div><strong>Sin brechas relevantes en este autodiagnóstico</strong>Sus respuestas indican un nivel de madurez alto en las 5 dimensiones evaluadas. Un diagnóstico D360° puede profundizar en las 8 dimensiones y validar la evidencia.</div></div>`
+    : shown.map(d => item(d, true)).join('') + locked.map(d => item(d, false)).join('');
 
-  const blurTexts = [
-    { iconKey:'contrato',     dimId:null, text:'Revisar los contratos con terceros proveedores que acceden a datos personales e incluir cláusulas específicas de tratamiento y responsabilidad.' },
-    { iconKey:'sec',          dimId:'sec', text:'Implementar controles técnicos adicionales de acceso y auditoría sobre los sistemas que almacenan información sensible de clientes y empleados.' },
-    { iconKey:'dpia',         dimId:null, text:'Actualizar los registros de actividades de tratamiento e incorporar los nuevos flujos de datos identificados en el último período de operación.' },
-    { iconKey:'protocolo',    dimId:null, text:'Establecer métricas de cumplimiento e indicadores clave para el monitoreo continuo del programa de privacidad ante posibles fiscalizaciones.' },
-  ];
-
-  const visiblesHtml = visibles.map(b => `
-    <div class="reco-item">
-      ${iconHtml(b.iconKey, b.dimId)}
-      <span>${b.text}</span>
-    </div>`).join('');
-
-  const nubladasHtml = blurTexts.map(b => `
-    <div class="reco-blurred-wrap">
-      <div class="reco-blurred">
-        ${iconHtml(b.iconKey, b.dimId)}
-        <span>${b.text}</span>
-      </div>
-      <div class="reco-blurred-overlay">
-        <span class="reco-lock-icon">🔒 Bloqueado</span>
-      </div>
-    </div>`).join('');
-
-  const circumference = 2 * Math.PI * 46;
-  const offset = circumference - (score / 100) * circumference;
-
-  card.innerHTML = `
+  const circ = 2 * Math.PI * 46;
+  $('mainCard').innerHTML = `
     <div class="result fade-in-r">
       <div class="result-header">
         <div class="score-ring">
-          <svg width="120" height="120" viewBox="0 0 120 120">
+          <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
             <circle class="score-ring-bg" cx="60" cy="60" r="46"/>
-            <circle class="score-ring-fill" cx="60" cy="60" r="46"
-              stroke="${level.color}"
-              stroke-dasharray="${circumference}"
-              stroke-dashoffset="${circumference}"
-              id="ringFill"/>
+            <circle class="score-ring-fill" cx="60" cy="60" r="46" stroke="${level.color}" stroke-dasharray="${circ}" stroke-dashoffset="${circ}" id="ringFill"/>
           </svg>
-          <div class="score-num">
-            <div class="score-val" id="scoreVal">0</div>
-            <div class="score-max">/ 100</div>
-          </div>
+          <div class="score-num"><div class="score-val" id="scoreVal">0</div><div class="score-max">/ 100</div></div>
         </div>
-        <div class="result-level">${level.name}</div>
+        <h2 class="result-level" id="resultTitle" tabindex="-1">${level.name}</h2>
         <div class="result-sub">${level.desc}</div>
       </div>
-
-      <div class="dim-bars">${dimBars}</div>
-
+      <div class="dim-bars">${bars}</div>
       <div class="recos">
-        <div class="reco-title">
-          Brechas detectadas
-          <span class="reco-count-badge">${totalBrechas} brechas identificadas</span>
-        </div>
-        ${visiblesHtml}
-        ${nubladasHtml}
-        <div class="blur-wall-cta">
-          <div class="blur-wall-cta-icon">🔍</div>
-          <div>
-            <div class="blur-wall-cta-title">4 brechas adicionales bloqueadas</div>
-            <div class="blur-wall-cta-sub">El diagnóstico completo D360° incluye el análisis detallado de todas las brechas, plan de acción priorizado y acompañamiento de nuestro equipo.</div>
-          </div>
-        </div>
+        <div class="reco-title">Brechas detectadas <span class="reco-count-badge ${gaps.length ? '' : 'ok'}">${gaps.length ? gaps.length + (gaps.length === 1 ? ' brecha identificada' : ' brechas identificadas') : 'Sin brechas relevantes'}</span></div>
+        ${gapsHtml}
+        ${locked.length ? `<div class="blur-wall-cta"><div class="blur-wall-cta-icon" aria-hidden="true">🔍</div><div><div class="blur-wall-cta-title">${locked.length} ${locked.length === 1 ? 'brecha adicional' : 'brechas adicionales'} con detalle en el diagnóstico completo</div><div class="blur-wall-cta-sub">El diagnóstico D360° incluye el análisis detallado de cada brecha, un plan de acción priorizado y el acompañamiento de nuestro equipo.</div></div></div>` : ''}
       </div>
-
-      <div class="lead-form" id="leadForm">
-        <div class="lead-title">Ver el análisis completo</div>
-        <div class="lead-sub">Desbloquee todas las brechas detectadas y reciba un plan de acción personalizado para cumplir con la Ley 21.719 antes de diciembre 2026.</div>
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="lead-title">Reciba el análisis completo</div>
+        <div class="lead-sub">Déjenos sus datos y un experto de AlignData le enviará el detalle de sus brechas y una propuesta de plan de acción para prepararse para la Ley 21.719.</div>
         <div class="lead-fields">
-          <div class="field-wrap"><label class="field-label">Nombre</label><input class="field-input" type="text" id="fName" placeholder="Juan Pérez"></div>
-          <div class="field-wrap"><label class="field-label">Empresa</label><input class="field-input" type="text" id="fCompany" placeholder="Mi Empresa Ltda."></div>
+          <div class="field-wrap"><label class="field-label" for="fName">Nombre *</label><input class="field-input" type="text" id="fName" placeholder="Juan Pérez" autocomplete="name" required></div>
+          <div class="field-wrap"><label class="field-label" for="fCompany">Empresa</label><input class="field-input" type="text" id="fCompany" placeholder="Mi Empresa Ltda." autocomplete="organization"></div>
         </div>
         <div class="lead-fields">
-          <div class="field-wrap"><label class="field-label">Correo</label><input class="field-input" type="email" id="fEmail" placeholder="juan@empresa.cl"></div>
-          <div class="field-wrap"><label class="field-label">Teléfono (opcional)</label><input class="field-input" type="tel" id="fPhone" placeholder="+56 9 1234 5678"></div>
+          <div class="field-wrap"><label class="field-label" for="fEmail">Correo *</label><input class="field-input" type="email" id="fEmail" placeholder="juan@empresa.cl" autocomplete="email" required></div>
+          <div class="field-wrap"><label class="field-label" for="fPhone">Teléfono (opcional)</label><input class="field-input" type="tel" id="fPhone" placeholder="+56 9 1234 5678" autocomplete="tel"></div>
         </div>
-        <button class="btn-lead" onclick="submitLead()">Solicitar diagnóstico completo D360° →</button>
-        <div class="lead-privacy">Sus datos se tratan conforme a la Ley 21.719 · Solo para contacto de AlignData</div>
-      </div>
+        <div class="hp" aria-hidden="true"><label for="fWeb">No complete este campo</label><input type="text" id="fWeb" tabindex="-1" autocomplete="off"></div>
+        <label class="consent" for="fConsent"><input type="checkbox" id="fConsent" required><span>Acepto que PrivaData SpA (AlignData) trate mis datos y los resultados de este autodiagnóstico para contactarme, según su <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>. *</span></label>
+        <div class="form-error" id="formError" role="alert" hidden></div>
+        <button class="btn-lead" id="btnLead" type="submit">Solicitar el análisis completo →</button>
+        <div class="lead-privacy">Solo usaremos sus datos para contactarlo en relación con este diagnóstico.</div>
+      </form>
     </div>`;
 
   setTimeout(() => {
-    document.getElementById('ringFill').style.strokeDashoffset = offset;
+    $('ringFill').style.strokeDashoffset = circ - (score / 100) * circ;
     let n = 0;
-    const interval = setInterval(() => {
-      n = Math.min(n + 2, score);
-      document.getElementById('scoreVal').textContent = n;
-      if (n >= score) clearInterval(interval);
-    }, 20);
-    document.querySelectorAll('.dim-bar-fill').forEach(b => {
-      setTimeout(() => { b.style.width = b.dataset.width; }, 200);
-    });
+    const iv = setInterval(() => { n = Math.min(n + 2, score); $('scoreVal').textContent = n; if (n >= score) clearInterval(iv); }, 20);
+    document.querySelectorAll('.dim-bar-fill').forEach(b => setTimeout(() => { b.style.width = b.dataset.width; }, 200));
   }, 100);
+  $('resultTitle').focus({ preventScroll: true });
+  $('leadForm').addEventListener('submit', (e) => { e.preventDefault(); submitLead(score); });
 }
 
-const AD_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNOzQGLmC15Bv1p7EZhKKichnybe3V0PCRzjdfjBdgBKGezqpfPKlesFaXADNgXqCbbQ/exec';
+function submitLead(score) {
+  const name = $('fName').value.trim(), company = $('fCompany').value.trim(), email = $('fEmail').value.trim(), phone = $('fPhone').value.trim();
+  const err = $('formError');
+  const fail = (msg, field) => { err.textContent = msg; err.hidden = false; if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); } };
+  err.hidden = true;
+  ['fName', 'fEmail'].forEach(id => $(id).removeAttribute('aria-invalid'));
+  if (!name) return fail('Por favor ingrese su nombre.', $('fName'));
+  if (!ADForms.isEmail(email)) return fail('Por favor ingrese un correo válido.', $('fEmail'));
+  if (!$('fConsent').checked) return fail('Debe aceptar el tratamiento de sus datos para solicitar el análisis.', $('fConsent'));
 
-function submitLead() {
-  const name    = document.getElementById('fName').value.trim();
-  const company = document.getElementById('fCompany').value.trim();
-  const email   = document.getElementById('fEmail').value.trim();
-  const phone   = document.getElementById('fPhone').value.trim();
-  if (!name || !email) {
-    document.getElementById('fName').style.borderColor  = !name  ? '#EF4444' : '';
-    document.getElementById('fEmail').style.borderColor = !email ? '#EF4444' : '';
-    return;
-  }
-  document.getElementById('leadForm').innerHTML = `
-    <div class="sent-state">
-      <div style="width:44px;height:44px;border:3px solid rgba(255,255,255,0.15);border-top-color:#00B894;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;"></div>
-      <div class="sent-sub" style="color:rgba(255,255,255,0.5);">Guardando sus resultados...</div>
-    </div>`;
-  const datos = {
-    tipo:'assessment', nombre:name, empresa:company, correo:email, telefono:phone,
-    score:getScore(), dims:DIMS.map((d,i)=>getDimScore(i)), respuestas:answers.slice()
-  };
-  fetch(AD_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(datos) })
-    .then(() => {
-      document.getElementById('leadForm').innerHTML = `
-        <div class="sent-state">
-          <div class="sent-icon">✅</div>
-          <div class="sent-title">¡Solicitud enviada!</div>
-          <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles para agendar su diagnóstico completo D360°.</div>
-        </div>`;
-    })
-    .catch(() => {
-      document.getElementById('leadForm').innerHTML = `
-        <div class="sent-state">
-          <div class="sent-icon">✅</div>
-          <div class="sent-title">¡Solicitud enviada!</div>
-          <div class="sent-sub">Un experto AlignData se contactará en menos de 24 horas hábiles.</div>
-        </div>`;
-    });
+  const btn = $('btnLead');
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  ADForms.send({
+    tipo: 'assessment', nombre: name, empresa: company, correo: email, telefono: phone,
+    score: score, dims: DIMS.map((d, i) => getDimScore(i)), respuestas: answers.slice()
+  }, $('fWeb').value).then(() => {
+    if (window.adTrack) window.adTrack('generate_lead', { form: 'assessment', score: score });
+    $('leadForm').innerHTML = `
+      <div class="sent-state" role="status" tabindex="-1" id="sentState">
+        <div class="sent-icon" aria-hidden="true">✅</div>
+        <div class="sent-title">¡Solicitud enviada!</div>
+        <div class="sent-sub">Un experto de AlignData se contactará en menos de 24 horas hábiles para coordinar su diagnóstico completo.</div>
+      </div>`;
+    $('sentState').focus();
+  }).catch((e) => {
+    btn.disabled = false; btn.textContent = 'Solicitar el análisis completo →';
+    fail(ADForms.errorMessage(e));
+  });
 }
 
 renderIntro();

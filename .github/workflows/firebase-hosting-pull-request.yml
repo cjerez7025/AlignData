@@ -1,0 +1,24 @@
+# Verifica el sitio y publica una vista previa temporal en cada Pull Request.
+# Usa el mismo secreto que el workflow de producción.
+name: Vista previa en Firebase Hosting
+on: pull_request
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+jobs:
+  preview:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verificar enlaces, anclas y JSON-LD
+        run: node scripts/check-site.mjs
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALIGNDATA_LANDING }}
+          projectId: aligndata-landing
