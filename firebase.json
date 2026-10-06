@@ -4,6 +4,10 @@
     "ignore": [
       "firebase.json",
       "**/.*",
+      "**/.git/**",
+      "**/.github/**",
+      "**/.claude/**",
+      "**/.firebase/**",
       "**/node_modules/**",
       "docs/**",
       "scripts/**",
@@ -28,6 +32,7 @@
           { "key": "Content-Security-Policy-Report-Only", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://*.google.com https://*.doubleclick.net https://*.g.doubleclick.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com; frame-src 'self' https://*.doubleclick.net https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'" }
         ]
       },
+      { "source": "/", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }] },
       { "source": "**/*.@(html)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }] },
       { "source": "**/*.@(css|js)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] },
       { "source": "**/*.@(webp|png|jpg|jpeg|ico|svg)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] }
