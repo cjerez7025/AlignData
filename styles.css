@@ -1601,3 +1601,13 @@ body {
   .ad-logo-wordmark { font-size: 22px; }
   html { scroll-padding-top: 76px; }
 }
+
+/* ── Menú en anchos intermedios (992–1199 px): sin partir textos en dos líneas ── */
+.ad-nav-link, .ad-navbar .btn { white-space: nowrap; }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .ad-navbar .navbar-nav { gap: 0.4rem !important; }
+  .ad-nav-link { font-size: 12.5px; }
+  .ad-navbar .btn.ad-btn-teal { padding: 8px 12px; font-size: 12.5px; }
+  .ad-logo-wordmark { font-size: 22px; }
+  .ad-navbar .navbar-brand svg { width: 48px; height: 48px; }
+}
